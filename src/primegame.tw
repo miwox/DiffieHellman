@@ -1,0 +1,17 @@
+:: PrimeGame {"position":"175,1025","size":"100,100"}
+#Diffie Hellman The Game
+
+<div class="storyteller">
+Spielinfo:
+
+Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.
+Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3. Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
+</div>
+
+<div class="quiz>">
+Quiz:
+Was ist eine Primzahl?
+(checkbox: bind $wrong, "Eine Primzahl")
+(checkbox: bind $false, "Eine Banane")
+(checkbox: bind $false, "Eine Banane")
+</div>

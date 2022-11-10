@@ -1,0 +1,32 @@
+:: Scene1 [badminton] {"position":"175,700","size":"100,100"}
+#Diffie Hellman The Game
+(display:"Sidebar1")
+
+<div class="storyteller">
+Alice und Bob spielen im Garten Federball oder wie Erwachsene es nennen um sich nicht schlecht zu fühlen “Badminton”. Plötzlich fliegt ihr letzter Ball in den alten Tempel der geheimen geheim Kunst. Sie streiten sich wer den Ball rausholen soll. Bob verliert Schere Stein Papier und muss den Ball holen. Alice will den Angsthasen Bob nicht alleine in den Tempel lassen, da sie weiß, er hat viel zu viel Angst alleine dahin zu gehen. Dort treffen sie auf den alten Sensei Diffie-san.
+
+Weiter...(click-replace: "Weiter...")[
+“Ich habe auf euch gewartet!” Beide schauen sich verwirrt an und fragen wer bist du? Er sagt ich warte auf die zwei Auserwählten die irgendwann die Welt retten.
+
+[[Scene2->DiffieScene]]
+]
+
+</div>
+:: DiffieScene [dojo] {"position":"175,900","size":"100,100"}
+#Diffie Hellman The Game
+(display:"Sidebar1")
+<div class="storyteller">
+Alice und Bob saßen vor Diffie-san. Er schaute Ihnen abwechselnd tief in die Augen, ohne ein Wort zu sagen. Nach einem Moment der Stille sagte er: „Stellt euch eine Welt ohne Freiheit vor. Eine Welt, in der eine Taube dem Falken sagen muss, wohin er fliegen möchte. In dieser Welt kann der Falke jederzeit über das Leben der Taube entscheiden. Das meine Kinder ist nur ein Gleichnis. Wir werden eine Zeit haben, in der Freiheit ein Gut der Vergangenheit ist.“ 
+
+Weiter...(click-replace: "Weiter...")[
+Er schaute nach oben und betrachtete den Himmel. Eine Taube flog in weiter Ferne. Sie wurde verfolgt von einem Falken. Im nächsten Moment bohrte der Falke seine Klauen in den Rücken der Taube. „Die Welt wird nicht mehr so sein wie sie einmal war“ sagte Diffie-san mit bedauern. „Ihr könnt das verhindern. Was glaubt ihr ist die wichtigste Waffe in der Schlacht?“
+
+Weiter...(click-replace: "Weiter...")[
+Bob sagte, ohne nachzudenken „Eine ganz große Bombe“. Alice schaute ihn an und sagte „Nein, ganz viele Soldaten“. „Ihr liegt beide richtig und doch falsch. Wohin soll die Bombe fliegen, wenn niemand weiß, wo das Ziel ist? Wohin sollen die Soldaten marschieren, wenn sie nicht wissen wohin? Bob dachte angestrengt nach und sagte: „Also ist ein Ziel, die wichtigste Waffe?“ Der Meister lachte „Nein Bob, die Kommunikation ist es. Befehle, Ziele, Schwächen, Stärken und Zusammenarbeit. Sowas funktioniert nur mit sicherer Kommunikation und genau das wird euch irgendwann fehlen. Steht nun auf. Ich bringe euch bei, wie ihr ab heute sicher miteinander sprechen könnt. Alles basiert auf Mathematik. 
+
+
+[[Zum Primzahlspiel|PrimeGame]]
+
+]]
+
+</div>
