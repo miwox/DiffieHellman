@@ -1,16 +1,14 @@
 :: Intro [prolog] {"position":"175,125","size":"100,100"}
 #Diffie Hellman The Game
-(display:"Sidebar1")
-<div class="storyteller">
-Schussgeräusche wecken Bob auf. Er öffnet langsam die Augen und versucht sich an den gestrigen Tag zu erinnern. Wieder hatte er versucht seine Sorgen in Alkohol zu ertränken. 
-
-Weiter...(click-replace: "Weiter...")[Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren. 
-
-Weiter...(click-replace:"Weiter...")[Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an...
-
-[[Prolog2->Intro2]]]]
-</div>
-
+(display:"Sidebar1")\
+<div class="storyteller">\
+(set: _text1 to "Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren.")\
+(set: _holder to "Weiter...")\
+(set: _text2 to "Schussgeräusche wecken Bob auf. Er öffnet langsam die Augen und versucht sich an den gestrigen Tag zu erinnern. Wieder hatte er versucht seine Sorgen in Alkohol zu ertränken.")\
+(set: _text3 to "Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... <br> <br>[[Prolog2->Intro2]]")
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
+</div>\
+\
 :: Intro2 [burningCity] {"position":"175,325","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")

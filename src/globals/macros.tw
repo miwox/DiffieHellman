@@ -1,0 +1,29 @@
+:: Macros {"position":"375,1050"}
+
+
+
+
+
+(set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
+    (output:)[\
+    _showStr
+    _placeHolderStr\
+    (click-replace: _placeHolderStr)[\
+        _hideStr]
+]]))
+
+(set: $meinMacro to (macro: num-type _x1, num-type _x2, [
+    (output:)[\
+        (if: _x1 > _x2) [\
+        _x1\
+    ] (else:) [\
+        _x2\
+    ]]
+]))
+
+(go-to: "Intro")
+
+($meinMacro: 45, 56)
+
+
+
