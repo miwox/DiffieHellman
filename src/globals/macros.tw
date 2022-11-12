@@ -3,13 +3,14 @@
 
 
 
-
+<!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
+_hideStr hast to be command-type to provided nested calls of this method :)-->
 (set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
     (output:)[\
     _showStr
     _placeHolderStr\
     (click-replace: _placeHolderStr)[\
-        _hideStr]
+        _hideStr]\
 ]]))
 
 (set: $meinMacro to (macro: num-type _x1, num-type _x2, [

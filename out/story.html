@@ -153,12 +153,15 @@ So it&#39;s getting a bit mathematical. So both of you show your secret weapon! 
 Are you ready?(click-replace:&quot;Are you ready?&quot;)[
     Now both of you should calculate a number which with those number you both have chosen. What exactly I&#39;ll tell you in the next steps Habibis.
 [[Go the next steps|Hellman-Key2]]]]
-&lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="775,700" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Macros" tags="" position="375,1050" size="100,100">(set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
+&lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="775,700" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
+_hideStr hast to be command-type to provided nested calls of this method :)
+--&gt;
+(set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
     (output:)[\
     _showStr
     _placeHolderStr\
     (click-replace: _placeHolderStr)[\
-        _hideStr]
+        _hideStr]\
 ]]))
 
 (set: $meinMacro to (macro: num-type _x1, num-type _x2, [
@@ -307,16 +310,14 @@ window.evaluatePrime2 = function(){
 
 (live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[Diffie Hellman Key Exchange |Hellman-Key]]]]]</tw-passagedata><tw-passagedata pid="8" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
-&lt;div class=&quot;storyteller&quot;&gt;\
 (set: _text1 to &quot;Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
 (set: _text2 to &quot;Schussgeräusche wecken Bob auf. Er öffnet langsam die Augen und versucht sich an den gestrigen Tag zu erinnern. Wieder hatte er versucht seine Sorgen in Alkohol zu ertränken.&quot;)\
-(set: _text3 to &quot;Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... &lt;br&gt; &lt;br&gt;[[Prolog2-&gt;Intro2]]&quot;)
+(set: _text3 to &quot;Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... &lt;br&gt; &lt;br&gt;[[Prolog2-&gt;Intro2]]&quot;)\
+&lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;\
-\</tw-passagedata><tw-passagedata pid="9" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
-(display:&quot;Sidebar1&quot;)
-
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
+(display:&quot;Sidebar1&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;
 Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern. 
 
