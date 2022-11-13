@@ -18,7 +18,7 @@ Bitte wähle die passende Aussage, die genau zutrifft:
 (checkbox: bind $shouldBeFalse2, "The number 1 is prime.")
 
 (checkbox: bind $shouldBeTrue, "The decision problem if a given number is prime has a polynomial complexity.")
-<button onclick="evaluatePrime1()">Auswerten</button>
+
 </div>
 
 (set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)

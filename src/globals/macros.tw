@@ -13,6 +13,12 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
         _hideStr]\
 ]]))
 
+<!-- Macro for evaluate quiz-->
+(set: $evaluateQuiz to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
+    (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
+]))\
+
+
 (set: $meinMacro to (macro: num-type _x1, num-type _x2, [
     (output:)[\
         (if: _x1 > _x2) [\
@@ -21,10 +27,6 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
         _x2\
     ]]
 ]))
-
-(go-to: "Intro")
-
-($meinMacro: 45, 56)
 
 
 

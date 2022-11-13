@@ -11,32 +11,21 @@
 :: Intro2 [burningCity] {"position":"175,325","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
-<div class="storyteller">
-Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern. 
-
-Weiter...(click-replace: "Weiter...")[So fing das erste Massaker an. Innerhalb der nächsten Stunde starben mehrere hundert Personen. In den nächsten Wochen wurde versucht das Militär einzuschalten, doch es war zu spät. Mallory the Hellman hatte es geschafft die Audioanlagen zu hacken und sie unter seine Kontrolle zu bringen. 
-
-Weiter...(click-replace: "Weiter...")[Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser.
-
-[[Prolog3->Intro3]]
-]]
+(set: _text1 to "Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern.")\
+(set: _holder to "Weiter...")\
+(set: _text2 to "So fing das erste Massaker an. Innerhalb der nächsten Stunde starben mehrere hundert Personen. In den nächsten Wochen wurde versucht das Militär einzuschalten, doch es war zu spät. Mallory the Hellman hatte es geschafft die Audioanlagen zu hacken und sie unter seine Kontrolle zu bringen.")\
+(set: _text3 to "Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser. <br><br> [[Prolog3->Intro3]]")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 </div>
-
-
 :: Intro3 [burningCity2] {"position":"175,525","size":"100,100"}
 #Diffie Hellman The Game
-(display:"Sidebar1")
-
-<div class="storyteller">
-Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.
-
-Weiter...(click-replace: "Weiter...")[
-Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.
-
-Weiter...(click-replace: "Weiter...")[
-Natürlich würde er den Türspion nicht nutzen, da dadurch seine Anwesenheit verraten würde. Plötzlich wurde ein Brief durch den Türspalt geschoben und die Person hinter der Tür ging fort. Als die Schritte verhallten und Bob sicher war, dass keine Person mehr im Hausflur stand. Nahm er den Brief und untersuchte ihn. Es war kein Name drauf der den Absender des Briefes identifizieren konnte nur eine Grinsekatze.  
-Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice!  
-Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. 
-[[Scene1->Scene1]]
-]]
+(display:"Sidebar1")\
+(set: _text1 to "Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.")\
+(set: _text2 to "Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.")\
+(set: _holder to "Weiter...")\
+(set: _text3 to "Natürlich würde er den Türspion nicht nutzen, da dadurch seine Anwesenheit verraten würde. Plötzlich wurde ein Brief durch den Türspalt geschoben und die Person hinter der Tür ging fort. Als die Schritte verhallten und Bob sicher war, dass keine Person mehr im Hausflur stand. Nahm er den Brief und untersuchte ihn. Es war kein Name drauf der den Absender des Briefes identifizieren konnte nur eine Grinsekatze.")\
+(set: _text4 to " Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice! Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. <br> <br>[[Scene1->Scene1]]")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))
 </div>

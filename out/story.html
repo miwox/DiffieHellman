@@ -154,8 +154,7 @@ Are you ready?(click-replace:&quot;Are you ready?&quot;)[
     Now both of you should calculate a number which with those number you both have chosen. What exactly I&#39;ll tell you in the next steps Habibis.
 [[Go the next steps|Hellman-Key2]]]]
 &lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="775,700" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
-_hideStr hast to be command-type to provided nested calls of this method :)
---&gt;
+_hideStr hast to be command-type to provided nested calls of this method :)--&gt;
 (set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
     (output:)[\
     _showStr
@@ -164,6 +163,14 @@ _hideStr hast to be command-type to provided nested calls of this method :)
         _hideStr]\
 ]]))
 
+
+(set: $score to 450)
+(set: $evaluateQuiz to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
+    (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
+]))
+
+($evaluateQuiz: false, false, false, false, false, false)\
+
 (set: $meinMacro to (macro: num-type _x1, num-type _x2, [
     (output:)[\
         (if: _x1 &gt; _x2) [\
@@ -171,11 +178,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)
     ] (else:) [\
         _x2\
     ]]
-]))
-
-(go-to: &quot;Intro&quot;)
-
-($meinMacro: 45, 56)</tw-passagedata><tw-passagedata pid="5" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="6" name="PrimeGame" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
+]))</tw-passagedata><tw-passagedata pid="5" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="6" name="PrimeGame" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
 
 &lt;div class=&quot;storyteller&quot;&gt;
 Spielinfo:
@@ -194,7 +197,7 @@ Bitte wähle die passende Aussage, die genau zutrifft:
 (checkbox: bind $shouldBeFalse2, &quot;The number 1 is prime.&quot;)
 
 (checkbox: bind $shouldBeTrue, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)
-&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
+
 &lt;/div&gt;
 
 (set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
@@ -318,58 +321,37 @@ window.evaluatePrime2 = function(){
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
-&lt;div class=&quot;storyteller&quot;&gt;
-Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern. 
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[So fing das erste Massaker an. Innerhalb der nächsten Stunde starben mehrere hundert Personen. In den nächsten Wochen wurde versucht das Militär einzuschalten, doch es war zu spät. Mallory the Hellman hatte es geschafft die Audioanlagen zu hacken und sie unter seine Kontrolle zu bringen. 
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser.
-
-[[Prolog3-&gt;Intro3]]
-]]
+(set: _text1 to &quot;Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern.&quot;)\
+(set: _holder to &quot;Weiter...&quot;)\
+(set: _text2 to &quot;So fing das erste Massaker an. Innerhalb der nächsten Stunde starben mehrere hundert Personen. In den nächsten Wochen wurde versucht das Militär einzuschalten, doch es war zu spät. Mallory the Hellman hatte es geschafft die Audioanlagen zu hacken und sie unter seine Kontrolle zu bringen.&quot;)\
+(set: _text3 to &quot;Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser. &lt;br&gt;&lt;br&gt; [[Prolog3-&gt;Intro3]]&quot;)\
+&lt;div class=&quot;storyteller&quot;&gt;\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
-(display:&quot;Sidebar1&quot;)
-
-&lt;div class=&quot;storyteller&quot;&gt;
-Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[
-Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[
-Natürlich würde er den Türspion nicht nutzen, da dadurch seine Anwesenheit verraten würde. Plötzlich wurde ein Brief durch den Türspalt geschoben und die Person hinter der Tür ging fort. Als die Schritte verhallten und Bob sicher war, dass keine Person mehr im Hausflur stand. Nahm er den Brief und untersuchte ihn. Es war kein Name drauf der den Absender des Briefes identifizieren konnte nur eine Grinsekatze.  
-Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice!  
-Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. 
-[[Scene1-&gt;Scene1]]
-]]
+(display:&quot;Sidebar1&quot;)\
+(set: _text1 to &quot;Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.&quot;)\
+(set: _text2 to &quot;Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.&quot;)\
+(set: _holder to &quot;Weiter...&quot;)\
+(set: _text3 to &quot;Natürlich würde er den Türspion nicht nutzen, da dadurch seine Anwesenheit verraten würde. Plötzlich wurde ein Brief durch den Türspalt geschoben und die Person hinter der Tür ging fort. Als die Schritte verhallten und Bob sicher war, dass keine Person mehr im Hausflur stand. Nahm er den Brief und untersuchte ihn. Es war kein Name drauf der den Absender des Briefes identifizieren konnte nur eine Grinsekatze.&quot;)\
+(set: _text4 to &quot; Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice! Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. &lt;br&gt; &lt;br&gt;[[Scene1-&gt;Scene1]]&quot;)\
+&lt;div class=&quot;storyteller&quot;&gt;\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
-(display:&quot;Sidebar1&quot;)
-
-&lt;div class=&quot;storyteller&quot;&gt;
-Alice und Bob spielen im Garten Federball oder wie Erwachsene es nennen um sich nicht schlecht zu fühlen “Badminton”. Plötzlich fliegt ihr letzter Ball in den alten Tempel der geheimen geheim Kunst. Sie streiten sich wer den Ball rausholen soll. Bob verliert Schere Stein Papier und muss den Ball holen. Alice will den Angsthasen Bob nicht alleine in den Tempel lassen, da sie weiß, er hat viel zu viel Angst alleine dahin zu gehen. Dort treffen sie auf den alten Sensei Diffie-san.
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[
-“Ich habe auf euch gewartet!” Beide schauen sich verwirrt an und fragen wer bist du? Er sagt ich warte auf die zwei Auserwählten die irgendwann die Welt retten.
-
-[[Scene2-&gt;DiffieScene]]
-]
-
+(display:&quot;Sidebar1&quot;)\
+(set: _text1 to &quot;Alice und Bob spielen im Garten Federball oder wie Erwachsene es nennen um sich nicht schlecht zu fühlen “Badminton”. Plötzlich fliegt ihr letzter Ball in den alten Tempel der geheimen geheim Kunst. Sie streiten sich wer den Ball rausholen soll. Bob verliert Schere Stein Papier und muss den Ball holen. Alice will den Angsthasen Bob nicht alleine in den Tempel lassen, da sie weiß, er hat viel zu viel Angst alleine dahin zu gehen. Dort treffen sie auf den alten Sensei Diffie-san.&quot;)\
+(set: _text2 to &quot;“Ich habe auf euch gewartet!” Beide schauen sich verwirrt an und fragen wer bist du? Er sagt ich warte auf die zwei Auserwählten die irgendwann die Welt retten.&lt;br&gt;&lt;br&gt;[[Scene2-&gt;DiffieScene]]&quot;)\
+(set: _holder to &quot;Weiter...&quot;)\
+&lt;div class=&quot;storyteller&quot;&gt;\
+($continueTextClick: _text1, _holder, (print: _text2))\
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
-(display:&quot;Sidebar1&quot;)
-&lt;div class=&quot;storyteller&quot;&gt;
-Alice und Bob saßen vor Diffie-san. Er schaute Ihnen abwechselnd tief in die Augen, ohne ein Wort zu sagen. Nach einem Moment der Stille sagte er: „Stellt euch eine Welt ohne Freiheit vor. Eine Welt, in der eine Taube dem Falken sagen muss, wohin er fliegen möchte. In dieser Welt kann der Falke jederzeit über das Leben der Taube entscheiden. Das meine Kinder ist nur ein Gleichnis. Wir werden eine Zeit haben, in der Freiheit ein Gut der Vergangenheit ist.“ 
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[
-Er schaute nach oben und betrachtete den Himmel. Eine Taube flog in weiter Ferne. Sie wurde verfolgt von einem Falken. Im nächsten Moment bohrte der Falke seine Klauen in den Rücken der Taube. „Die Welt wird nicht mehr so sein wie sie einmal war“ sagte Diffie-san mit bedauern. „Ihr könnt das verhindern. Was glaubt ihr ist die wichtigste Waffe in der Schlacht?“
-
-Weiter...(click-replace: &quot;Weiter...&quot;)[
-Bob sagte, ohne nachzudenken „Eine ganz große Bombe“. Alice schaute ihn an und sagte „Nein, ganz viele Soldaten“. „Ihr liegt beide richtig und doch falsch. Wohin soll die Bombe fliegen, wenn niemand weiß, wo das Ziel ist? Wohin sollen die Soldaten marschieren, wenn sie nicht wissen wohin? Bob dachte angestrengt nach und sagte: „Also ist ein Ziel, die wichtigste Waffe?“ Der Meister lachte „Nein Bob, die Kommunikation ist es. Befehle, Ziele, Schwächen, Stärken und Zusammenarbeit. Sowas funktioniert nur mit sicherer Kommunikation und genau das wird euch irgendwann fehlen. Steht nun auf. Ich bringe euch bei, wie ihr ab heute sicher miteinander sprechen könnt. Alles basiert auf Mathematik. 
-
-
-[[Zum Primzahlspiel|PrimeGame]]
-
-]]
-
+(display:&quot;Sidebar1&quot;)\
+(set: _text1 to &quot;Alice und Bob saßen vor Diffie-san. Er schaute Ihnen abwechselnd tief in die Augen, ohne ein Wort zu sagen. Nach einem Moment der Stille sagte er: „Stellt euch eine Welt ohne Freiheit vor. Eine Welt, in der eine Taube dem Falken sagen muss, wohin er fliegen möchte. In dieser Welt kann der Falke jederzeit über das Leben der Taube entscheiden. Das meine Kinder ist nur ein Gleichnis. Wir werden eine Zeit haben, in der Freiheit ein Gut der Vergangenheit ist.“&quot;)\
+(set: _text2 to &quot;Er schaute nach oben und betrachtete den Himmel. Eine Taube flog in weiter Ferne. Sie wurde verfolgt von einem Falken. Im nächsten Moment bohrte der Falke seine Klauen in den Rücken der Taube. „Die Welt wird nicht mehr so sein wie sie einmal war“ sagte Diffie-san mit bedauern. „Ihr könnt das verhindern. Was glaubt ihr ist die wichtigste Waffe in der Schlacht?“&quot;)\
+(set: _holder to &quot;Weiter...&quot;)
+(set: _text3 to &quot;Bob sagte, ohne nachzudenken „Eine ganz große Bombe“. Alice schaute ihn an und sagte „Nein, ganz viele Soldaten“. „Ihr liegt beide richtig und doch falsch. Wohin soll die Bombe fliegen, wenn niemand weiß, wo das Ziel ist? Wohin sollen die Soldaten marschieren, wenn sie nicht wissen wohin? Bob dachte angestrengt nach und sagte: „Also ist ein Ziel, die wichtigste Waffe?“ Der Meister lachte „Nein Bob, die Kommunikation ist es. Befehle, Ziele, Schwächen, Stärken und Zusammenarbeit.&quot;)\
+(set: _text4 to &quot;Sowas funktioniert nur mit sicherer Kommunikation und genau das wird euch irgendwann fehlen. Steht nun auf. Ich bringe euch bei, wie ihr ab heute sicher miteinander sprechen könnt. Alles basiert auf Mathematik.&lt;br&gt;&lt;br&gt;[[Zum Primzahlspiel|PrimeGame]]&quot;)\ 
+&lt;div class=&quot;storyteller&quot;&gt;\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))\
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
