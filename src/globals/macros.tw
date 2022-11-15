@@ -27,6 +27,9 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
         _x2\
     ]]
 ]))
+(go-to: "Hellman-Key2")
 
 
-
+:: Refresh-Button {"position":"375,1050"}
+<button type="button" onClick="window.location.reload()">\
+Formula not shown right...

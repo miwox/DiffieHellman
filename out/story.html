@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play DiffieHellman.</tw-noscript></noscript></tw-story>
-<!-- UUID://4C4078EA-B72B-4C69-A731-B6A17E24990F// --><tw-storydata name="DiffieHellman" startnode="4" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4C4078EA-B72B-4C69-A731-B6A17E24990F" zoom="1" format="Harlowe" format-version="3.3.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.speech-bubble {
+<!-- UUID://4C4078EA-B72B-4C69-A731-B6A17E24990F// --><tw-storydata name="DiffieHellman" startnode="7" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4C4078EA-B72B-4C69-A731-B6A17E24990F" zoom="1" format="Harlowe" format-version="3.3.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.speech-bubble {
 	position: relative;
   	width: 10em;
 	background: #831100;
@@ -112,14 +112,7 @@ div.keyItem {
   
   height: 40px;
   background-color: red;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.image = "https://r67.cooltext.com/rendered/cooltext422855750782336.png";
-
-window.hallo = "HALLOWELT";</script><tw-passagedata pid="1" name="Hellman-Key2" tags="" position="375,1050" size="100,100"># The DHM protocol
-
-Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bobs secret was: 5.&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Hellman-Key" tags="" position="375,1050" size="100,100"># The DHM protocol
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Hellman-Key" tags="" position="375,1050" size="100,100"># The DHM protocol
 
 &lt;div class=&quot;storyteller&quot;&gt;Now it&#39;s getting a bit technical, but don&#39;t be afraid! It&#39;s necesscary to become the hidden hero in the history of mankind.
 The DHM protocal allows to create the same key between two parties without changing the key.
@@ -153,7 +146,45 @@ So it&#39;s getting a bit mathematical. So both of you show your secret weapon! 
 Are you ready?(click-replace:&quot;Are you ready?&quot;)[
     Now both of you should calculate a number which with those number you both have chosen. What exactly I&#39;ll tell you in the next steps Habibis.
 [[Go the next steps|Hellman-Key2]]]]
-&lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="775,700" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
+&lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="2" name="Secret-Box" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
+The common prime root of modolu 7 was set to: 3.
+Alice secret was: 4.
+Bobs secret was: 5.&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Hellman-Key2" tags="" position="375,1050" size="100,100"># The DHM protocol
+(display: &quot;Secret-Box&quot;)
+Step 2: 
+&lt;div class=&quot;storyteller&quot;&gt;\
+Now it&#39;s the turn to get your dusty calculators out from your dusty keller.\
+The next step is to calculate your public key which you share with each other. 
+Why is it called public?
+
+(click-replace: &quot;Why is it called public?&quot;)[Because it&#39;s not a secret so its allow to share it. Even if Hellman get noticed of it, and you know he will it&#39;s not a problem!]\
+&lt;/div&gt;\
+
+Please check up following box to compute your public key:
+&lt;div class=&quot;quiz&quot;&gt;\
+The formula is: 
+{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
+
+The Explanation of the formular:
+{\(s\)} is your secret!
+{\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
+{\(p\)} is the common prime number between Alice and Bob.
+(display:&quot;Refresh-Button&quot;)\
+&lt;/div&gt;
+
+[[Let&#39;s calculate your public keys Alice and Bob|PublicKeyCalculation]]</tw-passagedata><tw-passagedata pid="4" name="Secret-Box2" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
+The common prime root of modolu 7 was set to: 3.
+Alice secret was: 4.
+Bobs secret was: 5.
+{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
+(display:&quot;Refresh-Button&quot;)\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="PublicKeyCalculation" tags="" position="375,1050" size="100,100"># The DHM protocol
+(display: &quot;Secret-Box2&quot;)\
+&lt;div class=&quot;storyteller&quot;&gt;\
+Now Alice and Bob it&#39;s your time to calculate your public keys. And answer following questions.\
+Both of you&#39;re intelligent to apply is simple mathematical formula so don&#39;t worry.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Header" tags="header" position="775,700" size="100,100">&lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;\
+&lt;script id=&quot;MathJax-script&quot; async src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
 _hideStr hast to be command-type to provided nested calls of this method :)--&gt;
 (set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
     (output:)[\
@@ -163,13 +194,11 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
         _hideStr]\
 ]]))
 
-
-(set: $score to 450)
+&lt;!-- Macro for evaluate quiz--&gt;
 (set: $evaluateQuiz to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
     (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
-]))
+]))\
 
-($evaluateQuiz: false, false, false, false, false, false)\
 
 (set: $meinMacro to (macro: num-type _x1, num-type _x2, [
     (output:)[\
@@ -178,7 +207,9 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
     ] (else:) [\
         _x2\
     ]]
-]))</tw-passagedata><tw-passagedata pid="5" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="6" name="PrimeGame" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
+]))
+(go-to: &quot;Hellman-Key2&quot;)</tw-passagedata><tw-passagedata pid="8" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
+Formula not shown right...</tw-passagedata><tw-passagedata pid="9" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="10" name="PrimeGame" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
 
 &lt;div class=&quot;storyteller&quot;&gt;
 Spielinfo:
@@ -197,7 +228,7 @@ Bitte wähle die passende Aussage, die genau zutrifft:
 (checkbox: bind $shouldBeFalse2, &quot;The number 1 is prime.&quot;)
 
 (checkbox: bind $shouldBeTrue, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)
-
+&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
 &lt;/div&gt;
 
 (set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
@@ -244,7 +275,7 @@ window.evaluatePrime2 = function(){
 }
 &lt;/script&gt;
 
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="7" name="PrimeGame2" tags="" position="350,1050" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="11" name="PrimeGame2" tags="" position="350,1050" size="100,100">#Diffie Hellman The Game
 
 Deine Punktanzahl: (live: 0.5s)[(print: $score)]
 &lt;div class=&quot;storyteller&quot;&gt;
@@ -311,7 +342,7 @@ window.evaluatePrime2 = function(){
 }
 &lt;/script&gt;
 
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[Diffie Hellman Key Exchange |Hellman-Key]]]]]</tw-passagedata><tw-passagedata pid="8" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[Diffie Hellman Key Exchange |Hellman-Key]]]]]</tw-passagedata><tw-passagedata pid="12" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
@@ -319,7 +350,7 @@ window.evaluatePrime2 = function(){
 (set: _text3 to &quot;Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... &lt;br&gt; &lt;br&gt;[[Prolog2-&gt;Intro2]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
@@ -327,7 +358,7 @@ window.evaluatePrime2 = function(){
 (set: _text3 to &quot;Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser. &lt;br&gt;&lt;br&gt; [[Prolog3-&gt;Intro3]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.&quot;)\
 (set: _text2 to &quot;Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.&quot;)\
@@ -336,14 +367,14 @@ window.evaluatePrime2 = function(){
 (set: _text4 to &quot; Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice! Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. &lt;br&gt; &lt;br&gt;[[Scene1-&gt;Scene1]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Alice und Bob spielen im Garten Federball oder wie Erwachsene es nennen um sich nicht schlecht zu fühlen “Badminton”. Plötzlich fliegt ihr letzter Ball in den alten Tempel der geheimen geheim Kunst. Sie streiten sich wer den Ball rausholen soll. Bob verliert Schere Stein Papier und muss den Ball holen. Alice will den Angsthasen Bob nicht alleine in den Tempel lassen, da sie weiß, er hat viel zu viel Angst alleine dahin zu gehen. Dort treffen sie auf den alten Sensei Diffie-san.&quot;)\
 (set: _text2 to &quot;“Ich habe auf euch gewartet!” Beide schauen sich verwirrt an und fragen wer bist du? Er sagt ich warte auf die zwei Auserwählten die irgendwann die Welt retten.&lt;br&gt;&lt;br&gt;[[Scene2-&gt;DiffieScene]]&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, (print: _text2))\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Alice und Bob saßen vor Diffie-san. Er schaute Ihnen abwechselnd tief in die Augen, ohne ein Wort zu sagen. Nach einem Moment der Stille sagte er: „Stellt euch eine Welt ohne Freiheit vor. Eine Welt, in der eine Taube dem Falken sagen muss, wohin er fliegen möchte. In dieser Welt kann der Falke jederzeit über das Leben der Taube entscheiden. Das meine Kinder ist nur ein Gleichnis. Wir werden eine Zeit haben, in der Freiheit ein Gut der Vergangenheit ist.“&quot;)\
 (set: _text2 to &quot;Er schaute nach oben und betrachtete den Himmel. Eine Taube flog in weiter Ferne. Sie wurde verfolgt von einem Falken. Im nächsten Moment bohrte der Falke seine Klauen in den Rücken der Taube. „Die Welt wird nicht mehr so sein wie sie einmal war“ sagte Diffie-san mit bedauern. „Ihr könnt das verhindern. Was glaubt ihr ist die wichtigste Waffe in der Schlacht?“&quot;)\
