@@ -1,25 +1,27 @@
-:: Secret-Box2 {"position":"375,1050"}
+:: Secret-Box4 {"position":"375,1050"}
 Secret Box (that no one can see)<div class="quiz">The common prime number was set to: 7.
 The common prime root of modolu 7 was set to: 3.
 Alice secret was: 4.
-Bobs secret was: 5.
-The formula of the computation of the public key is:
-{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
+Bob's secret was: 5.
+Bob's public key is 5.
+Alice' public key is 4.
 
-The Explanation of the formula:
-{\(s\)} is your secret. Very important: {\(s \lt p\)}!
-{\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
+The formula for the computation of the secret key is:
+{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
+
+{\(s\)} is your secret.
+{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
 {\(p\)} is the common prime number between Alice and Bob.
 
 Under that circumstances:
-{\(Bobs \: Public \: Key \: is \: Y&#95;b = \: 3^5 \: modulo \: 7\)}
-{\(Alice' \: Public \: Key \: is \: Y&#95;a = \: 3^4 \: modulo \: 7\)}
+{\(Bobs \: Secret \: Key \: is \: S&#95;b = \: 4^5 \: modulo \: 7\)}
+{\(Alice' \: Public \: Key \: is \: S&#95;a = \: 5^4 \: modulo \: 7\)}
 (display:"Refresh-Button")\
 </div>
 
-:: PublicKeyCalculation {"position":"375,1050"}
+:: SecretKeyCalculation {"position":"375,1050"}
 # The DHM protocol
-(display: "Secret-Box2")\
+(display: "Secret-Box4")\
 
 <div class="storyteller">\
 Now Alice and Bob it's your time to calculate your public keys. And answer following questions.\

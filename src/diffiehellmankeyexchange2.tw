@@ -13,17 +13,15 @@ Step 2:
 Now it's the turn to get your dusty calculators out from your dusty keller.\
 The next step is to calculate your public key which you share with each other. 
 Why is it called public?
-
+Please check up following box to compute your public key:
 (click-replace: "Why is it called public?")[Because it's not a secret so its allow to share it. Even if Hellman get noticed of it, and you know he will it's not a problem!]\
 </div>\
-
-Please check up following box to compute your public key:
 <div class="quiz">\
 The formula is: 
 {\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 
 The Explanation of the formular:
-{\(s\)} is your secret!
+{\(s\)} is your secret. Very important: {\(s \lt p\)}.
 {\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
 {\(p\)} is the common prime number between Alice and Bob.
 (display:"Refresh-Button")\

@@ -1,0 +1,44 @@
+:: Secret-Box3 {"position":"375,1050"}
+Secret Box (that no one can see)<div class="quiz">The common prime number was set to: 7.
+The common prime root of modolu 7 was set to: 3.
+Alice secret was: 4.
+Bobs secret was: 5.
+The formula of the computation of the public key is:
+{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
+
+The Explanation of the formula:
+{\(s\)} is your secret. Very important: {\(s \lt p\)}!
+{\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
+{\(p\)} is the common prime number between Alice and Bob.
+
+Under that circumstances:
+{\(Bobs \: Public \: Key \: is \: Y&#95;b = \: 3^5 \: modulo \: 7 \: = \: 5 \)}
+{\(Alice' \: Public \: Key \: is \: Y&#95;a = \: 3^4 \: modulo \: 7 \: = \: 4 \)}
+(display:"Refresh-Button")\
+</div>
+
+:: SecretKey {"position":"375,1050"}
+# The DHM protocol
+(display: "Secret-Box3")\
+
+Step 3:
+<div class="storyteller">\
+Now it's time to exchange your public keys. Even now it does not matter when someone is now your public keys.
+</div>
+
+Step 4: 
+<div class="storyteller">\
+So both of you received the public key of each other. So in the next step, you'll compute the secret key! Never ever share your secret key with someone. 
+And the special thing is that you both will compute the same secret key! Is'nt that wonderful??
+</div>
+
+<div class="quiz">\
+The formular is:
+{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
+
+{\(s\)} is your secret.
+{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
+{\(p\)} is the common prime number between Alice and Bob.
+</div>
+
+[[Let's calculate your secret keys Alice and Bob|SecretKeyCalculation]]
