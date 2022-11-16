@@ -49,6 +49,9 @@ tw-story[tags~="dojo"] {
 background-size:cover;
 }
 
+.results{
+  word-wrap: break-word;
+}
 
 h1 {
  font-weight: bold;
