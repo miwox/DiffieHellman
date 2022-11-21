@@ -2,7 +2,6 @@
 
 
 
-
 <!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
 _hideStr hast to be command-type to provided nested calls of this method :)-->
 (set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
@@ -18,16 +17,86 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
     (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
 ]))\
 
+<!-- Macro for evaluate quiz-->
+(set: $createQuizBox3 to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
+    (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
+]))\
 
-(set: $meinMacro to (macro: num-type _x1, num-type _x2, [
-    (output:)[\
-        (if: _x1 > _x2) [\
-        _x1\
-    ] (else:) [\
-        _x2\
-    ]]
+<!-- Definition of Global-Variables-->
+(set: $BLOCKER_1 to false)\
+(set: $BlOCKER_2 to false)\
+(set: $SCORE to 0)\
+(set: $CHECKBOX_TEXT to "Choose the correct answer!")\
+(set: $BUTTON_QUIZ_TEXT to "Evaluate")\
+
+
+<!-- Macro for displaying and evaluating a quiz-->
+(set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, int-type _blocker1, [
+    (output:)[
+        (set: _quizPassage1Is to false)\
+        (set: _quizPassage2Is to false)\
+        (set: _quizPassage3Is to false)\
+        (set: _shouldBe1 to _shouldBe11)\
+        (set: _shouldBe2 to _shouldBe22)\
+        (set: _shouldBe3 to _shouldBe33)\
+        (set: _blocker to _blocker1)\
+        $CHECKBOX_TEXT
+        <div class="quiz">\
+        (checkbox: bind _quizPassage1Is, _passage1)
+        (checkbox: bind _quizPassage2Is, _passage2)
+        (checkbox: bind _quizPassage3Is, _passage3)
+        <button type="button"
+        onClick="evaluateButton()"
+        quiz-argFirst-is= '_quizPassage1Is'
+        quiz-argFirst-should='_shouldBe1'
+        quiz-argSecond-is='_quizPassage2Is'
+        quiz-argSecond-should='_shouldBe2'
+        quiz-argThird-is='_quizPassage3Is'
+        quiz-argThird-should='_shouldBe3'
+        arg-blocker='_blocker'>$BUTTON_QUIZ_TEXT</button>\
+        <script>
+        window.evaluateButton = () => { 
+        let arg0i = window.event.target.getAttribute('quiz-argFirst-is');
+        let arg0s = window.event.target.getAttribute('quiz-argFirst-should');
+        let arg1i = window.event.target.getAttribute('quiz-argSecond-is');
+        let arg1s = window.event.target.getAttribute('quiz-argSecond-should');
+        let arg2i = window.event.target.getAttribute('quiz-argThird-is');
+        let arg2s = window.event.target.getAttribute('quiz-argThird-should');
+        let blocker = window.event.target.getAttribute('arg-blocker');
+        let blocking =  eval(blocker) == 1 ? '$blocker1' : '$blocker2';
+        
+        console.log('arg 1 is: ' + eval(arg0i));
+        console.log('arg 1 should be: ' + eval(arg0s));
+        console.log('(eval(arg0i) == eval(arg0s)): ' + (eval(arg0i) == eval(arg0s)));
+        console.log('eval(arg1i) == eval(arg1s))' + (eval(arg1i) == eval(arg1s)));
+        console.log('(eval(arg2i) == eval(arg2s)) ' + (eval(arg2i) == eval(arg2s)));
+        
+        if(eval(blocking) && (eval(arg0i) == eval(arg0s)) && (eval(arg1i) == eval(arg1s)) && (eval(arg2i) == eval(arg2s))){
+            console.log("Richtig!!");
+            $score += 100;
+            console.log($score);
+            eval(blocking + ' = ' + 'false');
+        }
+        }
+        </script>
+    ]
+
+]  ))
+
+
+(set: $buttonEvalQuiz to (macro: bool-type _shouldBe1, bool-type _is1, bool-type _shouldBe2, bool-type _is2, bool-type _shouldBe3, bool-type _is3 [
+    (output:)[
+ <button type="button"
+        onClick="evaluateButton()"
+        quiz-argFirst-is= '_shouldBe1'
+        quiz-argFirst-should=''
+        quiz-argSecond-is=''
+        quiz-argThird-should=''
+        quiz-argThird-is=''>Evaluate</button>
 ]))
-(go-to: "SecretKeyCalculation")
+
+
+(go-to: "PrimeGameDev")
 
 
 :: Refresh-Button {"position":"375,1050"}
