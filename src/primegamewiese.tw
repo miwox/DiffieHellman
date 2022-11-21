@@ -9,17 +9,15 @@ Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehr
 </div>
 
 ##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to true)(set: $score to $score)(set: $blocker1 to true)
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+(set: _question1 to "Prime is same like the service of Amazon Prime.")\
+(set: $BlOCKER_1 to false)\
+(set: _question2 to "The number 1 is prime.")\
+(set: _question3 to "The decision problem if a given number is prime has a polynomial complexity.")\
+
 Bitte wähle die passende Aussage, die genau zutrifft:
-<div class="quiz">
-(checkbox: bind _shouldBeFalse, "Prime is same like the service of Amazon Prime.")
+($makeQuiz: _question1, false, _question2, false, _question3, true)\
 
-(checkbox: bind $shouldBeFalse2, "The number 1 is prime.")
-
-(checkbox: bind _shouldBeTrue, "The decision problem if a given number is prime has a polynomial complexity.")
-<button onclick="evaluatePrime1()">Auswerten</button>
-</div>
 
 (set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
 Bitte wähle die passende Aussage, die genau zutrifft:
@@ -32,9 +30,24 @@ Bitte wähle die passende Aussage, die genau zutrifft:
 <button onclick="evaluatePrime2()">Auswerten</button>
 </div>
 
-($makeQuiz: "Prime is same like the service of Amazon Prime.", false, "The number 1 is prime", false, "The decision problem if a given number is prime has a polynomial complexity.", true, 1)
+($makeQuiz: "Prime is same like the service of Amazon Prime.", false, "The number 1 is prime", false, "The decision problem if a given number is prime has a polynomial complexity.", true)
+[[go |Spielwiese2]]
 
-($createQuizBox3)
+
+:: Spielwiese2 {"position":"175,1050"}
+($makeQuiz: "Prime is same like the service of Amazon Prime.", false, "The number 1 is prime", true, "The decision problem if a given number is prime has a polynomial complexity.", true, 2)
+
+
+
+(set: $COMMON_PRIME to 42323)
+
+<Latex1>Placeholder</Latex1>
+<script>
+
+let bla = window.document.querySelector('Latex1');
+bla.innerText = '\\( Y_a = \\leq ' + eval($COMMON_PRIME) + ' \\)';
+
+</script>
 
 
 

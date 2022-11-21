@@ -474,7 +474,21 @@ window.evaluatePrime2 = function(){
 &lt;/script&gt;
 
 (live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[After computation is the turn to exchange the public key |SecretKey]]]]]</tw-passagedata><tw-passagedata pid="12" name="Header" tags="header" position="775,700" size="100,100">&lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;\
-&lt;script id=&quot;MathJax-script&quot; async src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
+&lt;script id=&quot;MathJax-script&quot; async src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- GLOBAL VARIABLES ----------------------------------------&gt;
+(set: $BLOCKER_1 to false)\
+(set: $BlOCKER_2 to false)\
+(set: $SCORE to 0)\
+(set: $CHECKBOX_TEXT to &quot;Choose the correct answer!&quot;)\
+(set: $ALERT_CORRECT to &quot;Correct Answer! Congratulation.&quot;)\
+(set: $ALERT_ALREADY_DONE to &quot;Already answered&quot;)\
+(set: $ALERT_WRONG_ANSWER to &quot;Sorry, your answer is wrong&quot;)\
+
+
+
+
+&lt;!-- GLOBAL MACROS ----------------------------------------&gt;
+
+&lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
 _hideStr hast to be command-type to provided nested calls of this method :)--&gt;
 (set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
     (output:)[\
@@ -494,16 +508,8 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
     (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
 ]))\
 
-&lt;!-- Definition of Global-Variables--&gt;
-(set: $BLOCKER_1 to false)\
-(set: $BlOCKER_2 to false)\
-(set: $SCORE to 0)\
-(set: $CHECKBOX_TEXT to &quot;Choose the correct answer!&quot;)\
-(set: $BUTTON_QUIZ_TEXT to &quot;Evaluate&quot;)\
-
-
 &lt;!-- Macro for displaying and evaluating a quiz--&gt;
-(set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, int-type _blocker1, [
+(set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
     (output:)[
         (set: _quizPassage1Is to false)\
         (set: _quizPassage2Is to false)\
@@ -511,7 +517,6 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
         (set: _shouldBe1 to _shouldBe11)\
         (set: _shouldBe2 to _shouldBe22)\
         (set: _shouldBe3 to _shouldBe33)\
-        (set: _blocker to _blocker1)\
         $CHECKBOX_TEXT
         &lt;div class=&quot;quiz&quot;&gt;\
         (checkbox: bind _quizPassage1Is, _passage1)
@@ -524,8 +529,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
         quiz-argSecond-is=&#39;_quizPassage2Is&#39;
         quiz-argSecond-should=&#39;_shouldBe2&#39;
         quiz-argThird-is=&#39;_quizPassage3Is&#39;
-        quiz-argThird-should=&#39;_shouldBe3&#39;
-        arg-blocker=&#39;_blocker&#39;&gt;$BUTTON_QUIZ_TEXT&lt;/button&gt;\
+        quiz-argThird-should=&#39;_shouldBe3&#39;&gt; Evaluate &lt;/button&gt;\
         &lt;script&gt;
         window.evaluateButton = () =&gt; { 
         let arg0i = window.event.target.getAttribute(&#39;quiz-argFirst-is&#39;);
@@ -534,42 +538,89 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
         let arg1s = window.event.target.getAttribute(&#39;quiz-argSecond-should&#39;);
         let arg2i = window.event.target.getAttribute(&#39;quiz-argThird-is&#39;);
         let arg2s = window.event.target.getAttribute(&#39;quiz-argThird-should&#39;);
-        let blocker = window.event.target.getAttribute(&#39;arg-blocker&#39;);
-        let blocking =  eval(blocker) == 1 ? &#39;$blocker1&#39; : &#39;$blocker2&#39;;
-        
+        console.log(&#39;arg0i: &#39; + arg0i);
+        console.log(&#39;arg1i: &#39; + arg1i);
+        console.log(&#39;$BLOCKER_1: &#39; + $BLOCKER_1);
         console.log(&#39;arg 1 is: &#39; + eval(arg0i));
         console.log(&#39;arg 1 should be: &#39; + eval(arg0s));
         console.log(&#39;(eval(arg0i) == eval(arg0s)): &#39; + (eval(arg0i) == eval(arg0s)));
         console.log(&#39;eval(arg1i) == eval(arg1s))&#39; + (eval(arg1i) == eval(arg1s)));
         console.log(&#39;(eval(arg2i) == eval(arg2s)) &#39; + (eval(arg2i) == eval(arg2s)));
         
-        if(eval(blocking) &amp;&amp; (eval(arg0i) == eval(arg0s)) &amp;&amp; (eval(arg1i) == eval(arg1s)) &amp;&amp; (eval(arg2i) == eval(arg2s))){
-            console.log(&quot;Richtig!!&quot;);
-            $score += 100;
-            console.log($score);
-            eval(blocking + &#39; = &#39; + &#39;false&#39;);
+        //check correct answer
+        if(!$BLOCKER_1 &amp;&amp; (eval(arg0i) == eval(arg0s)) &amp;&amp; (eval(arg1i) == eval(arg1s)) &amp;&amp; (eval(arg2i) == eval(arg2s))){
+            console.log(&quot;Correct Evaluation!!&quot;);
+            $SCORE += 100;
+            console.log($SCORE);
+            console.log($BLOCKER_1);
+            $BLOCKER_1 = true;
+            console.log($BLOCKER_1);
+            alert($ALERT_CORRECT);
+        } else if ($BLOCKER_1){
+            alert($ALERT_ALREADY_DONE);
+        } else {
+            alert($ALERT_WRONG_ANSWER);
         }
-        }
+    }
         &lt;/script&gt;
-    ]
+    ]]))
 
-]  ))
+&lt;!-- START STORY HERE! ----------------------------------------&gt;
+(go-to: &quot;PrimeGame&quot;)</tw-passagedata><tw-passagedata pid="14" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
+Formula not shown right...</tw-passagedata><tw-passagedata pid="15" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="16" name="GameInfoPrimeQuiz" tags="" position="725,225" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
+Spielinfo:
+Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.\
+Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3.\
+Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="PrimeGame" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(set: _question1 to &quot;Prime is same like the service of Amazon Prime.&quot;)\
+(set: _question2 to &quot;The number 1 is prime.&quot;)\
+(set: _question3 to &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)\
+#Diffie Hellman The Game
 
+(display: &quot;GameInfoPrimeQuiz&quot;)
 
-(set: $buttonEvalQuiz to (macro: bool-type _shouldBe1, bool-type _is1, bool-type _shouldBe2, bool-type _is2, bool-type _shouldBe3, bool-type _is3 [
-    (output:)[
- &lt;button type=&quot;button&quot;
-        onClick=&quot;evaluateButton()&quot;
-        quiz-argFirst-is= &#39;_shouldBe1&#39;
-        quiz-argFirst-should=&#39;&#39;
-        quiz-argSecond-is=&#39;&#39;
-        quiz-argThird-should=&#39;&#39;
-        quiz-argThird-is=&#39;&#39;&gt;Evaluate&lt;/button&gt;
-]))
+##The prime game
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, false, _question3, true)
 
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame2]]]</tw-passagedata><tw-passagedata pid="18" name="PrimeGame2" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(set: _question1 to &quot;The number 0 is prime.&quot;)\
+(set: _question2 to &quot;Prime numbers protect us from cybercrime.&quot;)\
+(set: _question3 to &quot;The set of all prime numbers is finite.&quot;)\
+#Diffie Hellman The Game
 
-(go-to: &quot;PrimeGameDev&quot;)</tw-passagedata><tw-passagedata pid="14" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
-Formula not shown right...</tw-passagedata><tw-passagedata pid="15" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="16" name="PrimeGame" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
+(display: &quot;GameInfoPrimeQuiz&quot;)
+
+##The prime game
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, true, _question3, false)
+
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame3]]]</tw-passagedata><tw-passagedata pid="19" name="PrimeGame3" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(set: _question1 to &quot;The number 4254 is prime.&quot;)\
+(set: _question2 to &quot;The number 4252 is prime.&quot;)\
+(set: _question3 to &quot;The number 4253 is prime.&quot;)\
+#Diffie Hellman The Game
+
+(display: &quot;GameInfoPrimeQuiz&quot;)
+
+##The prime game
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, false, _question3, true)
+
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame4]]]</tw-passagedata><tw-passagedata pid="20" name="PrimeGame4" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(set: _question1 to &quot;There is an O(1)-algorithm to find the next prime number.&quot;)\
+(set: _question2 to &quot;Diffie-Hellman-Key-Exchange is using prime numbers.&quot;)\
+(set: _question3 to &quot;A prime number has more than one prime factor.&quot;)\
+#Diffie Hellman The Game
+
+(display: &quot;GameInfoPrimeQuiz&quot;)
+
+##The prime game
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, true, _question3, false)
+
+(live: 1s)[(if: $BLOCKER_1)[[Okay your answered everything with good deeds...|Hellman-Key]]]</tw-passagedata><tw-passagedata pid="21" name="PrimeGameDev" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
 
 &lt;div class=&quot;storyteller&quot;&gt;
 Spielinfo:
@@ -579,17 +630,15 @@ Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehr
 &lt;/div&gt;
 
 ##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to false)(set: $score to $score)(set: $blocker to false)
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+(set: _question1 to &quot;Prime is same like the service of Amazon Prime.&quot;)\
+(set: $BlOCKER_1 to false)\
+(set: _question2 to &quot;The number 1 is prime.&quot;)\
+(set: _question3 to &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)\
+
 Bitte wähle die passende Aussage, die genau zutrifft:
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $shouldBeFalse, &quot;Prime is same like the service of Amazon Prime.&quot;)
+($makeQuiz: _question1, false, _question2, false, _question3, true)\
 
-(checkbox: bind $shouldBeFalse2, &quot;The number 1 is prime.&quot;)
-
-(checkbox: bind $shouldBeTrue, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)
-&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
 
 (set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
 Bitte wähle die passende Aussage, die genau zutrifft:
@@ -602,142 +651,20 @@ Bitte wähle die passende Aussage, die genau zutrifft:
 &lt;button onclick=&quot;evaluatePrime2()&quot;&gt;Auswerten&lt;/button&gt;
 &lt;/div&gt;
 
+($makeQuiz: &quot;Prime is same like the service of Amazon Prime.&quot;, false, &quot;The number 1 is prime&quot;, false, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;, true)
+[[go |Spielwiese2]]</tw-passagedata><tw-passagedata pid="22" name="Spielwiese2" tags="" position="175,1050" size="100,100">($makeQuiz: &quot;Prime is same like the service of Amazon Prime.&quot;, false, &quot;The number 1 is prime&quot;, true, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;, true, 2)
 
-Gebe eine Primzahl ein die größer als 1000 ist!
 
+
+(set: $COMMON_PRIME to 42323)
+
+&lt;Latex1&gt;Placeholder&lt;/Latex1&gt;
 &lt;script&gt;
-window.evaluatePrime1 = function(){
-    if(!$blocker &amp;&amp; !$shouldBeFalse &amp;&amp; !$shouldBeFalse2 &amp;&amp; $shouldBeTrue){
-        $score += 100;
-        $blocker = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
 
-window.evaluatePrime2 = function(){
-    if(!$blocker2 &amp;&amp; !$quiz2False &amp;&amp; !$quiz2False2 &amp;&amp; $quiz2True){
-        $score += 100;
-        $blocker2 = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker2){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
+let bla = window.document.querySelector(&#39;Latex1&#39;);
+bla.innerText = &#39;\\( Y_a = \\leq &#39; + eval($COMMON_PRIME) + &#39; \\)&#39;;
+
 &lt;/script&gt;
-
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="17" name="PrimeGame2" tags="" position="350,1050" size="100,100">#Diffie Hellman The Game
-
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-&lt;div class=&quot;storyteller&quot;&gt;
-Spielinfo:
-
-Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.
-Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3. Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
-&lt;/div&gt;
-
-##The prime game 2
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to false)(set: $blocker to false)(set: $score to $score)
-Bitte wähle die passende Aussage, die genau zutrifft:
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $shouldBeFalse, &quot;4254 is prime.&quot;)
-
-(checkbox: bind $shouldBeFalse2, &quot;4252 is prime.&quot;)
-
-(checkbox: bind $shouldBeTrue, &quot;4253 is prime.&quot;)
-&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
-
-(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
-Bitte wähle die passende Aussage, die genau zutrifft:
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $quiz2False, &quot;There is an O(1)-algorithm to find the next prime number.&quot;)
-
-(checkbox: bind $quiz2True, &quot;Diffie-Hellman is using prime numbers.&quot;)
-
-(checkbox: bind $quiz2False2, &quot;A prime number has more than one prime factor.&quot;)
-&lt;button onclick=&quot;evaluatePrime2()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
-
-
-Gebe eine Primzahl ein die größer als 1000 ist!
-
-&lt;script&gt;
-window.evaluatePrime1 = function(){
-    if(!$blocker &amp;&amp; !$shouldBeFalse &amp;&amp; !$shouldBeFalse2 &amp;&amp; $shouldBeTrue){
-        $score += 100;
-        $blocker = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
-
-window.evaluatePrime2 = function(){
-    if(!$blocker2 &amp;&amp; !$quiz2False &amp;&amp; !$quiz2False2 &amp;&amp; $quiz2True){
-        $score += 100;
-        $blocker2 = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker2){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
-&lt;/script&gt;
-
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[Diffie Hellman Key Exchange |Hellman-Key]]]]]</tw-passagedata><tw-passagedata pid="18" name="PrimeGameDev" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
-
-&lt;div class=&quot;storyteller&quot;&gt;
-Spielinfo:
-
-Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.
-Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3. Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
-&lt;/div&gt;
-
-##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to true)(set: $score to $score)(set: $blocker1 to true)
-Bitte wähle die passende Aussage, die genau zutrifft:
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind _shouldBeFalse, &quot;Prime is same like the service of Amazon Prime.&quot;)
-
-(checkbox: bind $shouldBeFalse2, &quot;The number 1 is prime.&quot;)
-
-(checkbox: bind _shouldBeTrue, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)
-&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
-
-(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
-Bitte wähle die passende Aussage, die genau zutrifft:
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $quiz2False, &quot;The number 0 is prime.&quot;)
-
-(checkbox: bind $quiz2True, &quot;Prime numbers protect us from cybercrime.&quot;)
-
-(checkbox: bind $quiz2False2, &quot;The set of all prime numbers is finite.&quot;)
-&lt;button onclick=&quot;evaluatePrime2()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
-
-($makeQuiz: &quot;Prime is same like the service of Amazon Prime.&quot;, false, &quot;The number 1 is prime&quot;, false, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;, true, 1)
-
-($createQuizBox3)
 
 
 
@@ -785,7 +712,7 @@ window.evaluatePrime2 = function(){
 &lt;/script&gt;
 
 
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="19" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="23" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
@@ -793,7 +720,7 @@ window.evaluatePrime2 = function(){
 (set: _text3 to &quot;Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... &lt;br&gt; &lt;br&gt;[[Prolog2-&gt;Intro2]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
@@ -801,7 +728,7 @@ window.evaluatePrime2 = function(){
 (set: _text3 to &quot;Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser. &lt;br&gt;&lt;br&gt; [[Prolog3-&gt;Intro3]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.&quot;)\
 (set: _text2 to &quot;Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.&quot;)\
@@ -810,14 +737,14 @@ window.evaluatePrime2 = function(){
 (set: _text4 to &quot; Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice! Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. &lt;br&gt; &lt;br&gt;[[Scene1-&gt;Scene1]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Alice und Bob spielen im Garten Federball oder wie Erwachsene es nennen um sich nicht schlecht zu fühlen “Badminton”. Plötzlich fliegt ihr letzter Ball in den alten Tempel der geheimen geheim Kunst. Sie streiten sich wer den Ball rausholen soll. Bob verliert Schere Stein Papier und muss den Ball holen. Alice will den Angsthasen Bob nicht alleine in den Tempel lassen, da sie weiß, er hat viel zu viel Angst alleine dahin zu gehen. Dort treffen sie auf den alten Sensei Diffie-san.&quot;)\
 (set: _text2 to &quot;“Ich habe auf euch gewartet!” Beide schauen sich verwirrt an und fragen wer bist du? Er sagt ich warte auf die zwei Auserwählten die irgendwann die Welt retten.&lt;br&gt;&lt;br&gt;[[Scene2-&gt;DiffieScene]]&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, (print: _text2))\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Alice und Bob saßen vor Diffie-san. Er schaute Ihnen abwechselnd tief in die Augen, ohne ein Wort zu sagen. Nach einem Moment der Stille sagte er: „Stellt euch eine Welt ohne Freiheit vor. Eine Welt, in der eine Taube dem Falken sagen muss, wohin er fliegen möchte. In dieser Welt kann der Falke jederzeit über das Leben der Taube entscheiden. Das meine Kinder ist nur ein Gleichnis. Wir werden eine Zeit haben, in der Freiheit ein Gut der Vergangenheit ist.“&quot;)\
 (set: _text2 to &quot;Er schaute nach oben und betrachtete den Himmel. Eine Taube flog in weiter Ferne. Sie wurde verfolgt von einem Falken. Im nächsten Moment bohrte der Falke seine Klauen in den Rücken der Taube. „Die Welt wird nicht mehr so sein wie sie einmal war“ sagte Diffie-san mit bedauern. „Ihr könnt das verhindern. Was glaubt ihr ist die wichtigste Waffe in der Schlacht?“&quot;)\
@@ -826,7 +753,7 @@ window.evaluatePrime2 = function(){
 (set: _text4 to &quot;Sowas funktioniert nur mit sicherer Kommunikation und genau das wird euch irgendwann fehlen. Steht nun auf. Ich bringe euch bei, wie ihr ab heute sicher miteinander sprechen könnt. Alles basiert auf Mathematik.&lt;br&gt;&lt;br&gt;[[Zum Primzahlspiel|PrimeGame]]&quot;)\ 
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Scene4" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Scene4" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Bob woke up in a cold sweat. What was that ? Why did he remember that day ? He looked at the letter in his hands. The cat on the back had disappeared. How was that possible ? He had been trying to hunt a madman for so long, would he become one himself now? &quot;)\
 (set: _text2 to &quot;He shook all over and poured himself a glass of whiskey. His nerves had to calm down first. He opened the letter and found a sequence of letters and numbers ending with an equal sign.&lt;br&gt;&lt;br&gt;[[GetAnAnswer-&gt;PGScene]]&quot;)\
@@ -877,7 +804,7 @@ window.evalueBAndCalculateA = function(){
     
 
 }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="25" name="PGScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="29" name="PGScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: $blocker to false)
 &lt;div class=&quot;storyteller&quot;&gt;
@@ -898,7 +825,7 @@ Google(&quot;String with equal symbol at the end&quot;)
         &lt;label for=&quot;numberSmallerPrime&quot;&gt;Number&lt;/label&gt;
         &lt;input type=&quot;text&quot; name=&quot;numberSmallerPrime&quot; id=&quot;numberSmallerPrime&quot;required /&gt;
         &lt;button onclick=&quot;evaluatePrimeAndNumber()&quot;&gt;Calculate&lt;/button&gt;
-(live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]</tw-passagedata><tw-passagedata pid="26" name="CalculateB" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]</tw-passagedata><tw-passagedata pid="30" name="CalculateB" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: $blocker to false)
 &lt;div class=&quot;storyteller&quot;&gt;

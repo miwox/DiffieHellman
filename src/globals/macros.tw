@@ -1,6 +1,17 @@
 :: Macros {"position":"375,1050"}
+<!-- GLOBAL VARIABLES ---------------------------------------->
+(set: $BLOCKER_1 to false)\
+(set: $BlOCKER_2 to false)\
+(set: $SCORE to 0)\
+(set: $CHECKBOX_TEXT to "Choose the correct answer!")\
+(set: $ALERT_CORRECT to "Correct Answer! Congratulation.")\
+(set: $ALERT_ALREADY_DONE to "Already answered")\
+(set: $ALERT_WRONG_ANSWER to "Sorry, your answer is wrong")\
 
 
+
+
+<!-- GLOBAL MACROS ---------------------------------------->
 
 <!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
 _hideStr hast to be command-type to provided nested calls of this method :)-->
@@ -22,16 +33,8 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
     (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
 ]))\
 
-<!-- Definition of Global-Variables-->
-(set: $BLOCKER_1 to false)\
-(set: $BlOCKER_2 to false)\
-(set: $SCORE to 0)\
-(set: $CHECKBOX_TEXT to "Choose the correct answer!")\
-(set: $BUTTON_QUIZ_TEXT to "Evaluate")\
-
-
 <!-- Macro for displaying and evaluating a quiz-->
-(set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, int-type _blocker1, [
+(set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
     (output:)[
         (set: _quizPassage1Is to false)\
         (set: _quizPassage2Is to false)\
@@ -39,7 +42,6 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
         (set: _shouldBe1 to _shouldBe11)\
         (set: _shouldBe2 to _shouldBe22)\
         (set: _shouldBe3 to _shouldBe33)\
-        (set: _blocker to _blocker1)\
         $CHECKBOX_TEXT
         <div class="quiz">\
         (checkbox: bind _quizPassage1Is, _passage1)
@@ -52,8 +54,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
         quiz-argSecond-is='_quizPassage2Is'
         quiz-argSecond-should='_shouldBe2'
         quiz-argThird-is='_quizPassage3Is'
-        quiz-argThird-should='_shouldBe3'
-        arg-blocker='_blocker'>$BUTTON_QUIZ_TEXT</button>\
+        quiz-argThird-should='_shouldBe3'> Evaluate </button>\
         <script>
         window.evaluateButton = () => { 
         let arg0i = window.event.target.getAttribute('quiz-argFirst-is');
@@ -62,42 +63,35 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
         let arg1s = window.event.target.getAttribute('quiz-argSecond-should');
         let arg2i = window.event.target.getAttribute('quiz-argThird-is');
         let arg2s = window.event.target.getAttribute('quiz-argThird-should');
-        let blocker = window.event.target.getAttribute('arg-blocker');
-        let blocking =  eval(blocker) == 1 ? '$blocker1' : '$blocker2';
-        
+        console.log('arg0i: ' + arg0i);
+        console.log('arg1i: ' + arg1i);
+        console.log('$BLOCKER_1: ' + $BLOCKER_1);
         console.log('arg 1 is: ' + eval(arg0i));
         console.log('arg 1 should be: ' + eval(arg0s));
         console.log('(eval(arg0i) == eval(arg0s)): ' + (eval(arg0i) == eval(arg0s)));
         console.log('eval(arg1i) == eval(arg1s))' + (eval(arg1i) == eval(arg1s)));
         console.log('(eval(arg2i) == eval(arg2s)) ' + (eval(arg2i) == eval(arg2s)));
         
-        if(eval(blocking) && (eval(arg0i) == eval(arg0s)) && (eval(arg1i) == eval(arg1s)) && (eval(arg2i) == eval(arg2s))){
-            console.log("Richtig!!");
-            $score += 100;
-            console.log($score);
-            eval(blocking + ' = ' + 'false');
+        //check correct answer
+        if(!$BLOCKER_1 && (eval(arg0i) == eval(arg0s)) && (eval(arg1i) == eval(arg1s)) && (eval(arg2i) == eval(arg2s))){
+            console.log("Correct Evaluation!!");
+            $SCORE += 100;
+            console.log($SCORE);
+            console.log($BLOCKER_1);
+            $BLOCKER_1 = true;
+            console.log($BLOCKER_1);
+            alert($ALERT_CORRECT);
+        } else if ($BLOCKER_1){
+            alert($ALERT_ALREADY_DONE);
+        } else {
+            alert($ALERT_WRONG_ANSWER);
         }
-        }
+    }
         </script>
-    ]
+    ]]))
 
-]  ))
-
-
-(set: $buttonEvalQuiz to (macro: bool-type _shouldBe1, bool-type _is1, bool-type _shouldBe2, bool-type _is2, bool-type _shouldBe3, bool-type _is3 [
-    (output:)[
- <button type="button"
-        onClick="evaluateButton()"
-        quiz-argFirst-is= '_shouldBe1'
-        quiz-argFirst-should=''
-        quiz-argSecond-is=''
-        quiz-argThird-should=''
-        quiz-argThird-is=''>Evaluate</button>
-]))
-
-
-(go-to: "PrimeGameDev")
-
+<!-- START STORY HERE! ---------------------------------------->
+(go-to: "PrimeGame")
 
 :: Refresh-Button {"position":"375,1050"}
 <button type="button" onClick="window.location.reload()">\
