@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play DiffieHellman.</tw-noscript></noscript></tw-story>
-<!-- UUID://4C4078EA-B72B-4C69-A731-B6A17E24990F// --><tw-storydata name="DiffieHellman" startnode="13" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4C4078EA-B72B-4C69-A731-B6A17E24990F" zoom="1" format="Harlowe" format-version="3.3.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.speech-bubble {
+<!-- UUID://4C4078EA-B72B-4C69-A731-B6A17E24990F// --><tw-storydata name="DiffieHellman" startnode="17" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4C4078EA-B72B-4C69-A731-B6A17E24990F" zoom="1" format="Harlowe" format-version="3.3.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.speech-bubble {
 	position: relative;
   	width: 10em;
 	background: #831100;
@@ -115,7 +115,7 @@ div.keyItem {
   
   height: 40px;
   background-color: red;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="FinalScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.blocker = false;</script><tw-passagedata pid="1" name="FinalScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Bob sent his calculated B to the stranger number. Just at that moment, there were several knocks on the door. This time Bob would find out who the mystery person was. His gun was on the table. He put it in pants and opened the door. His eyes enlarged in shock. A Hellsolider was at his door.&quot;)\
 (set: _text2 to &quot;The automatic rifle was pointed at him. Both were visibly confused. The Hellsolider had not expected the Resistance&#39;s most wanted criminal to answer the door, and Bob would not have expected a Hellsolider to be at his door. Bob threw himself to the side at just the right moment. Shots rang out from the AK-47 and penetrated the couch behind Bob. He aimed for his head and fired. The soldier was eliminated. He fell forward. A note was pinned to his back. Bob raised an eyebrow. The note had a simple A on it. He took the note and on the back was another long string of characters.&quot;)\
@@ -234,32 +234,41 @@ Step 1:
 Alice and Bob; you both should communicate with each other and set a common prime number. 
 Don&#39;t be afraid, it&#39;s okay if someone is listening your communication and also know about the common prime number.
 &lt;/div&gt;
-Okay our prime number is 7.
-(click-replace:&quot;Okay our prime number is 7.&quot;)[Step 2:
+Okay our prime number is $COMMON_PRIME.
+Continue..
+(click-replace:&quot;Continue..&quot;)[Step 2:
 &lt;div class=&quot;storyteller&quot;&gt;
-Okay perfect! You both chosed the wonderful 7 as your common prime number. After that please choose together a number which is smaller than your prime number 7
-and also a primitive root of 7. What a primitive root is can you find out by yourself. But for now on it&#39;s not so important.
+Okay perfect! You both chosed the wonderful $COMMON_PRIME as your common prime number. After that please choose together a number which is smaller than your prime number $COMMON_PRIME \
+and also a primitive root of $COMMON_PRIME. \
+What a primitive root is can you find out by yourself. But for now on it&#39;s not so important.
 &lt;/div&gt;
-Okay our other number is the 3.
-(click-replace:&quot;Okay our other number is the 3.&quot;)[Step 3:
+Okay our primitive root is $COMMON_GEN.
+Continue..
+(click-replace:&quot;Continue..&quot;)[Step 3:
 &lt;div class=&quot;storyteller&quot;&gt;
-Perfect you choosed the 7 as your prime number and the 3 as your primitive root of the 7. Also yet don&#39;t be afraid if somone had listen to your communication, because the person would not discover your common key. Now Alice and Bob each of you should choose your secret number. Your secret number should be smaller than your common prime number 7. Now it&#39;s very important don&#39;t ever share your secret with someone!
+Perfect you choosed the $COMMON_PRIME as your prime number and the $COMMON_GEN as your primitive root of the $COMMON_PRIME. \
+Also yet don&#39;t be afraid if somone had listen to your communication, because the person would not discover your common key. \
+Now Alice and Bob each of you should choose your secret number. \
+Your secret number should be smaller than your common prime number $COMMON_PRIME. \
+Now it&#39;s very important don&#39;t ever share your secret with someone! \
 Why Sensei?(click-replace:&quot;Why Sensei?&quot;)[ BECAUSE It&#39;S A FRICKING SECRET DON&#39;T BE A MORON!!!!!!]
 &lt;/div&gt;
-Bob: My number is the 5.
-(click-replace:&quot;Bob: My number is the 5.&quot;)[
-Alice: My number is the 4. And I won&#39;t tell anyone Sensei-San.
-(click-replace:&quot;Alice: My number is the 4. And I won&#39;t tell anyone Sensei-San.&quot;)[
+Bob: My number is the $BOBS_SECRET.
+Okay..
+(click-replace:&quot;Okay..&quot;)[
+Alice: My number is the $ALICE_SECRET. And I won&#39;t tell anyone Sensei-San.
+Okay..
+(click-replace:&quot;Okay..&quot;)[
 &lt;div class=&quot;storyteller&quot;&gt;I hope you both had written down your secrets in a secure place. And never ever share this secret with someone. I can&#39;t mention it enough.
 So it&#39;s getting a bit mathematical. So both of you show your secret weapon! Which one?
 (click-replace:&quot;Which one?&quot;)[ -.- The Casio calculator of course!! And not your REAL secret!!
 Are you ready?(click-replace:&quot;Are you ready?&quot;)[
     Now both of you should calculate a number which with those number you both have chosen. What exactly I&#39;ll tell you in the next steps Habibis.
 [[Go the next steps|Hellman-Key2]]]]
-&lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="4" name="Secret-Box" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bobs secret was: 5.&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Hellman-Key2" tags="" position="375,1050" size="100,100"># The DHM protocol
+&lt;/div&gt;]]]]</tw-passagedata><tw-passagedata pid="4" name="Secret-Box" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: $COMMON_PRIME.
+The common prime root of modolu $COMMON_PRIME was set to: $COMMON_GEN.
+Alice secret was: $ALICE_SECRET.
+Bobs secret was: $BOBS_SECRET.&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Hellman-Key2" tags="" position="375,1050" size="100,100"># The DHM protocol
 (display: &quot;Secret-Box&quot;)
 Step 2: 
 &lt;div class=&quot;storyteller&quot;&gt;\
@@ -269,6 +278,7 @@ Why is it called public?
 Please check up following box to compute your public key:
 (click-replace: &quot;Why is it called public?&quot;)[Because it&#39;s not a secret so its allow to share it. Even if Hellman get noticed of it, and you know he will it&#39;s not a problem!]\
 &lt;/div&gt;\
+
 &lt;div class=&quot;quiz&quot;&gt;\
 The formula is: 
 {\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
@@ -280,10 +290,7 @@ The Explanation of the formular:
 (display:&quot;Refresh-Button&quot;)\
 &lt;/div&gt;
 
-[[Let&#39;s calculate your public keys Alice and Bob|PublicKeyCalculation]]</tw-passagedata><tw-passagedata pid="6" name="Secret-Box2" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bobs secret was: 5.
+[[Let&#39;s calculate your public keys Alice and Bob|PublicKeyCalculation]]</tw-passagedata><tw-passagedata pid="6" name="Secret-Box2" tags="" position="375,1050" size="100,100">&lt;div class =&quot;quiz&quot;&gt;\
 The formula of the computation of the public key is:
 {\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 
@@ -291,89 +298,72 @@ The Explanation of the formula:
 {\(s\)} is your secret. Very important: {\(s \lt p\)}!
 {\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
 {\(p\)} is the common prime number between Alice and Bob.
+&lt;/div&gt;
+Secret Box (that no one can see)
+&lt;div class=&quot;quiz&quot;&gt;\
+The common prime number was set to: $COMMON_PRIME.
+The common prime root of modolu your prime was set to: $COMMON_GEN.
+Alice secret was: $ALICE_SECRET.
+Bobs secret was: $BOBS_SECRET.
 
 Under that circumstances:
-{\(Bobs \: Public \: Key \: is \: Y&amp;#95;b = \: 3^5 \: modulo \: 7\)}
-{\(Alice&#39; \: Public \: Key \: is \: Y&amp;#95;a = \: 3^4 \: modulo \: 7\)}
+&lt;Bob&gt;{\(Bobs \: Public \: Key \: is \: Y&amp;#95;b = \: 3^5 \: modulo \: 7\)}&lt;/Bob&gt;
+&lt;Alice&gt;{\(Alice&#39; \: Public \: Key \: is \: Y&amp;#95;a = \: 3^4 \: modulo \: 7\)}&lt;/Alice&gt;\
+&lt;!--- Very ugly, but because of Twine there is no other option !!! --&gt;
+&lt;script&gt;
+let latex = window.document.querySelector(&quot;Bob&quot;);
+latex.innerText = &quot;\\(Bobs \\: Public \\: Key \\: is \\: Y_{Bob} =\\:&quot; + $COMMON_GEN + &quot;^{&quot; + $BOBS_SECRET + &quot;}\\: \\: modulo \\: \\: &quot; + $COMMON_PRIME + &quot;\\)&quot;;
+latex = window.document.querySelector(&quot;Alice&quot;);
+latex.innerText = &quot;\\(Alice&#39; \\: Public \\: Key \\: is \\: Y_{Alice} =\\:&quot; + $COMMON_GEN + &quot;^{&quot; + $ALICE_SECRET + &quot;}\\: \\: modulo \\: \\: &quot; + $COMMON_PRIME + &quot;\\)&quot;;
+&lt;/script&gt;\
 (display:&quot;Refresh-Button&quot;)\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="PublicKeyCalculation" tags="" position="375,1050" size="100,100"># The DHM protocol
+&lt;/div&gt;
+
+&lt;div class= &quot;storyteller&quot;&gt;\
+Dear Bob and Alice. Now use your brain and calculate the public key... Afterwards share your public key with each other... \
+If Diffie the Mallory is hearing out your communication, it won&#39;t have any effect on you secret key...
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="PublicKeyCalculation" tags="" position="375,1050" size="100,100">($LOG_GLOBALS:)\
+(set: $BLOCKER_1 to false)\
+(set: _question1 to &quot;Bob&#39;s public key is: &quot; + $BOBS_PUBLICKEY + &quot;10&quot;)\
+(set: _question2 to &quot;Bob&#39;s public key is: &quot; + $BOBS_PUBLICKEY)\
+(set: _question3 to &quot;Bob&#39;s public key is: 1&quot; + $BOBS_PUBLICKEY)\
 (display: &quot;Secret-Box2&quot;)\
 
-&lt;div class=&quot;storyteller&quot;&gt;\
-Now Alice and Bob it&#39;s your time to calculate your public keys. And answer following questions.\
-Both of you&#39;re intelligent to apply is simple mathematical formula so don&#39;t worry.
-&lt;/div&gt;
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to false)(set: $score to $score)(set: $blocker to false)
-Bob, what is your public key? Please use your brain, the formula and your calculator!
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $shouldBeFalse, &quot;Bob&#39;s public key is 3.&quot;)
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(checkbox: bind $shouldBeFalse2, &quot;Bob&#39;s public key is 4.&quot;)
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PublicKeyCalculation2]]]</tw-passagedata><tw-passagedata pid="8" name="PublicKeyCalculation2" tags="" position="375,1050" size="100,100">($LOG_GLOBALS:)\
+(set: $BLOCKER_1 to false)\
+(set: _question1 to &quot;Alice public key is: &quot; + $ALICE_PUBLICKEY + &quot;1&quot;)\
+(set: _question2 to &quot;Alice public key is: 1&quot; + $ALICE_PUBLICKEY)\
+(set: _question3 to &quot;Alice public key is: &quot; + $ALICE_PUBLICKEY)\
+(display: &quot;Secret-Box2&quot;)\
 
-(checkbox: bind $shouldBeTrue, &quot;Bob&#39;s public key is 5.&quot;)
-&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, false, _question3, true)
 
-(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
-Alice, what is your public key? Please use your brain, the formula and your calculator!
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $quiz2False, &quot;Alice&#39; public key is 7.&quot;)
+(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s calculate our secret key.|SecretKey]]]</tw-passagedata><tw-passagedata pid="9" name="SecretKeyBox" tags="" position="1100,100" size="100,100">&lt;div class=&quot;quiz&quot;&gt;\
+The formular is:
+{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
 
-(checkbox: bind $quiz2True, &quot;Alice&#39; public key is 4.&quot;)
-
-(checkbox: bind $quiz2False2, &quot;Alice&#39; public key is 5.&quot;)
-&lt;button onclick=&quot;evaluatePrime2()&quot;&gt;Auswerten&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-window.evaluatePrime1 = function(){
-    if(!$blocker &amp;&amp; !$shouldBeFalse &amp;&amp; !$shouldBeFalse2 &amp;&amp; $shouldBeTrue){
-        $score += 100;
-        $blocker = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
-
-window.evaluatePrime2 = function(){
-    if(!$blocker2 &amp;&amp; !$quiz2False &amp;&amp; !$quiz2False2 &amp;&amp; $quiz2True){
-        $score += 100;
-        $blocker2 = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker2){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
-&lt;/script&gt;
-
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[After computation is the turn to exchange the public key |SecretKey]]]]]</tw-passagedata><tw-passagedata pid="8" name="Secret-Box3" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bobs secret was: 5.
-The formula of the computation of the public key is:
-{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
-
-The Explanation of the formula:
-{\(s\)} is your secret. Very important: {\(s \lt p\)}!
-{\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
+{\(s\)} is your secret.
+{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
 {\(p\)} is the common prime number between Alice and Bob.
 
-Under that circumstances:
-{\(Bobs \: Public \: Key \: is \: Y&amp;#95;b = \: 3^5 \: modulo \: 7 \: = \: 5 \)}
-{\(Alice&#39; \: Public \: Key \: is \: Y&amp;#95;a = \: 3^4 \: modulo \: 7 \: = \: 4 \)}
-(display:&quot;Refresh-Button&quot;)\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="SecretKey" tags="" position="375,1050" size="100,100"># The DHM protocol
-(display: &quot;Secret-Box3&quot;)\
+So under that circumstances:
+
+&lt;Bob&gt;&lt;/Bob&gt;
+&lt;Alice&gt;&lt;/Alice&gt;\
+&lt;!--- Very ugly, but because of Twine there is no other option !!! --&gt;
+&lt;script&gt;
+let latex = window.document.querySelector(&quot;Bob&quot;);
+latex.innerText = &quot;\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:&quot; + $ALICE_PUBLICKEY + &quot;^{&quot; + $BOBS_SECRET + &quot;}\\: \\: modulo \\: \\: &quot; + $COMMON_PRIME + &quot;\\)&quot;;
+latex = window.document.querySelector(&quot;Alice&quot;);
+latex.innerText = &quot;\\(Alice&#39; \\: Secret \\: Key \\: is \\: S_{Alice} =\\:&quot; + $BOBS_PUBLICKEY + &quot;^{&quot; + $ALICE_SECRET + &quot;}\\: \\: modulo \\: \\: &quot; + $COMMON_PRIME + &quot;\\)&quot;;
+&lt;/script&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="SecretKey" tags="" position="375,1050" size="100,100"># The DHM protocol
 
 Step 3:
 &lt;div class=&quot;storyteller&quot;&gt;\
@@ -382,99 +372,60 @@ Now it&#39;s time to exchange your public keys. Even now it does not matter when
 
 Step 4: 
 &lt;div class=&quot;storyteller&quot;&gt;\
-So both of you received the public key of each other. So in the next step, you&#39;ll compute the secret key! Never ever share your secret key with someone. 
-And the special thing is that you both will compute the same secret key! Is&#39;nt that wonderful??
+So both of you received the public key of each other. So in the next step, you&#39;ll compute the secret key! Never ever share your secret key with someone.\
 &lt;/div&gt;
+(display: &quot;SecretKeyBox&quot;)
+[[Let&#39;s calculate your secret keys Alice and Bob|SecretKeyCalculation]]</tw-passagedata><tw-passagedata pid="11" name="SecretKeyCalculation" tags="" position="100,225" size="100,100">(set: $BLOCKER_1 to false)\
+($LOG_GLOBALS:)\
+(set: _question1 to &quot;Bob&#39;s secret key is: &quot; + $BOBS_SECRET_KEY + &quot;1&quot;)\
+(set: _question2 to &quot;Bob&#39;s secret key is: &quot; + $BOBS_SECRET_KEY)\
+(set: _question3 to &quot;Bob&#39;s secret key is: 13434&quot;)\
+(display: &quot;Secret-Box2&quot;)\
 
-&lt;div class=&quot;quiz&quot;&gt;\
-The formular is:
-{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
-
-{\(s\)} is your secret.
-{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
-{\(p\)} is the common prime number between Alice and Bob.
-&lt;/div&gt;
-
-[[Let&#39;s calculate your secret keys Alice and Bob|SecretKeyCalculation]]</tw-passagedata><tw-passagedata pid="10" name="Secret-Box4" tags="" position="375,1050" size="100,100">Secret Box (that no one can see)&lt;div class=&quot;quiz&quot;&gt;The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bob&#39;s secret was: 5.
-Bob&#39;s public key is 5.
-Alice&#39; public key is 4.
-
-The formula for the computation of the secret key is:
-{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
-
-{\(s\)} is your secret.
-{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
-{\(p\)} is the common prime number between Alice and Bob.
-
-Under that circumstances:
-{\(Bobs \: Secret \: Key \: is \: S&amp;#95;b = \: 4^5 \: modulo \: 7\)}
-{\(Alice&#39; \: Public \: Key \: is \: S&amp;#95;a = \: 5^4 \: modulo \: 7\)}
-(display:&quot;Refresh-Button&quot;)\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="SecretKeyCalculation" tags="" position="375,1050" size="100,100"># The DHM protocol
-(display: &quot;Secret-Box4&quot;)\
-
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
 &lt;div class=&quot;storyteller&quot;&gt;\
-Now Alice and Bob it&#39;s your time to calculate your public keys. And answer following questions.\
-Both of you&#39;re intelligent to apply is simple mathematical formula so don&#39;t worry.
+Please calculate your secret keys!
 &lt;/div&gt;
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to false)(set: $score to $score)(set: $blocker to false)
-Bob, what is your public key? Please use your brain, the formula and your calculator!
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $shouldBeFalse, &quot;Bob&#39;s public key is 3.&quot;)
+($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(checkbox: bind $shouldBeFalse2, &quot;Bob&#39;s public key is 4.&quot;)
+(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|SecretKeyCalculation2]]]</tw-passagedata><tw-passagedata pid="12" name="SecretKeyCalculation2" tags="" position="225,225" size="100,100">(set: $BLOCKER_1 to false)\
+($LOG_GLOBALS:)\
+(set: _question1 to &quot;Alice secret key is: &quot; + $ALICE_SECRET_KEY)\
+(set: _question2 to &quot;Alice secret key is: &quot; + $ALICE_SECRET_KEY + &quot;0&quot;)\
+(set: _question3 to &quot;Alice secret key is: 4334&quot;)\
+(display: &quot;Secret-Box2&quot;)\
 
-(checkbox: bind $shouldBeTrue, &quot;Bob&#39;s public key is 5.&quot;)
-&lt;button onclick=&quot;evaluatePrime1()&quot;&gt;Auswerten&lt;/button&gt;
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
+&lt;div class=&quot;storyteller&quot;&gt;\
+Please calculate your secret keys!
 &lt;/div&gt;
+($makeQuiz: _question1, true, _question2, false, _question3, false)
 
-(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
-Alice, what is your public key? Please use your brain, the formula and your calculator!
-&lt;div class=&quot;quiz&quot;&gt;
-(checkbox: bind $quiz2False, &quot;Alice&#39; public key is 7.&quot;)
+(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|SecretKeyCalculation3]]]</tw-passagedata><tw-passagedata pid="13" name="SecretKeyCalculation3" tags="" position="350,225" size="100,100">(set: $BLOCKER_1 to false)\
+($LOG_GLOBALS:)\
+(set: _question1 to &quot;Bob&#39;s secret was the same like Alice secret!&quot;)\
+(set: _question2 to &quot;Bob&#39;s secret has another prime number factorization.&quot;)\
+(set: _question3 to &quot;Nothing.&quot;)\
+(display: &quot;Secret-Box2&quot;)\
 
-(checkbox: bind $quiz2True, &quot;Alice&#39; public key is 4.&quot;)
-
-(checkbox: bind $quiz2False2, &quot;Alice&#39; public key is 5.&quot;)
-&lt;button onclick=&quot;evaluatePrime2()&quot;&gt;Auswerten&lt;/button&gt;
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
+&lt;div class=&quot;storyteller&quot;&gt;\
+So what did you notice about your secret keys?
 &lt;/div&gt;
+($makeQuiz: _question1, true, _question2, false, _question3, false)
 
-&lt;script&gt;
-window.evaluatePrime1 = function(){
-    if(!$blocker &amp;&amp; !$shouldBeFalse &amp;&amp; !$shouldBeFalse2 &amp;&amp; $shouldBeTrue){
-        $score += 100;
-        $blocker = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
-
-window.evaluatePrime2 = function(){
-    if(!$blocker2 &amp;&amp; !$quiz2False &amp;&amp; !$quiz2False2 &amp;&amp; $quiz2True){
-        $score += 100;
-        $blocker2 = true;
-        alert(&quot;Correct! Your score: &quot; + $score);
-    }
-     else if($blocker2){
-         alert(&quot;Already done little one ;)&quot;);
-    }
-        else {
-        alert(&quot;Wrong answer try again&quot;);
-    }
-}
-&lt;/script&gt;
-
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[After computation is the turn to exchange the public key |SecretKey]]]]]</tw-passagedata><tw-passagedata pid="12" name="Header" tags="header" position="775,700" size="100,100">&lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;\
-&lt;script id=&quot;MathJax-script&quot; async src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Macros" tags="" position="375,1050" size="100,100">&lt;!-- GLOBAL VARIABLES ----------------------------------------&gt;
+(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|DiffieExplanation]]]</tw-passagedata><tw-passagedata pid="14" name="DiffieExplanation" tags="" position="475,225" size="100,100">(set: _text1 to &quot;You could see that you both calculated the same secret key, only with your common prime and common primitive root. Even if Hellman the Mallory has both your public key he can&#39;t calculate the secret key, he has to brute-force it.&quot;)\
+(set: _holder to &quot;Continue...&quot;)\
+(set: _text2 to &quot;If you&#39;re using really big numbers like 128 bits or 256 bits, Hellmann will never Brute-force your it in his lifetime. The Diffie-Hellman key exchange is based on the assumed difficulty of the discrete logarithm problem module a prime number. In our case Hellman needs one of your chosen secret and this is difficult to compute by knowing only your pubic keys.&quot;)\
+(set: _text3 to &quot;But beware of man in the middle attacks &lt;br&gt; &lt;br&gt;[[Diffie-Hellman-Key-Exchange summary|DiffieExplanation2]]&quot;)\
+&lt;div class=&quot;storyteller&quot;&gt;\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="DiffieExplanation2" tags="" position="600,225" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="Header" tags="header" position="775,700" size="100,100">&lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;\
+&lt;script id=&quot;MathJax-script&quot; async src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;</tw-passagedata><tw-passagedata pid="17" name="Macros" tags="" position="375,1050" size="100,100"># Dev-Page
+&lt;!-- GLOBAL VARIABLES ----------------------------------------&gt;
 (set: $BLOCKER_1 to false)\
 (set: $BlOCKER_2 to false)\
 (set: $SCORE to 0)\
@@ -482,11 +433,73 @@ window.evaluatePrime2 = function(){
 (set: $ALERT_CORRECT to &quot;Correct Answer! Congratulation.&quot;)\
 (set: $ALERT_ALREADY_DONE to &quot;Already answered&quot;)\
 (set: $ALERT_WRONG_ANSWER to &quot;Sorry, your answer is wrong&quot;)\
+(set: $COMMON_PRIME to &quot;30539&quot;)\
+(set: $COMMON_GEN to &quot;30404&quot;)\
+(set: $BOBS_SECRET to &quot;29343&quot;)\
+(set: $ALICE_SECRET to &quot;4534&quot;)\
+&lt;!-----&gt;
+(set: $ALICE_PUBLICKEY to &quot;&quot;)\
+(set: $BOBS_PUBLICKEY to &quot;&quot;)\
+(set: $BOBS_SECRET_KEY to &quot;&quot;)\
+(set: $ALICE_SECRET_KEY to &quot;&quot;)\
 
+&lt;!-- Calculate the different keys and save them into globals constants.--&gt;
+&lt;script&gt;
+var common_prime = BigInt($COMMON_PRIME);
+var common_gen = BigInt($COMMON_GEN);
+var alice_secret = BigInt($ALICE_SECRET);
+var bobs_secret = BigInt($BOBS_SECRET);
 
+function pow (a, b, n) {
+  a = a % n;
+  var result = 1n;
+  var x = a;
 
+  while (b &gt; 0n) {
+    var leastSignificantBit = b % 2n;
+    b = b / 2n;
+
+    if (leastSignificantBit == 1n) {
+      result = result * x;
+      result = result % n;
+    }
+
+    x = x * x;
+    x = x % n;
+  }
+  return result;
+}
+
+var alicePublicKeyn = pow(common_gen, alice_secret, common_prime);
+var bobPublicKeyn = pow(common_gen, bobs_secret, common_prime);
+var aliceKey = pow(bobPublicKeyn, alice_secret, common_prime);
+var bobsKey = pow(alicePublicKeyn, bobs_secret, common_prime);
+
+$ALICE_PUBLICKEY = alicePublicKeyn.toString();
+$BOBS_PUBLICKEY = bobPublicKeyn.toString();
+$ALICE_SECRET_KEY = aliceKey.toString();
+$BOBS_SECRET_KEY = bobsKey.toString();
+
+&lt;/script&gt;\
 
 &lt;!-- GLOBAL MACROS ----------------------------------------&gt;
+
+
+(set: $LOG_GLOBALS to (macro: [
+    (output:)[\
+&lt;script&gt;
+console.log(&quot;Common Prime: &quot; + $COMMON_PRIME);
+console.log(&quot;Common Gen: &quot; + $COMMON_GEN);
+console.log(&quot;Alice Secret: &quot; + $ALICE_SECRET);
+console.log(&quot;Bobs Secret: &quot; + $BOBS_SECRET );
+console.log(&quot;Bobs Public: &quot; + $BOBS_PUBLICKEY);
+console.log(&quot;Alice Public: &quot; + $ALICE_PUBLICKEY);
+console.log(&quot;Bobs Secret Key: &quot; + $BOBS_SECRET_KEY);
+console.log(&quot;Bobs Secret Key: &quot; + $ALICE_SECRET_KEY);
+&lt;/script&gt;\
+]]))
+
+
 
 &lt;!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
 _hideStr hast to be command-type to provided nested calls of this method :)--&gt;
@@ -538,6 +551,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
         let arg1s = window.event.target.getAttribute(&#39;quiz-argSecond-should&#39;);
         let arg2i = window.event.target.getAttribute(&#39;quiz-argThird-is&#39;);
         let arg2s = window.event.target.getAttribute(&#39;quiz-argThird-should&#39;);
+        // debugging...
         console.log(&#39;arg0i: &#39; + arg0i);
         console.log(&#39;arg1i: &#39; + arg1i);
         console.log(&#39;$BLOCKER_1: &#39; + $BLOCKER_1);
@@ -551,6 +565,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
         if(!$BLOCKER_1 &amp;&amp; (eval(arg0i) == eval(arg0s)) &amp;&amp; (eval(arg1i) == eval(arg1s)) &amp;&amp; (eval(arg2i) == eval(arg2s))){
             console.log(&quot;Correct Evaluation!!&quot;);
             $SCORE += 100;
+            // debugging...
             console.log($SCORE);
             console.log($BLOCKER_1);
             $BLOCKER_1 = true;
@@ -566,13 +581,13 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
     ]]))
 
 &lt;!-- START STORY HERE! ----------------------------------------&gt;
-(go-to: &quot;PrimeGame&quot;)</tw-passagedata><tw-passagedata pid="14" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
-Formula not shown right...</tw-passagedata><tw-passagedata pid="15" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="16" name="GameInfoPrimeQuiz" tags="" position="725,225" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
+(go-to: &quot;SecretKeyCalculation3&quot;)</tw-passagedata><tw-passagedata pid="18" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
+Formula not shown right...</tw-passagedata><tw-passagedata pid="19" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="20" name="GameInfoPrimeQuiz" tags="" position="1225,225" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
 Spielinfo:
 Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.\
 Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3.\
 Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="PrimeGame" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="PrimeGame" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
 (set: _question1 to &quot;Prime is same like the service of Amazon Prime.&quot;)\
 (set: _question2 to &quot;The number 1 is prime.&quot;)\
 (set: _question3 to &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;)\
@@ -584,7 +599,7 @@ Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
 Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, false, _question3, true)
 
-(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame2]]]</tw-passagedata><tw-passagedata pid="18" name="PrimeGame2" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame2]]]</tw-passagedata><tw-passagedata pid="22" name="PrimeGame2" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
 (set: _question1 to &quot;The number 0 is prime.&quot;)\
 (set: _question2 to &quot;Prime numbers protect us from cybercrime.&quot;)\
 (set: _question3 to &quot;The set of all prime numbers is finite.&quot;)\
@@ -596,7 +611,7 @@ Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame3]]]</tw-passagedata><tw-passagedata pid="19" name="PrimeGame3" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame3]]]</tw-passagedata><tw-passagedata pid="23" name="PrimeGame3" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
 (set: _question1 to &quot;The number 4254 is prime.&quot;)\
 (set: _question2 to &quot;The number 4252 is prime.&quot;)\
 (set: _question3 to &quot;The number 4253 is prime.&quot;)\
@@ -608,7 +623,7 @@ Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, false, _question3, true)
 
-(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame4]]]</tw-passagedata><tw-passagedata pid="20" name="PrimeGame4" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame4]]]</tw-passagedata><tw-passagedata pid="24" name="PrimeGame4" tags="" position="175,1050" size="100,100">(set: $BLOCKER_1 to false)\
 (set: _question1 to &quot;There is an O(1)-algorithm to find the next prime number.&quot;)\
 (set: _question2 to &quot;Diffie-Hellman-Key-Exchange is using prime numbers.&quot;)\
 (set: _question3 to &quot;A prime number has more than one prime factor.&quot;)\
@@ -620,7 +635,7 @@ Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Okay your answered everything with good deeds...|Hellman-Key]]]</tw-passagedata><tw-passagedata pid="21" name="PrimeGameDev" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $BLOCKER_1)[[Okay your answered everything with good deeds...|Hellman-Key]]]</tw-passagedata><tw-passagedata pid="25" name="PrimeGameDev" tags="" position="175,1050" size="100,100">#Diffie Hellman The Game
 
 &lt;div class=&quot;storyteller&quot;&gt;
 Spielinfo:
@@ -652,7 +667,7 @@ Bitte wähle die passende Aussage, die genau zutrifft:
 &lt;/div&gt;
 
 ($makeQuiz: &quot;Prime is same like the service of Amazon Prime.&quot;, false, &quot;The number 1 is prime&quot;, false, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;, true)
-[[go |Spielwiese2]]</tw-passagedata><tw-passagedata pid="22" name="Spielwiese2" tags="" position="175,1050" size="100,100">($makeQuiz: &quot;Prime is same like the service of Amazon Prime.&quot;, false, &quot;The number 1 is prime&quot;, true, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;, true, 2)
+[[go |Spielwiese2]]</tw-passagedata><tw-passagedata pid="26" name="Spielwiese2" tags="" position="175,1050" size="100,100">($makeQuiz: &quot;Prime is same like the service of Amazon Prime.&quot;, false, &quot;The number 1 is prime&quot;, true, &quot;The decision problem if a given number is prime has a polynomial complexity.&quot;, true, 2)
 
 
 
@@ -712,7 +727,7 @@ window.evaluatePrime2 = function(){
 &lt;/script&gt;
 
 
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="23" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]</tw-passagedata><tw-passagedata pid="27" name="Intro" tags="prolog" position="175,125" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
@@ -720,7 +735,7 @@ window.evaluatePrime2 = function(){
 (set: _text3 to &quot;Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... &lt;br&gt; &lt;br&gt;[[Prolog2-&gt;Intro2]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Intro2" tags="burningCity" position="175,325" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern.&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
@@ -728,7 +743,7 @@ window.evaluatePrime2 = function(){
 (set: _text3 to &quot;Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser. &lt;br&gt;&lt;br&gt; [[Prolog3-&gt;Intro3]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Intro3" tags="burningCity2" position="175,525" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.&quot;)\
 (set: _text2 to &quot;Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.&quot;)\
@@ -737,14 +752,14 @@ window.evaluatePrime2 = function(){
 (set: _text4 to &quot; Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice! Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. &lt;br&gt; &lt;br&gt;[[Scene1-&gt;Scene1]]&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="Scene1" tags="badminton" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Alice und Bob spielen im Garten Federball oder wie Erwachsene es nennen um sich nicht schlecht zu fühlen “Badminton”. Plötzlich fliegt ihr letzter Ball in den alten Tempel der geheimen geheim Kunst. Sie streiten sich wer den Ball rausholen soll. Bob verliert Schere Stein Papier und muss den Ball holen. Alice will den Angsthasen Bob nicht alleine in den Tempel lassen, da sie weiß, er hat viel zu viel Angst alleine dahin zu gehen. Dort treffen sie auf den alten Sensei Diffie-san.&quot;)\
 (set: _text2 to &quot;“Ich habe auf euch gewartet!” Beide schauen sich verwirrt an und fragen wer bist du? Er sagt ich warte auf die zwei Auserwählten die irgendwann die Welt retten.&lt;br&gt;&lt;br&gt;[[Scene2-&gt;DiffieScene]]&quot;)\
 (set: _holder to &quot;Weiter...&quot;)\
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, (print: _text2))\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="DiffieScene" tags="dojo" position="175,900" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Alice und Bob saßen vor Diffie-san. Er schaute Ihnen abwechselnd tief in die Augen, ohne ein Wort zu sagen. Nach einem Moment der Stille sagte er: „Stellt euch eine Welt ohne Freiheit vor. Eine Welt, in der eine Taube dem Falken sagen muss, wohin er fliegen möchte. In dieser Welt kann der Falke jederzeit über das Leben der Taube entscheiden. Das meine Kinder ist nur ein Gleichnis. Wir werden eine Zeit haben, in der Freiheit ein Gut der Vergangenheit ist.“&quot;)\
 (set: _text2 to &quot;Er schaute nach oben und betrachtete den Himmel. Eine Taube flog in weiter Ferne. Sie wurde verfolgt von einem Falken. Im nächsten Moment bohrte der Falke seine Klauen in den Rücken der Taube. „Die Welt wird nicht mehr so sein wie sie einmal war“ sagte Diffie-san mit bedauern. „Ihr könnt das verhindern. Was glaubt ihr ist die wichtigste Waffe in der Schlacht?“&quot;)\
@@ -753,7 +768,7 @@ window.evaluatePrime2 = function(){
 (set: _text4 to &quot;Sowas funktioniert nur mit sicherer Kommunikation und genau das wird euch irgendwann fehlen. Steht nun auf. Ich bringe euch bei, wie ihr ab heute sicher miteinander sprechen könnt. Alles basiert auf Mathematik.&lt;br&gt;&lt;br&gt;[[Zum Primzahlspiel|PrimeGame]]&quot;)\ 
 &lt;div class=&quot;storyteller&quot;&gt;\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))\
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Scene4" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Scene4" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: _text1 to &quot;Bob woke up in a cold sweat. What was that ? Why did he remember that day ? He looked at the letter in his hands. The cat on the back had disappeared. How was that possible ? He had been trying to hunt a madman for so long, would he become one himself now? &quot;)\
 (set: _text2 to &quot;He shook all over and poured himself a glass of whiskey. His nerves had to calm down first. He opened the letter and found a sequence of letters and numbers ending with an equal sign.&lt;br&gt;&lt;br&gt;[[GetAnAnswer-&gt;PGScene]]&quot;)\
@@ -804,7 +819,7 @@ window.evalueBAndCalculateA = function(){
     
 
 }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="29" name="PGScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="33" name="PGScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: $blocker to false)
 &lt;div class=&quot;storyteller&quot;&gt;
@@ -825,7 +840,7 @@ Google(&quot;String with equal symbol at the end&quot;)
         &lt;label for=&quot;numberSmallerPrime&quot;&gt;Number&lt;/label&gt;
         &lt;input type=&quot;text&quot; name=&quot;numberSmallerPrime&quot; id=&quot;numberSmallerPrime&quot;required /&gt;
         &lt;button onclick=&quot;evaluatePrimeAndNumber()&quot;&gt;Calculate&lt;/button&gt;
-(live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]</tw-passagedata><tw-passagedata pid="30" name="CalculateB" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
+(live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]</tw-passagedata><tw-passagedata pid="34" name="CalculateB" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
 (set: $blocker to false)
 &lt;div class=&quot;storyteller&quot;&gt;

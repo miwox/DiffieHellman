@@ -1,84 +1,9 @@
-:: Secret-Box4 {"position":"375,1050"}
-Secret Box (that no one can see)<div class="quiz">The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bob's secret was: 5.
-Bob's public key is 5.
-Alice' public key is 4.
-
-The formula for the computation of the secret key is:
-{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
-
-{\(s\)} is your secret.
-{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
-{\(p\)} is the common prime number between Alice and Bob.
-
-Under that circumstances:
-{\(Bobs \: Secret \: Key \: is \: S&#95;b = \: 4^5 \: modulo \: 7\)}
-{\(Alice' \: Public \: Key \: is \: S&#95;a = \: 5^4 \: modulo \: 7\)}
-(display:"Refresh-Button")\
-</div>
-
-:: SecretKeyCalculation {"position":"375,1050"}
-# The DHM protocol
-(display: "Secret-Box4")\
-
+:: DiffieExplanation
+(set: _text1 to "You could see that you both calculated the same secret key, only with your common prime and common primitive root. Even if Hellman the Mallory has both your public key he can't calculate the secret key, he has to brute-force it.")\
+(set: _holder to "Continue...")\
+(set: _text2 to "If you're using really big numbers like 128 bits or 256 bits, Hellmann will never Brute-force your secrets in his lifetime. The Diffie-Hellman key exchange is based on the assumed difficulty of the discrete logarithm problem module a prime number. In our case Hellman needs one of your chosen secret and this is difficult to compute by knowing only your pubic keys.")\
+(set: _text3 to "But beware of man in the middle attacks <br> <br>[[Diffie-Hellman-Key-Exchange summary|DiffieExplanation2]]")\
 <div class="storyteller">\
-Now Alice and Bob it's your time to calculate your public keys. And answer following questions.\
-Both of you're intelligent to apply is simple mathematical formula so don't worry.
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 </div>
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to false)(set: $score to $score)(set: $blocker to false)
-Bob, what is your public key? Please use your brain, the formula and your calculator!
-<div class="quiz">
-(checkbox: bind $shouldBeFalse, "Bob's public key is 3.")
-
-(checkbox: bind $shouldBeFalse2, "Bob's public key is 4.")
-
-(checkbox: bind $shouldBeTrue, "Bob's public key is 5.")
-<button onclick="evaluatePrime1()">Auswerten</button>
-</div>
-
-(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
-Alice, what is your public key? Please use your brain, the formula and your calculator!
-<div class="quiz">
-(checkbox: bind $quiz2False, "Alice' public key is 7.")
-
-(checkbox: bind $quiz2True, "Alice' public key is 4.")
-
-(checkbox: bind $quiz2False2, "Alice' public key is 5.")
-<button onclick="evaluatePrime2()">Auswerten</button>
-</div>
-
-<script>
-window.evaluatePrime1 = function(){
-    if(!$blocker && !$shouldBeFalse && !$shouldBeFalse2 && $shouldBeTrue){
-        $score += 100;
-        $blocker = true;
-        alert("Correct! Your score: " + $score);
-    }
-     else if($blocker){
-         alert("Already done little one ;)");
-    }
-        else {
-        alert("Wrong answer try again");
-    }
-}
-
-window.evaluatePrime2 = function(){
-    if(!$blocker2 && !$quiz2False && !$quiz2False2 && $quiz2True){
-        $score += 100;
-        $blocker2 = true;
-        alert("Correct! Your score: " + $score);
-    }
-     else if($blocker2){
-         alert("Already done little one ;)");
-    }
-        else {
-        alert("Wrong answer try again");
-    }
-}
-</script>
-
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[After computation is the turn to exchange the public key |SecretKey]]]]]
-
+:: DiffieExplanation2

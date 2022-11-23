@@ -1,8 +1,5 @@
 :: Secret-Box2 {"position":"375,1050"}
-Secret Box (that no one can see)<div class="quiz">The common prime number was set to: 7.
-The common prime root of modolu 7 was set to: 3.
-Alice secret was: 4.
-Bobs secret was: 5.
+<div class ="quiz">\
 The formula of the computation of the public key is:
 {\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 
@@ -10,73 +7,56 @@ The Explanation of the formula:
 {\(s\)} is your secret. Very important: {\(s \lt p\)}!
 {\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
 {\(p\)} is the common prime number between Alice and Bob.
+</div>
+Secret Box (that no one can see)
+<div class="quiz">\
+The common prime number was set to: $COMMON_PRIME.
+The common prime root of modolu your prime was set to: $COMMON_GEN.
+Alice secret was: $ALICE_SECRET.
+Bobs secret was: $BOBS_SECRET.
 
 Under that circumstances:
-{\(Bobs \: Public \: Key \: is \: Y&#95;b = \: 3^5 \: modulo \: 7\)}
-{\(Alice' \: Public \: Key \: is \: Y&#95;a = \: 3^4 \: modulo \: 7\)}
+<Bob>{\(Bobs \: Public \: Key \: is \: Y&#95;b = \: 3^5 \: modulo \: 7\)}</Bob>
+<Alice>{\(Alice' \: Public \: Key \: is \: Y&#95;a = \: 3^4 \: modulo \: 7\)}</Alice>\
+<!--- Very ugly, but because of Twine there is no other option !!! -->
+<script>
+let latex = window.document.querySelector("Bob");
+latex.innerText = "\\(Bobs \\: Public \\: Key \\: is \\: Y_{Bob} =\\:" + $COMMON_GEN + "^{" + $BOBS_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
+latex = window.document.querySelector("Alice");
+latex.innerText = "\\(Alice' \\: Public \\: Key \\: is \\: Y_{Alice} =\\:" + $COMMON_GEN + "^{" + $ALICE_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
+</script>\
 (display:"Refresh-Button")\
 </div>
 
+<div class= "storyteller">\
+Dear Bob and Alice. Now use your brain and calculate the public key... Afterwards share your public key with each other... \
+If Diffie the Mallory is hearing out your communication, it won't have any effect on you secret key...
+</div>
+
 :: PublicKeyCalculation {"position":"375,1050"}
-# The DHM protocol
+($LOG_GLOBALS:)\
+(set: $BLOCKER_1 to false)\
+(set: _question1 to "Bob's public key is: " + $BOBS_PUBLICKEY + "10")\
+(set: _question2 to "Bob's public key is: " + $BOBS_PUBLICKEY)\
+(set: _question3 to "Bob's public key is: 1" + $BOBS_PUBLICKEY)\
 (display: "Secret-Box2")\
 
-<div class="storyteller">\
-Now Alice and Bob it's your time to calculate your public keys. And answer following questions.\
-Both of you're intelligent to apply is simple mathematical formula so don't worry.
-</div>
-Deine Punktanzahl: (live: 0.5s)[(print: $score)]
-(set: $shouldBeFalse to true)(set: $shouldBeFalse2 to true)(set: $shouldBeTrue to false)(set: $score to $score)(set: $blocker to false)
-Bob, what is your public key? Please use your brain, the formula and your calculator!
-<div class="quiz">
-(checkbox: bind $shouldBeFalse, "Bob's public key is 3.")
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(checkbox: bind $shouldBeFalse2, "Bob's public key is 4.")
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PublicKeyCalculation2]]]
 
-(checkbox: bind $shouldBeTrue, "Bob's public key is 5.")
-<button onclick="evaluatePrime1()">Auswerten</button>
-</div>
+:: PublicKeyCalculation2 {"position":"375,1050"}
+($LOG_GLOBALS:)\
+(set: $BLOCKER_1 to false)\
+(set: _question1 to "Alice public key is: " + $ALICE_PUBLICKEY + "1")\
+(set: _question2 to "Alice public key is: 1" + $ALICE_PUBLICKEY)\
+(set: _question3 to "Alice public key is: " + $ALICE_PUBLICKEY)\
+(display: "Secret-Box2")\
 
-(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
-Alice, what is your public key? Please use your brain, the formula and your calculator!
-<div class="quiz">
-(checkbox: bind $quiz2False, "Alice' public key is 7.")
+##The calculation game
+Your score: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, false, _question3, true)
 
-(checkbox: bind $quiz2True, "Alice' public key is 4.")
-
-(checkbox: bind $quiz2False2, "Alice' public key is 5.")
-<button onclick="evaluatePrime2()">Auswerten</button>
-</div>
-
-<script>
-window.evaluatePrime1 = function(){
-    if(!$blocker && !$shouldBeFalse && !$shouldBeFalse2 && $shouldBeTrue){
-        $score += 100;
-        $blocker = true;
-        alert("Correct! Your score: " + $score);
-    }
-     else if($blocker){
-         alert("Already done little one ;)");
-    }
-        else {
-        alert("Wrong answer try again");
-    }
-}
-
-window.evaluatePrime2 = function(){
-    if(!$blocker2 && !$quiz2False && !$quiz2False2 && $quiz2True){
-        $score += 100;
-        $blocker2 = true;
-        alert("Correct! Your score: " + $score);
-    }
-     else if($blocker2){
-         alert("Already done little one ;)");
-    }
-        else {
-        alert("Wrong answer try again");
-    }
-}
-</script>
-
-(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[After computation is the turn to exchange the public key |SecretKey]]]]]
-
+(live: 1s)[(if: $BLOCKER_1)[[Let's calculate our secret key.|SecretKey]]]
