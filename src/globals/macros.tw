@@ -156,7 +156,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "SecretKeyCalculation3")
+(go-to: "DiffieExplanation2")
 
 :: Refresh-Button {"position":"375,1050"}
 <button type="button" onClick="window.location.reload()">\

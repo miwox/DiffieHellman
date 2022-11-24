@@ -16,8 +16,8 @@ Alice secret was: $ALICE_SECRET.
 Bobs secret was: $BOBS_SECRET.
 
 Under that circumstances:
-<Bob>{\(Bobs \: Public \: Key \: is \: Y&#95;b = \: 3^5 \: modulo \: 7\)}</Bob>
-<Alice>{\(Alice' \: Public \: Key \: is \: Y&#95;a = \: 3^4 \: modulo \: 7\)}</Alice>\
+<Bob>PLACEHOLDER</Bob>
+<Alice>PLACEHOLDER</Alice>\
 <!--- Very ugly, but because of Twine there is no other option !!! -->
 <script>
 let latex = window.document.querySelector("Bob");

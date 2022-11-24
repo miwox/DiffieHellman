@@ -1,0 +1,67 @@
+:: DiffieExplanation2
+
+##Summary 
+
+<div class="quiz"><ol>\
+<li><Step1></Step1></li>
+<li><Step2>Choose your private secret:</Step2>
+    <ul>
+        <li><Step21></Step21></li>
+        <li><Step22></Step22></li>\
+    </ul>\
+</li>
+<li><Step3>Choose your secrets..</Step3>
+    <ul>
+        <li><Step31></Step31></li>
+        <li><Step32></Step32></li>
+    </ul>\
+</li>\
+<li>Now share your public key with each other.</li>
+<li><Step4>Calculate your private keys:</Step4>
+    <ul>
+        <li><Step41></Step41></li>
+        <li><Step42></Step42></li>
+    </ul>\
+</li>\
+<li>Notice that both of your secret keys are the same!</li>\
+</ol></div>\
+
+<div class="storyteller">\
+Follow following steps.. and you can defeat Hellmann!\
+</div>
+
+[[Let's wake up |Scene4]]
+<script>
+let latex = window.document.querySelector("Step1");
+latex.innerText = "Alice and Bob share a prime \\(q\\) and a primitive root \\(\\alpha\\) of the prime, so that \\(\\alpha < q\\).";
+
+latex = window.document.querySelector("Step2");
+latex.innerText = "Alice and Bob choose a secret, so that \\(X_x < q\\)";
+
+latex = window.document.querySelector("Step21");
+latex.innerText = "Alice choose your secret, so that \\(X_A< q\\)";
+
+latex = window.document.querySelector("Step22");
+latex.innerText = "Bob choose your secret, so that \\(X_B < q\\)";
+
+latex = window.document.querySelector("Step3");
+latex.innerText = "Alice and Bob calculate your public keys, like \\(Y_X = \\alpha^{X_X} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step31");
+latex.innerText = "Alice calculate your public key, like \\(Y_A = \\alpha^{X_A} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step32");
+latex.innerText = "Bob calculate your public key, like \\(Y_B = \\alpha^{X_B} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step4");
+latex.innerText = "Alice and Bob calculate your secret keys, like \\(S = Y_X^{X_X} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step41");
+latex.innerText = "Alice calculate your secret key, like \\(S = Y_B^{X_A} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step42");
+latex.innerText = "Bob calculate your secret key, like \\(S = Y_A^{X_B} \\: mod \\: q\\)";
+
+
+
+</script>
