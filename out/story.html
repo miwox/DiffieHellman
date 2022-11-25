@@ -322,7 +322,8 @@ latex.innerText = &quot;\\(Alice&#39; \\: Public \\: Key \\: is \\: Y_{Alice} =\
 &lt;div class= &quot;storyteller&quot;&gt;\
 Dear Bob and Alice. Now use your brain and calculate the public key... Afterwards share your public key with each other... \
 If Diffie the Mallory is hearing out your communication, it won&#39;t have any effect on you secret key...
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="PublicKeyCalculation" tags="" position="375,1050" size="100,100">($LOG_GLOBALS:)\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="PublicKeyCalculation" tags="" position="375,1050" size="100,100">#Diffie Hellaman: The Game
+($LOG_GLOBALS:)\
 (set: $BLOCKER_1 to false)\
 (set: _question1 to &quot;Bob&#39;s public key is: &quot; + $BOBS_PUBLICKEY + &quot;10&quot;)\
 (set: _question2 to &quot;Bob&#39;s public key is: &quot; + $BOBS_PUBLICKEY)\
@@ -333,7 +334,8 @@ If Diffie the Mallory is hearing out your communication, it won&#39;t have any e
 Your score: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Next Question|PublicKeyCalculation2]]]</tw-passagedata><tw-passagedata pid="8" name="PublicKeyCalculation2" tags="" position="375,1050" size="100,100">($LOG_GLOBALS:)\
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PublicKeyCalculation2]]]</tw-passagedata><tw-passagedata pid="8" name="PublicKeyCalculation2" tags="" position="375,1050" size="100,100">#Diffie Hellaman: The Game
+($LOG_GLOBALS:)\
 (set: $BLOCKER_1 to false)\
 (set: _question1 to &quot;Alice public key is: &quot; + $ALICE_PUBLICKEY + &quot;1&quot;)\
 (set: _question2 to &quot;Alice public key is: 1&quot; + $ALICE_PUBLICKEY)\
@@ -363,6 +365,7 @@ latex.innerText = &quot;\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:&quot;
 latex = window.document.querySelector(&quot;Alice&quot;);
 latex.innerText = &quot;\\(Alice&#39; \\: Secret \\: Key \\: is \\: S_{Alice} =\\:&quot; + $BOBS_PUBLICKEY + &quot;^{&quot; + $ALICE_SECRET + &quot;}\\: \\: modulo \\: \\: &quot; + $COMMON_PRIME + &quot;\\)&quot;;
 &lt;/script&gt;\
+(display:&quot;Refresh-Button&quot;)\
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="SecretKey" tags="" position="375,1050" size="100,100"># The DHM protocol
 
 Step 3:
@@ -389,7 +392,8 @@ Please calculate your secret keys!
 &lt;/div&gt;
 ($makeQuiz: _question1, false, _question2, true, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|SecretKeyCalculation2]]]</tw-passagedata><tw-passagedata pid="12" name="SecretKeyCalculation2" tags="" position="225,225" size="100,100">(set: $BLOCKER_1 to false)\
+(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|SecretKeyCalculation2]]]</tw-passagedata><tw-passagedata pid="12" name="SecretKeyCalculation2" tags="" position="225,225" size="100,100">#Diffie Hellman: The Game
+(set: $BLOCKER_1 to false)\
 ($LOG_GLOBALS:)\
 (set: _question1 to &quot;Alice secret key is: &quot; + $ALICE_SECRET_KEY)\
 (set: _question2 to &quot;Alice secret key is: &quot; + $ALICE_SECRET_KEY + &quot;0&quot;)\
@@ -403,7 +407,8 @@ Please calculate your secret keys!
 &lt;/div&gt;
 ($makeQuiz: _question1, true, _question2, false, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|SecretKeyCalculation3]]]</tw-passagedata><tw-passagedata pid="13" name="SecretKeyCalculation3" tags="" position="350,225" size="100,100">(set: $BLOCKER_1 to false)\
+(live: 1s)[(if: $BLOCKER_1)[[Let&#39;s go to Alice secret key.|SecretKeyCalculation3]]]</tw-passagedata><tw-passagedata pid="13" name="SecretKeyCalculation3" tags="" position="350,225" size="100,100">#Diffie Hellman: The Game
+(set: $BLOCKER_1 to false)\
 ($LOG_GLOBALS:)\
 (set: _question1 to &quot;Bob&#39;s secret was the same like Alice secret!&quot;)\
 (set: _question2 to &quot;Bob&#39;s secret has another prime number factorization.&quot;)\
@@ -437,6 +442,14 @@ So what did you notice about your secret keys?
 (set: $COMMON_GEN to &quot;30404&quot;)\
 (set: $BOBS_SECRET to &quot;29343&quot;)\
 (set: $ALICE_SECRET to &quot;4534&quot;)\
+&lt;!--- Scene 4 global constants --&gt;
+(set: $COMMON_PRIME_2 to &quot;&quot;)\
+(set: $COMMOMN_GEN_2 to &quot;&quot;)\
+(set: $BASE_64_CODE to &quot;&quot;)\
+(set: $PLACEHOLDER_BASE64 to &quot;:::::::::::::::::::&quot;)\
+
+&lt;!--- BASE64-Encoding--&gt;
+
 &lt;!-----&gt;
 (set: $ALICE_PUBLICKEY to &quot;&quot;)\
 (set: $BOBS_PUBLICKEY to &quot;&quot;)\
@@ -581,8 +594,25 @@ _hideStr hast to be command-type to provided nested calls of this method :)--&gt
     ]]))
 
 &lt;!-- START STORY HERE! ----------------------------------------&gt;
-(go-to: &quot;DiffieExplanation2&quot;)</tw-passagedata><tw-passagedata pid="17" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
-Formula not shown right...</tw-passagedata><tw-passagedata pid="18" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="19" name="GameInfoPrimeQuiz" tags="" position="1100,225" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
+(go-to: &quot;Hellman-Key&quot;)</tw-passagedata><tw-passagedata pid="17" name="Refresh-Button" tags="" position="375,1050" size="100,100">&lt;button type=&quot;button&quot; onClick=&quot;window.location.reload()&quot;&gt;\
+Formula not shown right...
+&lt;script&gt;
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem(&#39;firstLoad&#39;) )
+    {
+      localStorage[&#39;firstLoad&#39;] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem(&#39;firstLoad&#39;);
+  }
+})();
+
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="18" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="19" name="GameInfoPrimeQuiz" tags="" position="1100,225" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
 Spielinfo:
 Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.\
 Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3.\
@@ -888,6 +918,8 @@ B = g^b mod p and b must be smaller than p
 
 &lt;div class=&quot;storyteller&quot;&gt;\
 Follow following steps.. and you can defeat Hellmann!\
+
+(display:&quot;Refresh-Button&quot;)\
 &lt;/div&gt;
 
 [[Let&#39;s wake up |Scene4]]

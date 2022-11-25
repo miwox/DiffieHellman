@@ -18,6 +18,7 @@ latex.innerText = "\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:" + $ALICE_
 latex = window.document.querySelector("Alice");
 latex.innerText = "\\(Alice' \\: Secret \\: Key \\: is \\: S_{Alice} =\\:" + $BOBS_PUBLICKEY + "^{" + $ALICE_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
 </script>\
+(display:"Refresh-Button")\
 </div>
 
 :: SecretKey {"position":"375,1050"}
@@ -53,6 +54,7 @@ Please calculate your secret keys!
 (live: 1s)[(if: $BLOCKER_1)[[Let's go to Alice secret key.|SecretKeyCalculation2]]]
 
 :: SecretKeyCalculation2
+#Diffie Hellman: The Game
 (set: $BLOCKER_1 to false)\
 ($LOG_GLOBALS:)\
 (set: _question1 to "Alice secret key is: " + $ALICE_SECRET_KEY)\
@@ -70,6 +72,7 @@ Please calculate your secret keys!
 (live: 1s)[(if: $BLOCKER_1)[[Let's go to Alice secret key.|SecretKeyCalculation3]]]
 
 :: SecretKeyCalculation3
+#Diffie Hellman: The Game
 (set: $BLOCKER_1 to false)\
 ($LOG_GLOBALS:)\
 (set: _question1 to "Bob's secret was the same like Alice secret!")\

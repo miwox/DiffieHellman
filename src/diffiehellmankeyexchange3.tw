@@ -34,6 +34,7 @@ If Diffie the Mallory is hearing out your communication, it won't have any effec
 </div>
 
 :: PublicKeyCalculation {"position":"375,1050"}
+#Diffie Hellaman: The Game
 ($LOG_GLOBALS:)\
 (set: $BLOCKER_1 to false)\
 (set: _question1 to "Bob's public key is: " + $BOBS_PUBLICKEY + "10")\
@@ -48,6 +49,7 @@ Your score: (live: 0.5s)[(print: $SCORE)]
 (live: 1s)[(if: $BLOCKER_1)[[Next Question|PublicKeyCalculation2]]]
 
 :: PublicKeyCalculation2 {"position":"375,1050"}
+#Diffie Hellaman: The Game
 ($LOG_GLOBALS:)\
 (set: $BLOCKER_1 to false)\
 (set: _question1 to "Alice public key is: " + $ALICE_PUBLICKEY + "1")\
