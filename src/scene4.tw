@@ -35,41 +35,15 @@ document.getElementById("hiddenBlock").style.display="block";
 let stringForBase64 = $PRIMEFORTHESTORY+'#:#'+$NUMBERFORTHESTORY
 //give hiddenbase64 the input
 document.getElementById("hiddenBase64").textContent= btoa(stringForBase64);
-
 }
 
-window.evalueBAndCalculateA = function(){
-    //small b
-    let b = document.getElementById('bSmall').value;
-    //Shared Information
-    let big = document.getElementById('bBig').value;
-    let prime = $PRIMEFORTHESTORY;
-    let number = $NUMBERFORTHESTORY;
-    // a from alice is b-1
-    let a = b-1;
-    let calculateBig= Math.pow(number,b)%prime;
-    console.log(calculateBig);
-    //check if big is right 
-    if(big == calculateBig){
-        alert("perfect!");
-        window.abig= Math.pow(number,a)%prime;
-        window.bsmall = b;
-        window.bBig = big;
-        $blocker= true;
-    }else{
-        alert("wrong");
-    }
-    
-    
 
-}
 </script>
 :: PGScene [bild]{"position":"175,700","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
 (set: $blocker to false)
 <div class="storyteller">
-{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 
 Do you want Bob to read the page? 
 <input type="button" value="Read" onClick="window.readLetter()">
@@ -88,26 +62,4 @@ Google("String with equal symbol at the end")
         <button onclick="evaluatePrimeAndNumber()">Calculate</button>
 (live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]  
 </div>
-:: CalculateB[bild]{"position":"175,700","size":"100,100"}
-#Diffie Hellman The Game
-(display:"Sidebar1")\
-(set: $blocker to false)
-<div class="storyteller">
-Bob had to grin. Alice had told him the necessary P and G, now he just had to find her A. But where could the A be hidden?
 
-His vibrating cell phone snapped him out of his thoughts. A number he didn't know had sent him a message with B? 
-
-Bob must now calculate his B. 
-The formula looks like this:
-<span id ="bBigFormular"></span>
-B = g^b mod p and b must be smaller than p
-</div>
-
-
-        <label for="bSmall">b:</label>
-        <input type="text" name="bSmall" id="bSmall" required/>
-        <label for="bBig">B:</label>
-        <input type="text" name="bBig" id="bBig"required />
-        <button onclick="evalueBAndCalculateA()">Send B</button>
-
- (live: 1s)[(if: $blocker)[Great continue to the next page [[FinalScene |FinalScene]]]] 

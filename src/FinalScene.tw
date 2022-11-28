@@ -9,14 +9,47 @@
 <div class="storyteller">\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder,(print: _text4))))
 </div>
+
+
+:: CaluclateScene [bild]{"position":"175,700","size":"100,100"}
+#Diffie Hellman The Game
+(display:"Sidebar1")\
+<div class="storyteller">
+Bob must now calculate KA
+<formular></formular>
+
+
+        <label for="key">Key:</label>
+        <input type="text" name="key" id="key" required/>
+        <button onclick="calculateKey()">Calculate</button>
+</div>
+(display:"Refresh-Button")\
+
+<div class="storyteller" id="hiddenResults" style="display: none;">
+The string on the letter looks like this:
+<p class ="results" id="ecnryptedStringWithBase64"></p>
+
+After Base64 decoding
+<p class ="results" id="ecnryptedString"></p>
+
+Now we do a XOR with the ecnryptedString and our Key 
+<p class ="results" id="keyInBinary"></p>
+This is the binary of the string
+<p class ="results" id="stringInBinary"></p>
+And finally we need to to convert binary to String
+<p class ="results" id="teststring"></p>
+</div>
+
 <script>
 
-
+let latex = window.document.querySelector("formular");
+latex.innerText = "\\(KA = \\ A^{b} \\: mod \\: p\\)";
 window.calculateKey = function(){
   //Example String
     let teststring ="Ich heiße der asdterwdsasdasd";
        let key = document.getElementById('key').value;
        //calculate the the key to check it against the user input 
+       //chagne 5 5 
        let checkKey = Math.pow(5,5)%7;
        console.log(checkKey);
               if(key == checkKey){
@@ -68,7 +101,7 @@ window.calculateKey = function(){
             document.getElementById('ecnryptedString').innerHTML = ecnryptedString;
             document.getElementById('keyInBinary').innerHTML = extendedKey;
             document.getElementById('stringInBinary').innerHTML = stringInBinary;
-              }
+            }
 }
 window.stringToBinary = function(input){
   var characters = input.split('');
@@ -100,34 +133,3 @@ window.binaryToString = function(input){
 
 
 </script>
-
-:: CaluclateScene [bild]{"position":"175,700","size":"100,100"}
-#Diffie Hellman The Game
-(display:"Sidebar1")\
-<div class="storyteller">
-Bob must now calculate KA
-KA = A^b mod p
-
-        <label for="key">Key:</label>
-        <input type="text" name="key" id="key" required/>
-        <button onclick="calculateKey()">Calculate</button>
-</div>
-
-<div class="storyteller" id="hiddenResults" style="display: none;">
-The string on the letter looks like this:
-<p class ="results" id="ecnryptedStringWithBase64"></p>
-
-After Base64 decoding
-<p class ="results" id="ecnryptedString"></p>
-
-Now we do a XOR with the ecnryptedString and our Key 
-<p class ="results" id="keyInBinary"></p>
-This is the binary of the string
-<p class ="results" id="stringInBinary"></p>
-And finally we need to to convert binary to String
-<p class ="results" id="teststring"></p>
-</div>
-
-
-
-

@@ -23,29 +23,28 @@
 	margin-bottom: -37px;
 }
 
-tw-story[tags~="irgendwas"] {
- background-image:url("https://images.nightcafe.studio/jobs/laSLEkQeGT5BPpZx8lHd/laSLEkQeGT5BPpZx8lHd--1--dv7ao.jpg?tr=w-1600,c-at_max");
+tw-story[tags~="prolog"] {
+ background-image:url('../src/globals/images/test.jpg');
  background-size:cover;
 }
-
 tw-story[tags~="burningCity"] {
- background-image:url("https://images.unsplash.com/photo-1511149547418-801db51a015f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80");
+ background-image:url('../src/globals/images/burning1.jpg');
  background-size:cover;
 }
 
 tw-story[tags~="burningCity2"] {
- background-image:url("https://cdnb.artstation.com/p/assets/images/images/020/557/901/large/williana-sarwono-raidbossname-background.jpg?1568278677");
+ background-image:url('../src/globals/images/burning2.jpg');
  background-size:cover;
 }
 
 tw-story[tags~="badminton"] {
- background-image:url("https://c4.wallpaperflare.com/wallpaper/700/14/548/badminton-racket-wallpaper-preview.jpg");
+ background-image:url('../src/globals/images/badminton.jpg');
 background-size:cover;
 }
 
 
 tw-story[tags~="dojo"] {
- background-image:url("https://img.freepik.com/free-vector/dojo-room-interior-cartoon-illustration_107791-5981.jpg?w=2000&t=st=1667997198~exp=1667997798~hmac=8cc9aa99f236b1f9f4dbd0633a82c20942a63ef755e28f7feef03f3d4f836ad8");
+ background-image:url('../src/globals/images/dojo.jpg');
 background-size:cover;
 }
 

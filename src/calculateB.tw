@@ -1,0 +1,58 @@
+:: CalculateB[bild]{"position":"175,700","size":"100,100"}
+#Diffie Hellman The Game
+(display:"Sidebar1")\
+(set: $blocker to false)
+<div class="storyteller" >
+Bob had to grin. Alice had told him the necessary P and G, now he just had to find her A. But where could the A be hidden?
+
+His vibrating cell phone snapped him out of his thoughts. A number he didn't know had sent him a message with B? 
+
+Bob must now calculate his B. 
+The formula looks like this:
+<Step1></Step1>
+
+b must be smaller than p
+(display:"Refresh-Button")\
+</div>
+
+
+        <label for="bSmall">b:</label>
+        <input type="text" name="bSmall" id="bSmall" required/>
+        <label for="bBig">B:</label>
+        <input type="text" name="bBig" id="bBig"required />
+        <button onclick="evalueBAndCalculateA()">Send B</button>
+
+ (live: 1s)[(if: $blocker)[Great continue to the next page [[FinalScene |FinalScene]]]] 
+
+ <script>
+
+let latex = window.document.querySelector("Step1");
+latex.innerText = "\\(B = \\ g^{b} \\: mod \\: p\\)";
+
+ window.evalueBAndCalculateA = function(){
+    //small b
+    let b = document.getElementById('bSmall').value;
+    //Shared Information
+    let big = document.getElementById('bBig').value;
+    let prime = $PRIMEFORTHESTORY;
+    let number = $NUMBERFORTHESTORY;
+    // a from alice is b-1
+    let a = b-1;
+    let calculateBig= Math.pow(number,b)%prime;
+    console.log(calculateBig);
+    //check if big is right 
+    if(big == calculateBig){
+        alert("perfect!");
+        window.abig= Math.pow(number,a)%prime;
+        window.bsmall = b;
+        window.bBig = big;
+        $blocker= true;
+    }else{
+        alert("wrong");
+    }
+    
+    
+
+}
+ 
+ </script>
