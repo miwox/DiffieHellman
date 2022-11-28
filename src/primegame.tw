@@ -1,9 +1,8 @@
 :: GameInfoPrimeQuiz
 <div class="storyteller">\
-Spielinfo:
-Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.\
-Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3.\
-Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
+Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is composed of prime numbers.\
+The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3.\
+A prime number is divisible only by 1 and by itself.
 </div>
 
 :: PrimeGame {"position":"175,1050"}
@@ -16,7 +15,7 @@ Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
 (display: "GameInfoPrimeQuiz")
 
 ##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+Your Score: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, false, _question3, true)
 
 (live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame2]]]
@@ -31,7 +30,7 @@ Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 (display: "GameInfoPrimeQuiz")
 
 ##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+Your Score: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, true, _question3, false)
 
 (live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame3]]]
@@ -46,7 +45,7 @@ Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 (display: "GameInfoPrimeQuiz")
 
 ##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+Your Score: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, false, _question3, true)
 
 (live: 1s)[(if: $BLOCKER_1)[[Next Question|PrimeGame4]]]
@@ -61,7 +60,7 @@ Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
 (display: "GameInfoPrimeQuiz")
 
 ##The prime game
-Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+Your Score: (live: 0.5s)[(print: $SCORE)]
 ($makeQuiz: _question1, false, _question2, true, _question3, false)
 
 (live: 1s)[(if: $BLOCKER_1)[[Okay your answered everything with good deeds...|Hellman-Key]]]

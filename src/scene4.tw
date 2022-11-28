@@ -10,38 +10,51 @@
 </div>
 <script>
 window.evaluatePrimeAndNumber = function(){
+    //get the user input for prime and number
        let prime = document.getElementById('prime').value;
        let number = document.getElementById('numberSmallerPrime').value;
        console.log(prime);
        console.log(number);
-       if(prime != 7 && number != 3){
+       if(prime != $PRIMEFORTHESTORY && number != $NUMBERFORTHESTORY){
         alert("both wrong");
-       }else if(prime == 7 && number != 3){
+       }else if(prime == $PRIMEFORTHESTORY && number != $NUMBERFORTHESTORY){
          alert("number wrong");
        }
-       else if(prime != 7 && number == 3){
+       else if(prime != $PRIMEFORTHESTORY && number == $NUMBERFORTHESTORY){
          alert("prime wrong");
-       } else if(prime == 7 && number == 3){
+       } else if(prime == $PRIMEFORTHESTORY && number == $NUMBERFORTHESTORY){
          alert("Correct");
-         window.primeNumber = prime;
-         window.intnumber = number;
          $blocker=true;
        }
 
 }
+
+window.readLetter = function(){
+  // remove the hide from hiddenblock
+document.getElementById("hiddenBlock").style.display="block";
+let stringForBase64 = $PRIMEFORTHESTORY+'#:#'+$NUMBERFORTHESTORY
+//give hiddenbase64 the input
+document.getElementById("hiddenBase64").textContent= btoa(stringForBase64);
+
+}
+
 window.evalueBAndCalculateA = function(){
+    //small b
     let b = document.getElementById('bSmall').value;
+    //Shared Information
     let big = document.getElementById('bBig').value;
-    let prime = window.primeNumber;
-    let number = window.intnumber;
-    let g = number;
+    let prime = $PRIMEFORTHESTORY;
+    let number = $NUMBERFORTHESTORY;
+    // a from alice is b-1
     let a = b-1;
-    let calculateBig= Math.pow(g,b)%prime;
+    let calculateBig= Math.pow(number,b)%prime;
     console.log(calculateBig);
+    //check if big is right 
     if(big == calculateBig){
         alert("perfect!");
-        window.abig= Math.pow(g,a)%prime;
+        window.abig= Math.pow(number,a)%prime;
         window.bsmall = b;
+        window.bBig = big;
         $blocker= true;
     }else{
         alert("wrong");
@@ -56,25 +69,25 @@ window.evalueBAndCalculateA = function(){
 (display:"Sidebar1")\
 (set: $blocker to false)
 <div class="storyteller">
-Bob now sees this sequence of numbers and letters. What could it be? Is it possible that the equals sign at the end is a clue?
+{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 
-Nzo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojoz=
-
-
+Do you want Bob to read the page? 
+<input type="button" value="Read" onClick="window.readLetter()">
+<div id="hiddenBlock" style="display: none;">
+<span id="hiddenBase64">
+</span>
 Google("String with equal symbol at the end")
 </div>
-
-<div>
-
 </div>
 
+<div class="storyteller">
         <label for="prime">Prime</label>
         <input type="text" name="prime" class="long" id="prime" required/>
         <label for="numberSmallerPrime">Number</label>
         <input type="text" name="numberSmallerPrime" id="numberSmallerPrime"required />
         <button onclick="evaluatePrimeAndNumber()">Calculate</button>
 (live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]  
-
+</div>
 :: CalculateB[bild]{"position":"175,700","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
@@ -86,6 +99,7 @@ His vibrating cell phone snapped him out of his thoughts. A number he didn't kno
 
 Bob must now calculate his B. 
 The formula looks like this:
+<span id ="bBigFormular"></span>
 B = g^b mod p and b must be smaller than p
 </div>
 
@@ -94,6 +108,6 @@ B = g^b mod p and b must be smaller than p
         <input type="text" name="bSmall" id="bSmall" required/>
         <label for="bBig">B:</label>
         <input type="text" name="bBig" id="bBig"required />
-        <button onclick="evalueBAndCalculateA()">Calculate</button>
+        <button onclick="evalueBAndCalculateA()">Send B</button>
 
  (live: 1s)[(if: $blocker)[Great continue to the next page [[FinalScene |FinalScene]]]] 

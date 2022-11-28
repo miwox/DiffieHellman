@@ -1,31 +1,32 @@
 :: Intro [prolog] {"position":"175,125","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
-(set: _text1 to "Diese Stadt war nicht mehr das, was sie einmal war. Dieses Land war nicht mehr das, was es einmal war. Er warf seine Decke zur Seite und stand auf. Er schaute aus dem 76ten Stock durch sein Fenster nach draußen. In weiter Ferne erkannte er mehrere Männer in schwarzer Uniform patrouillieren.")\
-(set: _holder to "Weiter...")\
-(set: _text2 to "Schussgeräusche wecken Bob auf. Er öffnet langsam die Augen und versucht sich an den gestrigen Tag zu erinnern. Wieder hatte er versucht seine Sorgen in Alkohol zu ertränken.")\
-(set: _text3 to "Es waren Hellsoldiers. Fanatische Männer und Frauen die von Mallory the Hellman kontrolliert wurden. Es gab Gerüchte, sie wären unter eine Art Hypnose, jedoch weiß niemand was wahr ist. Vor 5 Jahren fing alles am Jungfernstieg in Hamburg an... <br> <br>[[Prolog2->Intro2]]")\
+(set: _text1 to "Sounds of gunfire woke Bob up. He slowly opened his eyes and tried to remember yesterday. Again he had tried to drown his sorrows in alcohol. This town was not what it used to be. This country was not what it used to be. He threw his blanket aside and stood up. He looked outside through his window from the 76th floor. In the far distance, he recognized several men in black uniforms patrolling.")\
+(set: _holder to "Continue...")\
+(set: _text2 to "They were Hellsoldiers. Fanatical men and women controlled by Mallory the Hellman. Many of Bob's comrades suspect they are under some kind of hypnosis, but no one knows what is true. It all started 5 years ago at the Jungfernstieg in Hamburg.")\
 <div class="storyteller">\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 </div>
 :: Intro2 [burningCity] {"position":"175,325","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
-(set: _text1 to "Er hielt eine Rede und plötzlich wurden es immer mehr und mehr die zuhörten. Die Augen der Zuhörer flammten auf bei seiner Rede. Natürlich nur symbolisch. Jedoch waren sie die ersten fantastischen Hellsoldiers. Leider waren auch Polizisten unter den Zuhörern.")\
+(set: _text1 to "He gave a speech and suddenly more and more listened to his voice. The eyes of the listeners flared up during his speech. Of course, only symbolically. However, they were the first fantastic psychics. Unfortunately, there were also policemen among the audience.")\
 (set: _holder to "Weiter...")\
-(set: _text2 to "So fing das erste Massaker an. Innerhalb der nächsten Stunde starben mehrere hundert Personen. In den nächsten Wochen wurde versucht das Militär einzuschalten, doch es war zu spät. Mallory the Hellman hatte es geschafft die Audioanlagen zu hacken und sie unter seine Kontrolle zu bringen.")\
-(set: _text3 to "Was war seine Macht? Niemand wusste es. Plötzlich wanderten seine Gedanken zu Alice. Wie geht es seiner früheren besten Freundin? Das letzte Mal als er sie gesehen hatte, war er noch ein Kind gewesen. Sie ist nach München gezogen und dann hatte er nichts mehr von ihr gehört. Kein Brief, keine Whatsapp Nachricht und auch kein Facebook Stupser. <br><br> [[Prolog3->Intro3]]")\
+(set: _text2 to "Thus began the first massacre. Within the next hour, several hundred people died. Over the next few weeks, attempts were made to get the military involved, but it was too late. Mallory the Hellman had managed to hack the audio systems and bring them under his control. What was his power? No one knew. ")\
+(set: _text3 to "Suddenly his thoughts wandered to Alice. How was his former best friend? The last time he had seen her, he had been a child. She moved to Munich and after that he had heard nothing from her. No letter, no Whatsapp message and no Facebook nudge.   <br><br> [[Prolog3->Intro3]]")\
 <div class="storyteller">\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 </div>
 :: Intro3 [burningCity2] {"position":"175,525","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
-(set: _text1 to "Er sah in weiter Ferne, wie ein Gebäude brannte. Ja es gab noch einen Widerstand, jedoch werden es täglich weniger. Keiner möchte seine Familie in Gefahr bringen. Hamburg, Berlin und der Rest des Nordens gehörte Mallory the Hellman.")\
-(set: _text2 to "Es klopfte an der Tür. Bob erschrak. Er erwartete kein Besuch und nahm seine P99 aus der Schublade und überprüfte das Magazin. Falls Sie ihn holen wollte, würde er sich teuer verkaufen. Er war Bob der Baumeister. Er war der Anführer des Widerstands. Ihr Motto war „Können wir das Schaffen? JA WIR SCHAFFEN DAS!“ Bob stand auf und ging auf leisen Schritten zur Tür.")\
+(set: _text1 to "He saw in the distance how a building was burning. Yes, there was still a resistance, but there are fewer every day. No one wants to put his family in danger. Hamburg, Berlin and the rest of the north belonged to Mallory the Hellman.  ")\
+(set: _text2 to "There was a knock at the door. Bob was startled. Not expecting a visitor, he took his P99 out of the drawer and checked the magazine. If she came for him, he would sell himself dearly. He was Bob the builder. He was the leader of the resistance. Their motto was Can we do it? YES WE CAN! Bob stood up and took quiet steps to the door. ")\
 (set: _holder to "Weiter...")\
-(set: _text3 to "Natürlich würde er den Türspion nicht nutzen, da dadurch seine Anwesenheit verraten würde. Plötzlich wurde ein Brief durch den Türspalt geschoben und die Person hinter der Tür ging fort. Als die Schritte verhallten und Bob sicher war, dass keine Person mehr im Hausflur stand. Nahm er den Brief und untersuchte ihn. Es war kein Name drauf der den Absender des Briefes identifizieren konnte nur eine Grinsekatze.")\
-(set: _text4 to " Woher kannte Bob die Grinsekatze? Plötzlich wusste er es wieder. Alice! Plötzlich wurde ihm schwindelig. Seine Umgebung fing sich an zu drehen und dann war alles schwarz. <br> <br>[[Scene1->Scene1]]")\
+(set: _text3 to "Of course, he would not use the peephole, as that would give away his presence. Suddenly a letter was pushed through the crack in the door and the person behind the door walked away. When the footsteps faded and Bob was sure that there was no person left in the hallway. He took the letter and examined it. ")\
+(set: _text4 to "
+There was no name on it that could identify the sender of the letter, only a purple Cheshire cat looking at him with a grin. She challenged him. He didn't know why, but something seemed strange about the cat.  How did Bob know the Cheshire Cat? Suddenly he knew again. Alice!
+Suddenly he felt dizzy. His surroundings began to spin and then everything was black.  <br> <br>[[Scene1->Scene1]]")\
 <div class="storyteller">\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder, (print: _text4))))
 </div>

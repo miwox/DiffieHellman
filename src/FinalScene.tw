@@ -10,49 +10,65 @@
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, ($continueTextClick: _text3, _holder,(print: _text4))))
 </div>
 <script>
-window.test = function(){
+
+
+window.calculateKey = function(){
+  //Example String
     let teststring ="Ich heiße der asdterwdsasdasd";
        let key = document.getElementById('key').value;
+       //calculate the the key to check it against the user input 
        let checkKey = Math.pow(5,5)%7;
+       console.log(checkKey);
               if(key == checkKey){
+                document.getElementById("hiddenResults").style.display="block";
                          let keyInBinary = stringToBinary(key);
+                         let extendedKey = keyInBinary
                          let stringInBinary = stringToBinary(teststring);
-
+                         //extend the key until it has the same size like the string
                          if (stringInBinary.length != keyInBinary.length && stringInBinary.length > keyInBinary.length){
-                              var counter = 0;
-                              
-                               while(stringInBinary.length != keyInBinary.length){
- 
-
-                                keyInBinary+=keyInBinary.charAt(counter);
+                              var counter = 0;                           
+                               while(stringInBinary.length != extendedKey.length){
+                                extendedKey+=keyInBinary.charAt(counter);
                                 if(counter==keyInBinary.length){
                                     counter = 0 ;
                                 }else{
                                     counter++;
                                 }
-
                                }
 
                          }
-        let binaryString = stringInBinary;
-
+              console.log(extendedKey);
+              console.log(stringInBinary)
+              //build encrypted String with xor of binary of string and key
               let xorString ="";
-              for(var i=0; i<binaryString.length; i++) {
-              var value1 = binaryString[i];
-              var value2 = keyInBinary[i];
+              for(var i=0; i<stringInBinary.length; i++) {
+              var value1 = stringInBinary[i];
+              var value2 = extendedKey[i];
               var xorValue = value1 ^ value2;
               xorString+=xorValue;
                }
+              console.log("Verschlüsselt")
+              console.log(xorString);            
+            
+            /*    let entsch="";
+            for(var i=0; i<xorString.length; i++) {
+              var value1 = xorString[i];
+              var value2 = extendedKey[i];
+              var xorValue = value1 ^ value2;
+              entsch+=xorValue;
+               }
+              var entcryptedString = window.binaryToString(entsch);
+            console.log(entcryptedString);
+            */
+
             let ecnryptedStringWithBase64 = btoa(xorString);
             let ecnryptedString = xorString;
-            console.log(stringInBinary);
             document.getElementById('teststring').innerHTML = teststring;
             document.getElementById('ecnryptedStringWithBase64').innerHTML = ecnryptedStringWithBase64;
             document.getElementById('ecnryptedString').innerHTML = ecnryptedString;
-            document.getElementById('keyInBinary').innerHTML = keyInBinary;
+            document.getElementById('keyInBinary').innerHTML = extendedKey;
             document.getElementById('stringInBinary').innerHTML = stringInBinary;
               }
-
 }
 window.stringToBinary = function(input){
   var characters = input.split('');
@@ -65,7 +81,7 @@ window.stringToBinary = function(input){
   }).join('');
 }
 
-window.binaryToString = function(){
+window.binaryToString = function(input){
 
   let bytesLeft = input;
   let result = '';
@@ -94,9 +110,10 @@ KA = A^b mod p
 
         <label for="key">Key:</label>
         <input type="text" name="key" id="key" required/>
-        <button onclick="test()">Calculate</button>
+        <button onclick="calculateKey()">Calculate</button>
 </div>
-<div class="storyteller">
+
+<div class="storyteller" id="hiddenResults" style="display: none;">
 The string on the letter looks like this:
 <p class ="results" id="ecnryptedStringWithBase64"></p>
 

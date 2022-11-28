@@ -12,11 +12,12 @@
 (set: $COMMON_GEN to "30404")\
 (set: $BOBS_SECRET to "29343")\
 (set: $ALICE_SECRET to "4534")\
+
+
 <!--- Scene 4 global constants -->
-(set: $COMMON_PRIME_2 to "")\
-(set: $COMMOMN_GEN_2 to "")\
-(set: $BASE_64_CODE to "")\
-(set: $PLACEHOLDER_BASE64 to ":::::::::::::::::::")\
+(set: $PRIMEFORTHESTORY to "7")\
+(set: $NUMBERFORTHESTORY to "3")\
+
 
 <!--- BASE64-Encoding-->
 
@@ -164,7 +165,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "Hellman-Key")
+(go-to: "Scene4")
 
 :: Refresh-Button {"position":"375,1050"}
 <button type="button" onClick="window.location.reload()">\
