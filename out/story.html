@@ -744,11 +744,11 @@ Do you want Bob to read the page?
 &lt;/div&gt;
 
 &lt;div class=&quot;storyteller&quot;&gt;
-        &lt;label for=&quot;prime&quot;&gt;Prime&lt;/label&gt;
-        &lt;input type=&quot;text&quot; name=&quot;prime&quot; class=&quot;long&quot; id=&quot;prime&quot; required/&gt;
-        &lt;label for=&quot;numberSmallerPrime&quot;&gt;Number&lt;/label&gt;
-        &lt;input type=&quot;text&quot; name=&quot;numberSmallerPrime&quot; id=&quot;numberSmallerPrime&quot;required /&gt;
-        &lt;button onclick=&quot;evaluatePrimeAndNumber()&quot;&gt;Calculate&lt;/button&gt;
+Prime
+&lt;input type=&quot;text&quot; id=&quot;prime&quot; required/&gt;
+Number
+&lt;input type=&quot;text&quot; id=&quot;generator&quot; required /&gt;
+&lt;button onclick=&quot;evaluatePrimeAndNumber()&quot;&gt;Check&lt;/button&gt;
 (live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]  
 &lt;/div&gt;
 
@@ -756,7 +756,7 @@ Do you want Bob to read the page?
 window.evaluatePrimeAndNumber = function(){
     //get the user input for prime and number
        let prime = document.getElementById(&#39;prime&#39;).value;
-       let number = document.getElementById(&#39;numberSmallerPrime&#39;).value;
+       let number = document.getElementById(&#39;generator&#39;).value;
        console.log(prime);
        console.log(number);
        if(prime != $PRIMEFORTHESTORY &amp;&amp; number != $NUMBERFORTHESTORY){

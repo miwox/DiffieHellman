@@ -11,11 +11,11 @@ Do you want Bob to read the page?
 </div>
 
 <div class="storyteller">
-        <label for="prime">Prime</label>
-        <input type="text" name="prime" class="long" id="prime" required/>
-        <label for="numberSmallerPrime">Number</label>
-        <input type="text" name="numberSmallerPrime" id="numberSmallerPrime"required />
-        <button onclick="evaluatePrimeAndNumber()">Calculate</button>
+Prime
+<input type="text" id="prime" required/>
+Number
+<input type="text" id="generator" required />
+<button onclick="evaluatePrimeAndNumber()">Check</button>
 (live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]  
 </div>
 
@@ -23,7 +23,7 @@ Do you want Bob to read the page?
 window.evaluatePrimeAndNumber = function(){
     //get the user input for prime and number
        let prime = document.getElementById('prime').value;
-       let number = document.getElementById('numberSmallerPrime').value;
+       let number = document.getElementById('generator').value;
        console.log(prime);
        console.log(number);
        if(prime != $PRIMEFORTHESTORY && number != $NUMBERFORTHESTORY){
