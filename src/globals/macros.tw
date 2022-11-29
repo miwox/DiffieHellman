@@ -1,33 +1,57 @@
 :: Macros {"position":"375,1050"}
 # Dev-Page
-<!-- GLOBAL VARIABLES ---------------------------------------->
+<!-- GLOBAL VARIABLES --->
 (set: $BLOCKER_1 to false)\
 (set: $BlOCKER_2 to false)\
 (set: $SCORE to 0)\
+
+<!-- GLOBAL CONSTANTS --->
 (set: $CHECKBOX_TEXT to "Choose the correct answer!")\
 (set: $ALERT_CORRECT to "Correct Answer! Congratulation.")\
 (set: $ALERT_ALREADY_DONE to "Already answered")\
 (set: $ALERT_WRONG_ANSWER to "Sorry, your answer is wrong")\
+
+<!-- Trainings scene --->
 (set: $COMMON_PRIME to "30539")\
 (set: $COMMON_GEN to "30404")\
 (set: $BOBS_SECRET to "29343")\
 (set: $ALICE_SECRET to "4534")\
 
+<!-- This constants will be calculated at the beginning of the game-->
+(set: $ALICE_PUBLICKEY to "")\
+(set: $BOBS_PUBLICKEY to "")\
+(set: $BOBS_SECRET_KEY to "")\
+(set: $ALICE_SECRET_KEY to "")\
+<!-- End of trainings scene constants-->
+
+
+
 
 <!--- Scene 4 global constants -->
+
+(set: $COMMON_PRIME_2 to "11")\
+(set: $COMMON_GEN_2 to "6")\
+(set: $BASE_64_SEPARATOR to " is COMMONPRIME\n::::::::::HELLO BOB IT'S ME ALICE::::::::::\nis GENERATOR ")\
+
+<!-- Will be computed in JavaScript -->
+
+(set: $BASE_64_ENCODED to "")\
+
+
+
+(set: $ALICE_SECRET_2 to "")\
+(set: $BOBS_SECRET_2 to "")\
+<!-- Alice choosen generator and prime key into a base64 string -->
+
+
 (set: $PRIMEFORTHESTORY to "7")\
 (set: $NUMBERFORTHESTORY to "3")\
 
 
 <!--- BASE64-Encoding-->
 
-<!----->
-(set: $ALICE_PUBLICKEY to "")\
-(set: $BOBS_PUBLICKEY to "")\
-(set: $BOBS_SECRET_KEY to "")\
-(set: $ALICE_SECRET_KEY to "")\
 
-<!-- Calculate the different keys and save them into globals constants.-->
+<!-- Calculate the different keys for the training and save them into globals constants.-->
 <script>
 var common_prime = BigInt($COMMON_PRIME);
 var common_gen = BigInt($COMMON_GEN);
@@ -63,11 +87,14 @@ $ALICE_PUBLICKEY = alicePublicKeyn.toString();
 $BOBS_PUBLICKEY = bobPublicKeyn.toString();
 $ALICE_SECRET_KEY = aliceKey.toString();
 $BOBS_SECRET_KEY = bobsKey.toString();
-
 </script>\
 
-<!-- GLOBAL MACROS ---------------------------------------->
+<!-- Base64 encryption --->
+<script>
+$BASE_64_ENCODED = btoa($COMMON_PRIME_2 + $BASE_64_SEPARATOR + $COMMON_GEN_2);
+</script>
 
+<!-- Logging global variables/constants for debugging ---------------------------------------->
 
 (set: $LOG_GLOBALS to (macro: [
     (output:)[\
@@ -104,6 +131,21 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
 (set: $createQuizBox3 to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
     (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
 ]))\
+
+<!-- Macro for showing the button so that Bob can read the message of Alice -->
+(set: $showBase64MessageButton to (macro: [
+    (output:)[\
+<Button onClick="evaluateButton()">Show me the message!</Button>
+<textarea rows="4" cols="25"></textarea>
+<script>
+window.evaluateButton = () => {
+let latex = window.document.querySelector("textarea");
+latex.innerText = $BASE_64_ENCODED;
+}
+</script>
+
+
+]]))
 
 <!-- Macro for displaying and evaluating a quiz-->
 (set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
@@ -165,7 +207,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "Scene4")
+(go-to: "PGScene")
 
 :: Refresh-Button {"position":"375,1050"}
 <button type="button" onClick="window.location.reload()">\

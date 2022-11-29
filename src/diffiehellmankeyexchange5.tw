@@ -6,5 +6,3 @@
 <div class="storyteller">\
 ($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
 </div>
-
-
