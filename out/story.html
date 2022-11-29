@@ -650,9 +650,42 @@ let latex = window.document.querySelector(&quot;textarea&quot;);
 latex.innerText = $BASE_64_ENCODED;
 }
 &lt;/script&gt;
-
-
 ]]))
+
+&lt;!-- Macro for show input fields and a button to evaluate the input of Bob. Also setting the blocker variable ---&gt;
+(set: $inputButtonDecodedBase64Elements to (macro: [
+    (output:)[\
+Enter the common prime number
+&lt;input type=&quot;text&quot; id=&quot;prime&quot; required/&gt;
+Enter the common generator
+&lt;input type=&quot;text&quot; id=&quot;generator&quot; required /&gt;
+&lt;button onclick=&quot;evaluateDecodedElementsSetBlocker()&quot;&gt;Check the numbers&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- Evaluate the input string of Bob--&gt;
+&lt;script&gt;
+window.evaluateDecodedElementsSetBlocker = function(){
+    //get the user input for prime and number
+       let prime = document.getElementById(&#39;prime&#39;).value;
+       let generator = document.getElementById(&#39;generator&#39;).value;
+       console.log(&quot;Prime Input: &quot; + prime);
+       console.log(&quot;Generator Input: &quot; + generator);
+
+       if($BLOCKER_1){
+        alert($ALERT_CORRECT);
+       } else if (prime !== $COMMON_PRIME_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else if (generator !== $COMMON_GEN_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else {
+        alert($ALERT_CORRECT);
+        $BLOCKER_1 = true;
+       }
+}
+&lt;/script&gt;
+]]))
+
+
+
 
 &lt;!-- Macro for displaying and evaluating a quiz--&gt;
 (set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
@@ -734,7 +767,7 @@ Formula not shown right...
 
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="24" name="Sidebar1" tags="" position="1300,75" size="100,100">(append: ?Sidebar)[[[Prolog|Intro]]&lt;br&gt;[[Prolog2|Intro2]]&lt;br&gt;[[Prolog3|Intro3]]&lt;br&gt;[[Scene1|Scene1]]&lt;br&gt;[[Scene2|DiffieScene]]]</tw-passagedata><tw-passagedata pid="25" name="PGScene" tags="bild" position="175,700" size="100,100">#Diffie Hellman The Game
 (display:&quot;Sidebar1&quot;)\
-(set: $blocker to false)
+(set: $BLOCKER_1 to false)\
 
 
 
@@ -744,35 +777,9 @@ Do you want Bob to read the page?
 &lt;/div&gt;
 
 &lt;div class=&quot;storyteller&quot;&gt;
-Prime
-&lt;input type=&quot;text&quot; id=&quot;prime&quot; required/&gt;
-Number
-&lt;input type=&quot;text&quot; id=&quot;generator&quot; required /&gt;
-&lt;button onclick=&quot;evaluatePrimeAndNumber()&quot;&gt;Check&lt;/button&gt;
-(live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]  
-&lt;/div&gt;
-
-&lt;script&gt;
-window.evaluatePrimeAndNumber = function(){
-    //get the user input for prime and number
-       let prime = document.getElementById(&#39;prime&#39;).value;
-       let number = document.getElementById(&#39;generator&#39;).value;
-       console.log(prime);
-       console.log(number);
-       if(prime != $PRIMEFORTHESTORY &amp;&amp; number != $NUMBERFORTHESTORY){
-        alert(&quot;both wrong&quot;);
-       }else if(prime == $PRIMEFORTHESTORY &amp;&amp; number != $NUMBERFORTHESTORY){
-         alert(&quot;number wrong&quot;);
-       }
-       else if(prime != $PRIMEFORTHESTORY &amp;&amp; number == $NUMBERFORTHESTORY){
-         alert(&quot;prime wrong&quot;);
-       } else if(prime == $PRIMEFORTHESTORY &amp;&amp; number == $NUMBERFORTHESTORY){
-         alert(&quot;Correct&quot;);
-         $blocker=true;
-       }
-
-}
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="26" name="GameInfoPrimeQuiz" tags="" position="725,350" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
+($inputButtonDecodedBase64Elements:)
+(live: 1s)[(if: $BLOCKER_1)[Great continue to the next page [[CalculateB |CalculateB]]]]  
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="GameInfoPrimeQuiz" tags="" position="725,350" size="100,100">&lt;div class=&quot;storyteller&quot;&gt;\
 Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is composed of prime numbers.\
 The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3.\
 A prime number is divisible only by 1 and by itself.

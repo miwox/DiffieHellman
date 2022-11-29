@@ -1,7 +1,7 @@
 :: PGScene [bild]{"position":"175,700","size":"100,100"}
 #Diffie Hellman The Game
 (display:"Sidebar1")\
-(set: $blocker to false)
+(set: $BLOCKER_1 to false)\
 
 
 
@@ -11,32 +11,6 @@ Do you want Bob to read the page?
 </div>
 
 <div class="storyteller">
-Prime
-<input type="text" id="prime" required/>
-Number
-<input type="text" id="generator" required />
-<button onclick="evaluatePrimeAndNumber()">Check</button>
-(live: 1s)[(if: $blocker)[Great continue to the next page [[CalculateB |CalculateB]]]]  
+($inputButtonDecodedBase64Elements:)
+(live: 1s)[(if: $BLOCKER_1)[Great continue to the next page [[CalculateB |CalculateB]]]]  
 </div>
-
-<script>
-window.evaluatePrimeAndNumber = function(){
-    //get the user input for prime and number
-       let prime = document.getElementById('prime').value;
-       let number = document.getElementById('generator').value;
-       console.log(prime);
-       console.log(number);
-       if(prime != $PRIMEFORTHESTORY && number != $NUMBERFORTHESTORY){
-        alert("both wrong");
-       }else if(prime == $PRIMEFORTHESTORY && number != $NUMBERFORTHESTORY){
-         alert("number wrong");
-       }
-       else if(prime != $PRIMEFORTHESTORY && number == $NUMBERFORTHESTORY){
-         alert("prime wrong");
-       } else if(prime == $PRIMEFORTHESTORY && number == $NUMBERFORTHESTORY){
-         alert("Correct");
-         $blocker=true;
-       }
-
-}
-</script>

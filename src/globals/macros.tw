@@ -143,9 +143,42 @@ let latex = window.document.querySelector("textarea");
 latex.innerText = $BASE_64_ENCODED;
 }
 </script>
-
-
 ]]))
+
+<!-- Macro for show input fields and a button to evaluate the input of Bob. Also setting the blocker variable --->
+(set: $inputButtonDecodedBase64Elements to (macro: [
+    (output:)[\
+Enter the common prime number
+<input type="text" id="prime" required/>
+Enter the common generator
+<input type="text" id="generator" required />
+<button onclick="evaluateDecodedElementsSetBlocker()">Check the numbers</button>
+</div>
+<!-- Evaluate the input string of Bob-->
+<script>
+window.evaluateDecodedElementsSetBlocker = function(){
+    //get the user input for prime and number
+       let prime = document.getElementById('prime').value;
+       let generator = document.getElementById('generator').value;
+       console.log("Prime Input: " + prime);
+       console.log("Generator Input: " + generator);
+
+       if($BLOCKER_1){
+        alert($ALERT_CORRECT);
+       } else if (prime !== $COMMON_PRIME_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else if (generator !== $COMMON_GEN_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else {
+        alert($ALERT_CORRECT);
+        $BLOCKER_1 = true;
+       }
+}
+</script>
+]]))
+
+
+
 
 <!-- Macro for displaying and evaluating a quiz-->
 (set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
