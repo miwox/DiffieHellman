@@ -1,17 +1,17 @@
 :: Macros {"position":"375,1050"}
 # Dev-Page
-<!-- GLOBAL VARIABLES --->
+<!-- Global variables passed to all the game --->
 (set: $BLOCKER_1 to false)\
 (set: $BlOCKER_2 to false)\
 (set: $SCORE to 0)\
 
-<!-- GLOBAL CONSTANTS --->
+<!-- Global constants --->
 (set: $CHECKBOX_TEXT to "Choose the correct answer!")\
 (set: $ALERT_CORRECT to "Correct Answer! Congratulation.")\
 (set: $ALERT_ALREADY_DONE to "Already answered")\
 (set: $ALERT_WRONG_ANSWER to "Sorry, your answer is wrong")\
 
-<!-- Trainings scene --->
+<!-- Trainings scene constants --->
 (set: $COMMON_PRIME to "30539")\
 (set: $COMMON_GEN to "30404")\
 (set: $BOBS_SECRET to "29343")\
@@ -29,9 +29,9 @@
 
 <!--- Scene 4 global constants -->
 
-(set: $COMMON_PRIME_2 to "11")\
-(set: $COMMON_GEN_2 to "6")\
-(set: $BASE_64_SEPARATOR to " is COMMONPRIME\n::::::::::HELLO BOB IT'S ME ALICE::::::::::\nis GENERATOR ")\
+(set: $COMMON_PRIME_2 to "7")\
+(set: $COMMON_GEN_2 to "3")\
+(set: $BASE_64_SEPARATOR to " is COMMON PRIME\n::::::::::HELLO BOB IT'S ME ALICE::::::::::\n is GENERATOR ")\
 
 <!-- Will be computed in JavaScript -->
 
@@ -41,6 +41,8 @@
 
 (set: $ALICE_SECRET_2 to "")\
 (set: $BOBS_SECRET_2 to "")\
+(set: $BOBS_PUBLICKEY_2 to "")\
+(set: $ALICE_PUBLICKEY_2 to "")\
 <!-- Alice choosen generator and prime key into a base64 string -->
 
 
@@ -58,7 +60,7 @@ var common_gen = BigInt($COMMON_GEN);
 var alice_secret = BigInt($ALICE_SECRET);
 var bobs_secret = BigInt($BOBS_SECRET);
 
-function pow (a, b, n) {
+window.pow = function (a, b, n) {
   a = a % n;
   var result = 1n;
   var x = a;
@@ -177,7 +179,62 @@ window.evaluateDecodedElementsSetBlocker = function(){
 </script>
 ]]))
 
+<!--- Input fileds for Bob's secret and Bob's public key -->
 
+(set: $inputButtonSendPublicKey to (macro: [
+    (output:)[\
+        Your secret:
+        <input type="number" id="secretbob" required/>
+        Your compued public key:
+        <input type="number" id="publickey" required />
+        <button onclick="evaluateSendBobsKey()">Send your public key</button>
+
+
+ <script>
+
+// Redundant code, but because of Twine.
+ window.pow = function (a, b, n) {
+  a = a % n;
+  var result = 1n;
+  var x = a;
+
+  while (b > 0n) {
+    var leastSignificantBit = b % 2n;
+    b = b / 2n;
+
+    if (leastSignificantBit == 1n) {
+      result = result * x;
+      result = result % n;
+    }
+
+    x = x * x;
+    x = x % n;
+  }
+  return result;
+}
+
+ window.evaluateSendBobsKey = function(){
+
+        const secretbob = BigInt(document.getElementById('secretbob').value);
+  
+        const commonPrime = BigInt($COMMON_PRIME_2);
+        const commonGen = BigInt($COMMON_GEN_2);
+        const keyIs = BigInt(document.getElementById('publickey').value);
+        const keyShould = pow(commonGen, secretbob, commonPrime);
+        console.log(secretbob);
+        if(secretbob >= commonPrime){
+            alert("Your Secret is too big :(");
+        } else if(keyIs == keyShould){
+            alert("Good choice!");
+            $BLOCKER_1 = true;
+            $BOBS_SECRET_2 = secretbob.toString();
+            $BOBS_PUBLICKEY_2 = keyShould.toString();
+        } else {
+            alert("Your public key ist false");
+        }
+}
+</script>
+]]))
 
 
 <!-- Macro for displaying and evaluating a quiz-->
@@ -240,7 +297,7 @@ window.evaluateDecodedElementsSetBlocker = function(){
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "PGScene")
+(go-to: "CalculateB")
 
 :: Refresh-Button {"position":"375,1050"}
 <button type="button" onClick="window.location.reload()">\
