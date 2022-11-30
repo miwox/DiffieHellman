@@ -60,7 +60,7 @@ Please calculate your secret keys!
 (set: _question1 to "Alice secret key is: " + $ALICE_SECRET_KEY)\
 (set: _question2 to "Alice secret key is: " + $ALICE_SECRET_KEY + "0")\
 (set: _question3 to "Alice secret key is: 4334")\
-(display: "Secret-Box2")\
+(display: "SecretKeyBox")\
 
 ##The calculation game
 Your score: (live: 0.5s)[(print: $SCORE)]
@@ -78,7 +78,7 @@ Please calculate your secret keys!
 (set: _question1 to "Bob's secret was the same like Alice secret!")\
 (set: _question2 to "Bob's secret has another prime number factorization.")\
 (set: _question3 to "Nothing.")\
-(display: "Secret-Box2")\
+(display: "SecretKeyBox")\
 
 ##The calculation game
 Your score: (live: 0.5s)[(print: $SCORE)]

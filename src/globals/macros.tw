@@ -1,40 +1,66 @@
 :: Macros {"position":"375,1050"}
 # Dev-Page
-<!-- GLOBAL VARIABLES ---------------------------------------->
+<!-- Global variables passed to all the game --->
 (set: $BLOCKER_1 to false)\
 (set: $BlOCKER_2 to false)\
 (set: $SCORE to 0)\
+
+<!-- Global constants --->
 (set: $CHECKBOX_TEXT to "Choose the correct answer!")\
 (set: $ALERT_CORRECT to "Correct Answer! Congratulation.")\
 (set: $ALERT_ALREADY_DONE to "Already answered")\
 (set: $ALERT_WRONG_ANSWER to "Sorry, your answer is wrong")\
+
+<!-- Trainings scene constants --->
 (set: $COMMON_PRIME to "30539")\
 (set: $COMMON_GEN to "30404")\
 (set: $BOBS_SECRET to "29343")\
 (set: $ALICE_SECRET to "4534")\
 
+<!-- This constants will be calculated at the beginning of the game-->
+(set: $ALICE_PUBLICKEY to "")\
+(set: $BOBS_PUBLICKEY to "")\
+(set: $BOBS_SECRET_KEY to "")\
+(set: $ALICE_SECRET_KEY to "")\
+<!-- End of trainings scene constants-->
+
+
+
 
 <!--- Scene 4 global constants -->
+
+(set: $COMMON_PRIME_2 to "7")\
+(set: $COMMON_GEN_2 to "3")\
+(set: $BASE_64_SEPARATOR to " is COMMON PRIME\n::::::::::HELLO BOB IT'S ME ALICE::::::::::\n is GENERATOR ")\
+
+<!-- Will be computed in JavaScript -->
+
+(set: $BASE_64_ENCODED to "")\
+
+
+
+(set: $ALICE_SECRET_2 to "")\
+(set: $BOBS_SECRET_2 to "")\
+(set: $BOBS_PUBLICKEY_2 to "")\
+(set: $ALICE_PUBLICKEY_2 to "")\
+<!-- Alice choosen generator and prime key into a base64 string -->
+
+
 (set: $PRIMEFORTHESTORY to "7")\
 (set: $NUMBERFORTHESTORY to "3")\
 
 
 <!--- BASE64-Encoding-->
 
-<!----->
-(set: $ALICE_PUBLICKEY to "")\
-(set: $BOBS_PUBLICKEY to "")\
-(set: $BOBS_SECRET_KEY to "")\
-(set: $ALICE_SECRET_KEY to "")\
 
-<!-- Calculate the different keys and save them into globals constants.-->
+<!-- Calculate the different keys for the training and save them into globals constants.-->
 <script>
 var common_prime = BigInt($COMMON_PRIME);
 var common_gen = BigInt($COMMON_GEN);
 var alice_secret = BigInt($ALICE_SECRET);
 var bobs_secret = BigInt($BOBS_SECRET);
 
-function pow (a, b, n) {
+window.pow = function (a, b, n) {
   a = a % n;
   var result = 1n;
   var x = a;
@@ -63,11 +89,14 @@ $ALICE_PUBLICKEY = alicePublicKeyn.toString();
 $BOBS_PUBLICKEY = bobPublicKeyn.toString();
 $ALICE_SECRET_KEY = aliceKey.toString();
 $BOBS_SECRET_KEY = bobsKey.toString();
-
 </script>\
 
-<!-- GLOBAL MACROS ---------------------------------------->
+<!-- Base64 encryption --->
+<script>
+$BASE_64_ENCODED = btoa($COMMON_PRIME_2 + $BASE_64_SEPARATOR + $COMMON_GEN_2);
+</script>
 
+<!-- Logging global variables/constants for debugging ---------------------------------------->
 
 (set: $LOG_GLOBALS to (macro: [
     (output:)[\
@@ -104,6 +133,109 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
 (set: $createQuizBox3 to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
     (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
 ]))\
+
+<!-- Macro for showing the button so that Bob can read the message of Alice -->
+(set: $showBase64MessageButton to (macro: [
+    (output:)[\
+<Button onClick="evaluateButton()">Show me the message!</Button>
+<textarea rows="4" cols="25"></textarea>
+<script>
+window.evaluateButton = () => {
+let latex = window.document.querySelector("textarea");
+latex.innerText = $BASE_64_ENCODED;
+}
+</script>
+]]))
+
+<!-- Macro for show input fields and a button to evaluate the input of Bob. Also setting the blocker variable --->
+(set: $inputButtonDecodedBase64Elements to (macro: [
+    (output:)[\
+Enter the common prime number
+<input type="text" id="prime" required/>
+Enter the common generator
+<input type="text" id="generator" required />
+<button onclick="evaluateDecodedElementsSetBlocker()">Check the numbers</button>
+</div>
+<!-- Evaluate the input string of Bob-->
+<script>
+window.evaluateDecodedElementsSetBlocker = function(){
+    //get the user input for prime and number
+       let prime = document.getElementById('prime').value;
+       let generator = document.getElementById('generator').value;
+       console.log("Prime Input: " + prime);
+       console.log("Generator Input: " + generator);
+
+       if($BLOCKER_1){
+        alert($ALERT_CORRECT);
+       } else if (prime !== $COMMON_PRIME_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else if (generator !== $COMMON_GEN_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else {
+        alert($ALERT_CORRECT);
+        $BLOCKER_1 = true;
+       }
+}
+</script>
+]]))
+
+<!--- Input fileds for Bob's secret and Bob's public key -->
+
+(set: $inputButtonSendPublicKey to (macro: [
+    (output:)[\
+        Your secret:
+        <input type="number" id="secretbob" required/>
+        Your compued public key:
+        <input type="number" id="publickey" required />
+        <button onclick="evaluateSendBobsKey()">Send your public key</button>
+
+
+ <script>
+
+// Redundant code, but because of Twine.
+ window.pow = function (a, b, n) {
+  a = a % n;
+  var result = 1n;
+  var x = a;
+
+  while (b > 0n) {
+    var leastSignificantBit = b % 2n;
+    b = b / 2n;
+
+    if (leastSignificantBit == 1n) {
+      result = result * x;
+      result = result % n;
+    }
+
+    x = x * x;
+    x = x % n;
+  }
+  return result;
+}
+
+ window.evaluateSendBobsKey = function(){
+
+        const secretbob = BigInt(document.getElementById('secretbob').value);
+  
+        const commonPrime = BigInt($COMMON_PRIME_2);
+        const commonGen = BigInt($COMMON_GEN_2);
+        const keyIs = BigInt(document.getElementById('publickey').value);
+        const keyShould = pow(commonGen, secretbob, commonPrime);
+        console.log(secretbob);
+        if(secretbob >= commonPrime){
+            alert("Your Secret is too big :(");
+        } else if(keyIs == keyShould){
+            alert("Good choice!");
+            $BLOCKER_1 = true;
+            $BOBS_SECRET_2 = secretbob.toString();
+            $BOBS_PUBLICKEY_2 = keyShould.toString();
+        } else {
+            alert("Your public key ist false");
+        }
+}
+</script>
+]]))
+
 
 <!-- Macro for displaying and evaluating a quiz-->
 (set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
@@ -165,7 +297,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "Scene4")
+(go-to: "CalculateB")
 
 :: Refresh-Button {"position":"375,1050"}
 <button type="button" onClick="window.location.reload()">\

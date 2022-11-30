@@ -16,7 +16,11 @@
 (display:"Sidebar1")\
 <div class="storyteller">
 Bob must now calculate KA
-<formular></formular>
+<formular></formular>\
+<script>
+let latex = window.document.querySelector("formular");
+latex.innerText = "\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:" + $ALICE_PUBLICKEY_2 + "^{" + $BOBS_SECRET_2 + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME_2 + "\\)";
+</script>
 
 
         <label for="key">Key:</label>
@@ -42,8 +46,7 @@ And finally we need to to convert binary to String
 
 <script>
 
-let latex = window.document.querySelector("formular");
-latex.innerText = "\\(KA = \\ A^{b} \\: mod \\: p\\)";
+
 window.calculateKey = function(){
   //Example String
     let teststring ="Ich heiße der asdterwdsasdasd";
