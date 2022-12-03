@@ -38,7 +38,7 @@
 (set: $BASE_64_ENCODED to "")\
 
 
-
+(set: $ALICE_SECRET_MESSAGE to "31.12.2022-49.484284, 8.464212. WE ARE ALL MAD HERE")\
 (set: $ALICE_SECRET_2 to "")\
 (set: $BOBS_SECRET_2 to "")\
 (set: $BOBS_PUBLICKEY_2 to "")\
@@ -137,7 +137,7 @@ _hideStr hast to be command-type to provided nested calls of this method :)-->
 <!-- Macro for showing the button so that Bob can read the message of Alice -->
 (set: $showBase64MessageButton to (macro: [
     (output:)[\
-<Button onClick="evaluateButton()">Show me the message!</Button>
+<Button class="button-28" role="button" onClick="evaluateButton()">Show me the message!</Button>
 <textarea rows="4" cols="25"></textarea>
 <script>
 window.evaluateButton = () => {
@@ -149,12 +149,13 @@ latex.innerText = $BASE_64_ENCODED;
 
 <!-- Macro for show input fields and a button to evaluate the input of Bob. Also setting the blocker variable --->
 (set: $inputButtonDecodedBase64Elements to (macro: [
+  
     (output:)[\
 Enter the common prime number
 <input type="text" id="prime" required/>
 Enter the common generator
 <input type="text" id="generator" required />
-<button onclick="evaluateDecodedElementsSetBlocker()">Check the numbers</button>
+<button class="button-28" role="button" onclick="evaluateDecodedElementsSetBlocker()">Check the numbers</button>
 </div>
 <!-- Evaluate the input string of Bob-->
 <script>
@@ -183,11 +184,17 @@ window.evaluateDecodedElementsSetBlocker = function(){
 
 (set: $inputButtonSendPublicKey to (macro: [
     (output:)[\
+        <div class="inline">
+        <div class="left-container">
         Your secret:
         <input type="number" id="secretbob" required/>
-        Your compued public key:
+        </div>
+        <div class ="right-container">
+        Your public key:
         <input type="number" id="publickey" required />
-        <button onclick="evaluateSendBobsKey()">Send your public key</button>
+        <button class="button-28" role="button" onclick="evaluateSendBobsKey()">Send your public key</button>
+        </div>
+        </div>
 
 
  <script>
@@ -216,18 +223,20 @@ window.evaluateDecodedElementsSetBlocker = function(){
  window.evaluateSendBobsKey = function(){
 
         const secretbob = BigInt(document.getElementById('secretbob').value);
-  
+        const secretalice = secretbob - 1n;
         const commonPrime = BigInt($COMMON_PRIME_2);
         const commonGen = BigInt($COMMON_GEN_2);
         const keyIs = BigInt(document.getElementById('publickey').value);
         const keyShould = pow(commonGen, secretbob, commonPrime);
-        console.log(secretbob);
+        const keyAlice = pow(commonGen, secretalice, commonPrime);
         if(secretbob >= commonPrime){
             alert("Your Secret is too big :(");
         } else if(keyIs == keyShould){
             alert("Good choice!");
             $BLOCKER_1 = true;
             $BOBS_SECRET_2 = secretbob.toString();
+            $ALICE_SECRET_2 = secretalice.toString();
+            $ALICE_PUBLICKEY_2 = keyAlice.toString();
             $BOBS_PUBLICKEY_2 = keyShould.toString();
         } else {
             alert("Your public key ist false");
@@ -297,10 +306,10 @@ window.evaluateDecodedElementsSetBlocker = function(){
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "CalculateB")
+(go-to: "Intro")
 
 :: Refresh-Button {"position":"375,1050"}
-<button type="button" onClick="window.location.reload()">\
+<button class="button-28" role="button" type="button" onClick="window.location.reload()">\
 Formula not shown right...
 <script>
 

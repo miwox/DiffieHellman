@@ -1,16 +1,15 @@
-:: PGScene [bild]{"position":"175,700","size":"100,100"}
-#Diffie Hellman The Game
-(display:"Sidebar1")\
+:: PGScene [read]{"position":"175,700","size":"100,100"}
 (set: $BLOCKER_1 to false)\
-
-
-
 <div class="storyteller">
+<div class="inline">
+<div class="left-container">
 Do you want Bob to read the page? 
 ($showBase64MessageButton:)
 </div>
-
-<div class="storyteller">
+<div class="right-container">
 ($inputButtonDecodedBase64Elements:)
-(live: 1s)[(if: $BLOCKER_1)[Great continue to the next page [[CalculateB |CalculateB]]]]  
+</div>
+</div>
+(live: 1s)[(if: $BLOCKER_1)[Great continue to the next page [[Continue... |CalculateB]]]] 
+</div>
 </div>
