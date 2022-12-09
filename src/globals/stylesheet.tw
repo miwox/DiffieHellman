@@ -127,14 +127,7 @@ div.storyteller {
   
 }
 
-div.quiz {
-  border: 3px solid #424949;
-  vertical-align: center;
-  padding: 10px;
-  text-align: left;
-  background: rgba(60, 60, 60, 0.4);
-  
-}
+
 
 div.keyParent {
 
@@ -198,7 +191,7 @@ div.keyItem {
 }
 
 
-input{
+input[type=text], input[type="number"]{
 
                     box-shadow: inset #abacaf 0 0 0 2px;
                     border: 0;
@@ -223,4 +216,27 @@ input{
                         box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
                     }
                 
+}
+
+
+/*START quiz box*/
+
+div.quiz {
+  border: 3px solid #424949;
+  vertical-align: center;
+  padding: 10px;
+  text-align: left;
+  background: rgba(60, 60, 60, 0.4);
+  margin-top: 30px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+}
+
+div.quiz:hover{
+  box-shadow:
+  rgba(255, 102, 47, 0.4) 5px 5px,
+  rgba(255, 102, 47, 0.3) 10px 10px,
+  rgba(255, 102, 47, 0.2) 15px 15px,
+  rgba(255, 102, 47, 0.1) 20px 20px,
+  rgba(255, 102, 47, 0.05) 25px 25px;
 }

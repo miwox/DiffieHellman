@@ -2,7 +2,7 @@
 <div class="storyteller">\
 Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is composed of prime numbers.\
 The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3.\
-A prime number is divisible only by 1 and by itself.
+ A prime number is divisible only by 1 and by itself.
 </div>
 
 :: PrimeGame {"position":"175,1050"}

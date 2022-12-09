@@ -260,7 +260,7 @@ window.evaluateDecodedElementsSetBlocker = function(){
         (checkbox: bind _quizPassage1Is, _passage1)
         (checkbox: bind _quizPassage2Is, _passage2)
         (checkbox: bind _quizPassage3Is, _passage3)
-        <button type="button"
+        <button type="button" class="button-28"
         onClick="evaluateButton()"
         quiz-argFirst-is= '_quizPassage1Is'
         quiz-argFirst-should='_shouldBe1'
@@ -306,7 +306,7 @@ window.evaluateDecodedElementsSetBlocker = function(){
     ]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "Intro")
+(go-to: "PGScene")
 
 :: Refresh-Button {"position":"375,1050"}
 <button class="button-28" role="button" type="button" onClick="window.location.reload()">\
