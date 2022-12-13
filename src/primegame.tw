@@ -10,9 +10,7 @@ The number 12, for example, is the product of so-called prime factors, i.e. seve
 (set: _question1 to "Prime is same like the service of Amazon Prime.")\
 (set: _question2 to "The number 1 is prime.")\
 (set: _question3 to "The decision problem if a given number is prime has a polynomial complexity.")\
-#Diffie Hellman The Game
-
-(display: "GameInfoPrimeQuiz")
+(display: "GameInfoPrimeQuiz")\
 
 ##The prime game
 Your Score: (live: 0.5s)[(print: $SCORE)]

@@ -7,13 +7,15 @@ Let's calculate Bobs public key first.
 The formula looks like this:
 Your secret must be smaller than $COMMON_PRIME_2
 
-
+DEBUG:
+Publickey: $BOBS_PUBLICKEY
+Secret: $BOBS_SECRET
+Alice Publickey: $ALICE_PUBLICKEY_2
 <formuar></formuar>
 <script>
 let latex = window.document.querySelector("formuar");
 latex.innerText = "\\(Bobs \\: Public \\: Key \\: is \\: Y_{Bob} =\\:" + $COMMON_GEN_2 + "^{" + "Bobs \\: Secret" + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME_2 + "\\)";
 </script>\
-
 ($inputButtonSendPublicKey:)
 (live: 1s)[(if: $BLOCKER_1)[Great continue to the next page [[Continue... |FinalScene]]]] 
 </div>

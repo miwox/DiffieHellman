@@ -14,12 +14,14 @@
 <div class="storyteller">\
 ($continueTextClick: _text1, _holder, (print: _text2))\
 </div>
+
+
 :: DiffieScene2 [dojo2] {"position":"175,900","size":"100,100"}
 (set: _text1 to "Bob said without thinking, A really big bomb. Alice looked at him and said No, a lot of soldiers. You are both right and yet wrong. Where is the bomb going to go if no one knows where the target is? Where are the soldiers supposed to march if they don't know where? Bob thought hard and said, So a target, is the most important weapon? The master laughed No Bob, communication is the most important. Orders, goals, weaknesses, strengths and cooperation. ")\
-(set: _text2 to "Something like that only works with secure communication and that is what you will eventually lack one day. Now stand up. I'm going to teach you how to talk to each other safely starting today. Everything is based on mathematics. Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is made up of primes. The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3. A prime number is divisible only by 1 and by itself. <br><br>[[Are you Ready?|Scene4]]")\ 
-(set: _holder to "Continue...")
+(set: _text2 to "Something like that only works with secure communication and that is what you will eventually lack one day. Now stand up. I'm going to teach you how to talk to each other safely starting today. Everything is based on mathematics. Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is made up of primes. The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3. A prime number is divisible only by 1 and by itself. <br><br>[[Are you Ready?|PrimeGame]]")\
+(set: _holder to "Continue...")\
 <div class="storyteller">\
-($continueTextClick: _text1, _holder, (print: _text2))\
+($continueTextClick: _text1, _holder, (print: _text2))
 </div>
 
 

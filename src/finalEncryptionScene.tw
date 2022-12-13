@@ -1,0 +1,33 @@
+:: CaluclateScene [ending]{"position":"175,700","size":"100,100"}
+
+<div class="storyteller">
+The public key from Alice's message is: $ALICE_PUBLICKEY_2
+Bob must now calculate KA
+<formular></formular>
+DEBUG YOUR SECRET: $BOBS_SECRET_KEY_2\
+
+        <label for="key">Key:</label>
+        <input type="text" name="key" id="key" required/>
+        <button class="button-28" role="button" onclick="calculateKey()">Calculate</button>
+</div>\
+<script>
+let latex = window.document.querySelector("formular");
+latex.innerText = "\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:" + $ALICE_PUBLICKEY_2 + "^{" + $BOBS_SECRET_2 + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME_2 + "\\)";
+</script>
+(display:"Refresh-Button")\
+
+<div class="storyteller" id="hiddenResults" style="display: none;">
+The string on the letter looks like this:
+<p class ="results" id="ecnryptedStringWithBase64"></p>
+
+After Base64 decoding
+<p class ="results" id="ecnryptedString"></p>
+
+Now we do a XOR with the ecnryptedString and our Key 
+<p class ="results" id="keyInBinary"></p>
+This is the binary of the string
+<p class ="results" id="stringInBinary"></p>
+And finally we need to to convert binary to String
+<p class ="results" id="teststring"></p>
+</div>
+($FILE_ENCRYPTION_SCENE: )
