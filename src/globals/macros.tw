@@ -219,9 +219,9 @@ audio.play();
   
     (output:)[\
 Enter the common prime number
-<input type="text" id="prime" required/>
+<input type="number" id="prime" required/>
 Enter the common generator
-<input type="text" id="generator" required />
+<input type="number" id="generator" required />
 <button class="button-28" role="button" onclick="evaluateDecodedElementsSetBlocker()">Check the numbers</button>
 </div>
 <!-- Evaluate the input string of Bob-->
@@ -443,7 +443,8 @@ window.binaryToString = function(input){
 </script>]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-(go-to: "Intro")
+<!-- (go-to: "Intro" )-->
+(go-to: "Scene4")
 
 
 

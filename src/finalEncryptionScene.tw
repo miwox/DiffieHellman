@@ -7,7 +7,7 @@ Bob must now calculate KA
 DEBUG YOUR SECRET: $BOBS_SECRET_KEY_2\
 
         <label for="key">Key:</label>
-        <input type="text" name="key" id="key" required/>
+        <input type="number" name="key" id="key" required/>
         <button class="button-28" role="button" onclick="calculateKey()">Calculate</button>
 </div>\
 <script>
