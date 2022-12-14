@@ -1,23 +1,72 @@
-:: Terminal {"position":"175,125","size":"100,100"}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://unpkg.com/jquery.terminal@2.x.x/js/jquery.terminal.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/jquery.terminal@2.x.x/css/jquery.terminal.min.css"/>
+:: Terminal
 
+[[Go|Terminal2]]
+
+:: Terminal2 {"position":"175,125","size":"100,100"}
+# Terminal
+<div id="terminal" class="terminal-container"></div>
+(set: $name to "Flo")(set: $path to "~/")
+($POWFUNCTION: )\
 <script>
-jQuery(function($, undefined) {
-    $('#term_demo').terminal(function(command) {
-        if (command !== '') {
-            var result = window.eval(command);
-            if (result != undefined) {
-                this.echo(String(result));
-            }
+
+function color(name, string) {
+    var colors = {
+        blue: '#55f',
+        green: '#4d4',
+        grey: '#999',
+        red: '#A00',
+        yellow: '#FF5',
+        violet: '#a320ce',
+        white: '#fff'
+    }
+    if (colors[name]) {
+        return '[[;' + colors[name] + ';]' + string + ']';
+    } else {
+        return string;
+    }
+}
+
+var term = $('#terminal').terminal({
+    te: function (user) {
+        this.echo('Hello ' + user);
+    },
+    help: function () {
+        this.echo('Here is a list of available commands:');
+        this.echo('')
+        this.echo(' ls - List directory content');
+        this.echo(' cat - Show file content');
+        this.echo(' connect - Connect to your predecessor\'s server');
+    },
+    base64: function (t, str) {
+        if (t == "to") {
+            this.echo(btoa(str));
+        } else if (t == "from") {
+            this.echo(atob(str));
         }
-    }, {
-        greetings: 'Javascript Interpreter',
-        name: 'js_demo',
-        height: 200,
-        width: 450,
-        prompt: 'js> '
-    });
+    },
+    pow: function(basis, power, mod){
+        this.echo("Hallo");
+    }
+}, {
+    greetings: 'Hello ' + $name + ', type help to get a list of available commands! ',
+    prompt() {
+        return `┌──(${color('green', $name + "@oldPC")})-[${color('blue', 'Miwo')}]
+└─\$ `;
+    },
+    checkArity: true
 });
 </script>
+
+
+<style>
+
+#terminal {
+    height: 271pt;
+    width: 364pt;
+    border-radius: 11pt;
+    background-color: blue;
+    font-family: "Comic Sans";
+    font-size: calc(var(--size, 1)*(12px/var(--pixel-density, 1)));
+    line-height: 0;
+}
+</style>
