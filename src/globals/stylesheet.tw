@@ -316,3 +316,15 @@ div.quiz:hover{
   }
   4%, 100% {  text-shadow: none; transform: none; }
 }
+
+
+#terminal {
+    height: 271pt;
+    width: 364pt;
+    border-radius: 11pt;
+    background-color: blue;
+    font-family: "Comic Sans";
+    font-size: calc(var(--size, 1)*(12px/var(--pixel-density, 1)));
+    line-height: 0;
+}
+

@@ -1,6 +1,7 @@
 :: Terminal
 
 [[Go|Terminal2]]
+<a href="#" onclick="window.open('../out/terminal.html'); return false">CLICK ME</a>
 
 :: Terminal2 {"position":"175,125","size":"100,100"}
 # Terminal
@@ -56,17 +57,3 @@ var term = $('#terminal').terminal({
     checkArity: true
 });
 </script>
-
-
-<style>
-
-#terminal {
-    height: 271pt;
-    width: 364pt;
-    border-radius: 11pt;
-    background-color: blue;
-    font-family: "Comic Sans";
-    font-size: calc(var(--size, 1)*(12px/var(--pixel-density, 1)));
-    line-height: 0;
-}
-</style>

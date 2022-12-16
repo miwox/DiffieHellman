@@ -444,7 +444,7 @@ window.binaryToString = function(input){
 
 <!-- START STORY HERE! ---------------------------------------->
 <!-- (go-to: "Intro" )-->
-(go-to: "Terminal")
+(go-to: "Intro")
 
 
 
