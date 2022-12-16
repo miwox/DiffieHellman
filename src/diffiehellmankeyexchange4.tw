@@ -42,7 +42,7 @@ So both of you received the public key of each other. So in the next step, you'l
 (set: _question1 to "Bob's secret key is: " + $BOBS_SECRET_KEY + "1")\
 (set: _question2 to "Bob's secret key is: " + $BOBS_SECRET_KEY)\
 (set: _question3 to "Bob's secret key is: 13434")\
-(display: "Secret-Box2")\
+(display: "SecretKeyBox")\
 
 ##The calculation game
 Your score: (live: 0.5s)[(print: $SCORE)]
