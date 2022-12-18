@@ -4,7 +4,6 @@
 The public key from Alice's message is: $ALICE_PUBLICKEY_2
 Bob must now calculate KA
 <formular></formular>
-DEBUG YOUR SECRET: $BOBS_SECRET_KEY_2\
 
         <label for="key">Key:</label>
         <input type="number" name="key" id="key" required/>
