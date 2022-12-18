@@ -99,7 +99,12 @@ $(function () {
 
 
 &lt;div id=&quot;terminal&quot; class=&quot;terminal-container&quot;&gt;&lt;/div&gt;
-(set: $name to &quot;Mallory&quot;)(set: $path to &quot;~/&quot;)
+(set: $name to &quot;Mallory&quot;)\
+(set: $path to &quot;~/&quot;)\
+(set: $terminal_var to &quot;asdljnasdjnasd&quot;)\
+(set: $terminal_var2 to &quot;weekljdnwerwe&quot;)\
+(set: $terminal_var3 to &quot;weekljdnwerwe&quot;)\
+
 &lt;script&gt;
 
 function color(name, string) {
@@ -125,10 +130,19 @@ var term = $(&#39;#terminal&#39;).terminal({
     },
     help: function () {
         this.echo(&#39;Here is a list of available commands:&#39;);
-        this.echo(&#39;&#39;)
-        this.echo(&#39; pow - List directory content&#39;);
-        this.echo(&#39; cat - Show file content&#39;);
-        this.echo(&#39; connect - Connect to your predecessor\&#39;s server&#39;);
+        this.echo(&#39;&#39;);
+        this.echo(`${color(&#39;yellow&#39;, &quot;show_var&quot;)} - Show the environment string vars of the terminal`);
+        this.echo(&#39;&#39;);
+        this.echo(`${color(&#39;yellow&#39;, &quot;set_to_var arg1 arg2&quot;)} - Will set arg1 to arg2 (name of a env variable)`);
+        this.echo(&#39;&#39;);
+        this.echo(`${color(&#39;yellow&#39;, &quot;encode_base64 arg1&quot;)} - Will encode arg1 to base64.`);
+        this.echo(&#39;&#39;);
+        this.echo(`${color(&#39;yellow&#39;, &quot;decode_base64 arg1&quot;)} - Will decode arg1 from base64.`);
+        this.echo(&#39;&#39;);
+        this.echo(`${color(&#39;yellow&#39;, &quot;isPrime arg1&quot;)} - will check if arg1 is a prime number.`);
+        this.echo(&#39;&#39;);
+        this.echo(`${color(&#39;yellow&#39;, &quot;powerModulo arg1 arg2 arg3&quot;)} - will (arg1 ^ arg2) MODULO arg3 .`);
+
     },
     base64: function (t, str) {
         if (t == &quot;to&quot;) {
@@ -139,7 +153,57 @@ var term = $(&#39;#terminal&#39;).terminal({
     },
     pow: function(basis, power, mod){
         this.echo(&quot;Hallo&quot;);
+    },
+    show_var: function(){
+        this.echo(&#39; $terminal_var is available and is set with: &#39; + $terminal_var);
+        this.echo(&#39; $terminal_var2 is available and is set with: &#39; + $terminal_var2);
+        this.echo(&#39; $terminal_var3 is available and is set with:&#39; + $terminal_var3);
+    },
+    set_to_var: function(){
+        this.echo(&#39; $terminal_var is available and is set with: &#39; + $terminal_var);
+        this.echo(&#39; $terminal_var2 is available and is set with: &#39; + $terminal_var2);
+        this.echo(&#39; $terminal_var3 is available and is set with:&#39; + $terminal_var3);
+    }, 
+    encode_base64: function(string){
+        this.echo(btoa(string));
+    },
+
+    decode_base64: function(string){
+        this.echo(atob(string));
+    }, 
+    
+    isPrime: function(int){
+        for(let i = 2, s = Math.sqrt(int); i &lt;= s; i++)
+        if(int % i === 0){this.echo(int + &quot; is not prime&quot;); return;}
+        this.echo(int + &quot; is prime or used a invalid integer...&quot;);
+    },
+    powerModulo:  function (a, b, n){
+        const a_param = a;
+        const b_param = b; 
+        const n_param = n;
+
+
+        a = BigInt(a);
+        b = BigInt(b);
+        n = BigInt(n);
+
+        a = a % n;
+        var result = 1n;
+        var x = a;
+        while (b &gt; 0n) {
+            var leastSignificantBit = b % 2n;
+            b = b / 2n;
+            if (leastSignificantBit == 1n) {
+                result = result * x;
+                result = result % n;
     }
+        x = x * x;
+        x = x % n;
+  }
+  
+  this.echo(a_param + &quot; POWER &quot; + b_param + &quot;MODULO &quot; + n_param + &quot; = &quot; + result);
+}
+
 }, {
     greetings: &#39;Hello &#39; + $name + &#39;, type help to get a list of available commands! &#39;,
     prompt() {
