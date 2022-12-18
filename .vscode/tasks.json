@@ -22,6 +22,26 @@
             }
         },
         {
+            "label": "Build Twine Story",
+            "type": "shell",
+            "command":"tweego",
+            "args": [
+                "-o",
+                "./out/terminal.html",
+                "./srcterminal"
+            ],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
             "label": "Build Twine Story in debug mode",
             "type": "shell",
             "command":"tweego",
