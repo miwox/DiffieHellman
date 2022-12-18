@@ -5,6 +5,7 @@
 <div class="left-container">
 Do you want Bob to read the page? 
 ($showBase64MessageButton:)
+($SHOW_TERMINAL:)
 </div>
 <div class="right-container">
 ($inputButtonDecodedBase64Elements:)

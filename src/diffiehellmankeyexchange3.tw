@@ -26,6 +26,7 @@ latex = window.document.querySelector("Alice");
 latex.innerText = "\\(Alice' \\: Public \\: Key \\: is \\: Y_{Alice} =\\:" + $COMMON_GEN + "^{" + $ALICE_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
 </script>\
 (display:"Refresh-Button")\
+($SHOW_TERMINAL:)
 </div>
 
 <div class= "storyteller">\

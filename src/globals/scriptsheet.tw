@@ -1,10 +1,2 @@
 :: Story JavaScript [script]
 window.blocker = false;
-
-$(function () {
-  $.getScript("https://unpkg.com/jquery.terminal@2.35.0/js/jquery.terminal.min.js",
-    function (data, textStatus, jqxhr) {
-      console.log('External jquery.terminal.min.js loaded');
-    }
-  );
-  });

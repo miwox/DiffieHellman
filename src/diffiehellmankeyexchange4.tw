@@ -19,6 +19,7 @@ latex = window.document.querySelector("Alice");
 latex.innerText = "\\(Alice' \\: Secret \\: Key \\: is \\: S_{Alice} =\\:" + $BOBS_PUBLICKEY + "^{" + $ALICE_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
 </script>\
 (display:"Refresh-Button")\
+($SHOW_TERMINAL:)
 </div>
 
 :: SecretKey {"position":"375,1050"}
@@ -87,4 +88,4 @@ So what did you notice about your secret keys?
 </div>
 ($makeQuiz: _question1, true, _question2, false, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Let's go to Alice secret key.|DiffieExplanation]]]
+(live: 1s)[(if: $BLOCKER_1)[[Summary Diffie Hellman Key Exchange.|DiffieExplanation]]]

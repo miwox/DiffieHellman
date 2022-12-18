@@ -1,0 +1,12 @@
+:: Story Stylesheet [stylesheet]
+#terminal {
+    height: 271pt;
+    width: 364pt;
+    border-radius: 11pt;
+    background-color: black;
+    font-family: "Comic Sans";
+    font-size: calc(var(--size, 1)*(12px/var(--pixel-density, 1)));
+    line-height: 0;
+}
+
+div#text { width: 0px; height: 2em; white-space: nowrap; overflow: hidden;  }
