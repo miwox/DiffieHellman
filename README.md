@@ -12,8 +12,13 @@ Replace the /Applications/tweego-2/storyformats/harlowe-3/format.js with the dow
 Clone this repo! 
 
 Then execute following commands on your terminal:
+
 `cd ~/this/project/folder/on/your/computer`
-`mkdr out`
+
+`mkdir out`
+
 `tweego -o ./out/story.html ./src && tweego -o ./out/terminal.html ./srcterminal`
+
+Now open the compiled file `out/story.html` with Chrome or What ever you like ;)
 
 ## Have fun 
