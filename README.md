@@ -9,8 +9,11 @@ Download from https://rzfhwedel.sharepoint.com/:u:/r/sites/GRP_ProjectITS2022/Sh
 
 Replace the /Applications/tweego-2/storyformats/harlowe-3/format.js with the downloaded one
 
-Download Visual Studio Code, clone this repo and also download the VS-Code tweego extension T3LT
+Clone this repo! 
 
-In the .vscode folder you find the configurations and a tasks.json also it should be possible to execute (run) the project
+Then execute following commands on your terminal:
+`cd ~/this/project/folder/on/your/computer`
+`mkdr out`
+`tweego -o ./out/story.html ./src && tweego -o ./out/terminal.html ./srcterminal`
 
 ## Have fun 
