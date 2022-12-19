@@ -32,6 +32,15 @@ Follow following steps.. and you can defeat Hellmann!\
 (display:"Refresh-Button")\
 </div>
 
+
+Additional information for primitive roots (for advanced players):\
+<div class="quiz">\
+A primitive root of a prime number is a number that generates the whole set of integers modulo the prime number when taken to successive powers. In other words, if we take the primitive root to the power of 0 through the prime number minus 1, we get every number from 1 to the prime number minus 1.
+For example, consider the prime number 11.
+A primitive root of 11 is a number that generates the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 when taken to successive powers modulo 11.
+The number 2 is a primitive root of 11, because 2^0 = 1, 2^1 = 2, 2^2 = 4, 2^3 = 8, 2^4 = 5, 2^5 = 10, 2^6 = 9, 2^7 = 7, 2^8 = 3, and 2^9 = 6.
+This sequence contains every number from 1 to 10, so 2 is a primitive root of 11.
+</div>
 [[Let's wake up |Scene4]]
 <script>
 let latex = window.document.querySelector("Step1");

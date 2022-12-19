@@ -452,7 +452,7 @@ window.binaryToString = function(input){
 
 <!-- START STORY HERE! ---------------------------------------->
 <!-- (go-to: "Intro" )-->
-(go-to: "PGScene")
+(go-to: "DiffieExplanation2")
 
 
 
