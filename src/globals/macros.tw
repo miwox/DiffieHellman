@@ -29,8 +29,8 @@
 
 <!--- Scene 4 global constants -->
 
-(set: $COMMON_PRIME_2 to "30539")\
-(set: $COMMON_GEN_2 to "30404")\
+(set: $COMMON_PRIME_2 to "104729")\
+(set: $COMMON_GEN_2 to "3")\
 (set: $BASE_64_SEPARATOR to " is COMMON PRIME\n::::::::::HELLO BOB IT'S ME ALICE::::::::::\n is GENERATOR ")\
 
 <!-- Will be computed in JavaScript -->

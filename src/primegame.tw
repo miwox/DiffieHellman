@@ -1,8 +1,12 @@
 :: GameInfoPrimeQuiz
 <div class="storyteller">\
-Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is composed of prime numbers.\
-The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3.\
-A prime number is divisible only by 1 and by itself.
+A prime number is a positive integer greater than 1 that has no positive integer divisors other than 1 and itself.
+For example, the first six prime numbers are 2, 3, 5, 7, 11, and 13.
+There are an infinite number of prime numbers, and they play an important role in mathematics and computer science.
+For example, they are used in encryption algorithms to secure communication over the internet.
+To check whether a given number is prime, one method is to divide it by the prime numbers less than its square root and see if any of them divide it evenly.
+If none of them do, then the number is likely prime (although there are some rare cases where this method can produce false negatives).
+There are also more advanced algorithms for determining the primality of a number, such as the Miller-Rabin primality test.
 ($SHOW_TERMINAL:)
 </div>
 
