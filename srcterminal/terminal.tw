@@ -108,33 +108,20 @@ var term = $('#terminal').terminal({
         if(int % i === 0){this.echo(int + " is not prime"); return;}
         this.echo(int + " is prime or used a invalid integer...");
     },
-    powerModulo:  function (a, b, n){
-        const a_param = a;
-        const b_param = b; 
-        const n_param = n;
-
-
-        a = BigInt(a);
-        b = BigInt(b);
-        n = BigInt(n);
-
-        a = a % n;
-        var result = 1n;
-        var x = a;
-        while (b > 0n) {
-            var leastSignificantBit = b % 2n;
-            b = b / 2n;
-            if (leastSignificantBit == 1n) {
-                result = result * x;
-                result = result % n;
+    powerModulo: function (base, exponent, modulus) {
+        var b = BigInt(base);
+        var e = BigInt(exponent);
+        var m = BigInt(modulus);
+        var result = BigInt(1);
+        while (e > 0) {
+            if (e % 2n == 1n) {
+                result = (result * b) % m;
     }
-        x = x * x;
-        x = x % n;
+        b = (b * b) % m;
+        e /= 2n;
   }
-  
-  this.echo(a_param + " POWER " + b_param + "MODULO " + n_param + " = " + result);
+  this.echo(base + " POWER " + exponent + " MODULO " + modulus + " = " + result);
 }
-
 }, {
     greetings: 'Hello ' + $name + ', type help to get a list of available commands! ',
     prompt() {

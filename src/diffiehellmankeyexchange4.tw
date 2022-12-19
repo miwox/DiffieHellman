@@ -70,7 +70,7 @@ Please calculate your secret keys!
 </div>
 ($makeQuiz: _question1, true, _question2, false, _question3, false)
 
-(live: 1s)[(if: $BLOCKER_1)[[Let's go to Alice secret key.|SecretKeyCalculation3]]]
+(live: 1s)[(if: $BLOCKER_1)[[Oh man that's georgious |SecretKeyCalculation3]]]
 
 :: SecretKeyCalculation3
 #Diffie Hellman: The Game
