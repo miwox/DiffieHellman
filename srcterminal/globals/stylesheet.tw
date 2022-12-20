@@ -25,9 +25,3 @@ body {
 	text-shadow: 0 0 3px #00FF41,0 0 5px #00FF41,0 0 5px #00FF41;
 	blur(0.02rem)
 }
-
-html {
-    background: black;
-    height: 100%;
-    overflow: hidden;
-}

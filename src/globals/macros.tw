@@ -462,9 +462,6 @@ window.binaryToString = function(input){
 
 
 
-
-
-
 <!-- Latex Refresh page necessary because of bug in twine -->
 :: Refresh-Button {"position":"375,1050"}
 <button class="button-28" role="button" type="button" onClick="window.location.reload()">\

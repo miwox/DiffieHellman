@@ -23,10 +23,9 @@ $(function () {
 [[I read everything carefully and want to use the Terminal...|Terminal2]]
 
 :: Terminal2 {"position":"175,125","size":"100,100"}
-#####Mallorys mechanism: Please reload!  
-
-
+### Security mechanism: Reload!!
 <div id="terminal" class="terminal-container"></div>
+
 (set: $name to "Mallory")\
 (set: $path to "~/")\
 (set: $terminal_var to "asdljnasdjnasd")\
