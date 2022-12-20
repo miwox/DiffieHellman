@@ -1,5 +1,5 @@
 :: Secret-Box2 {"position":"375,1050"}
-<div class ="quiz">\
+<div class ="quiz-info">\
 The formula of the computation of the public key is:
 {\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 
@@ -8,8 +8,8 @@ The Explanation of the formula:
 {\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
 {\(p\)} is the common prime number between Alice and Bob.
 </div>
-Secret Box (that no one can see)
-<div class="quiz">\
+Secret Box (that no one can see)\
+<div class="quiz-info">\
 The common prime number was set to: $COMMON_PRIME.
 The common prime root of modolu your prime was set to: $COMMON_GEN.
 Alice secret was: $ALICE_SECRET.

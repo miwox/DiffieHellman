@@ -454,8 +454,8 @@ window.binaryToString = function(input){
 </script>]]))
 
 <!-- START STORY HERE! ---------------------------------------->
-<!-- (go-to: "Intro" )-->
-(go-to: "PGScene")
+(go-to: "Hellman-Key2" )
+<!-- (go-to: "PGScene")-->
 
 
 

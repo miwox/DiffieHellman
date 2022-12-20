@@ -1,6 +1,7 @@
 :: Secret-Box {"position":"375,1050"}
 
-Secret Box (that no one can see)<div class="quiz">The common prime number was set to: $COMMON_PRIME.
+Secret Box (that no one can see)\
+<div class="quiz-info">The common prime number was set to: $COMMON_PRIME.
 The common prime root of modolu $COMMON_PRIME was set to: $COMMON_GEN.
 Alice secret was: $ALICE_SECRET.
 Bobs secret was: $BOBS_SECRET.</div>
@@ -17,7 +18,7 @@ Please check up following box to compute your public key:
 (click-replace: "Why is it called public?")[Because it's not a secret so its allow to share it. Even if Hellman get noticed of it, and you know he will it's not a problem!]\
 </div>\
 
-<div class="quiz">\
+<div class="quiz-info">\
 The formula is: 
 {\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
 

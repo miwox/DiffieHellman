@@ -1,5 +1,5 @@
 :: SecretKeyBox
-<div class="quiz">\
+<div class="quiz-info">\
 The formular is:
 {\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
 
