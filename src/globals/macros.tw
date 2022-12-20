@@ -38,12 +38,13 @@
 (set: $BASE_64_ENCODED to "")\
 
 
-(set: $ALICE_SECRET_MESSAGE to "31.12.2022-49.484284, 8.464212. WE ARE ALL MAD HERE")\
+(set: $ALICE_SECRET_MESSAGE to "Bob we finally made it.. I hope you were able to find the hidden door to the terminal... Use the AES with our secret key to change messages now with me :)")\
 (set: $ALICE_SECRET_2 to "1002323")\
 (set: $BOBS_SECRET_2 to "CHOOSED BY THE GAME PLAYER")\
 (set: $BOBS_PUBLICKEY_2 to "")\
 (set: $ALICE_PUBLICKEY_2 to "")\
 (set: $BOBS_SECRET_KEY_2 to "WILL BE CALCULATED AFTER USER CHOOSE SECRET")
+(set: $ALICE_SECRET_KEY_2 to "WILL BE CALCULATED AFTER USER CHOOSE SECRET")
 <!-- Alice choosen generator and prime key into a base64 string -->
 
 
@@ -295,6 +296,7 @@ window.evaluateDecodedElementsSetBlocker = function(){
             $BOBS_SECRET_2 = secretbob.toString();
             $BOBS_PUBLICKEY_2 = keyShould.toString();
             $BOBS_SECRET_KEY_2 = pow(BigInt($ALICE_PUBLICKEY_2), secretbob, commonPrime).toString();
+            $ALICE_SECRET_KEY_2 = $BOBS_SECRET_KEY_2;
         } else {
             alert("Your public key ist false");
         }
@@ -381,9 +383,10 @@ window.calculateKey = function(){
   //Example String
     let teststring = $ALICE_SECRET_MESSAGE;
        let key = document.getElementById('key').value;
-              if(key !== $BOBS_SECRET_KEY_2){
+              if(key !== $ALICE_SECRET_KEY_2){
                 alert('Wrong key!');
               } else {
+                alert('You are a master of Diffie Hellman now');
                 document.getElementById("hiddenResults").style.display="block";
                          let keyInBinary = stringToBinary(key);
                          let extendedKey = keyInBinary
@@ -452,7 +455,7 @@ window.binaryToString = function(input){
 
 <!-- START STORY HERE! ---------------------------------------->
 <!-- (go-to: "Intro" )-->
-(go-to: "Intro")
+(go-to: "PGScene")
 
 
 
