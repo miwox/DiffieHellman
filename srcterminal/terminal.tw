@@ -18,7 +18,7 @@ var showText = function (target, message, index, interval) {
 }
 
 $(function () {
-  showText("#msg", text, 0, 80);   
+  showText("#msg", text, 0, 50);   
 });
 
 </script>
