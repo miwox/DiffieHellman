@@ -1,15 +1,4 @@
 :: Story Stylesheet [stylesheet]
-#terminal {
-    height: 271pt;
-    width: 364pt;
-    border-radius: 11pt;
-    background-color: black;
-    font-family: "Comic Sans";
-    font-size: calc(var(--size, 1)*(12px/var(--pixel-density, 1)));
-    line-height: 0;
-}
-
-div#text { width: 0px; height: 2em; white-space: nowrap; overflow: hidden;  }
 
 @font-face {
   font-family: 'Matrix Code NFI';
@@ -22,6 +11,6 @@ body {
 	background: #000000;
 	color: #00FF41;
 	font-family: 'Matrix Code NFI', sans-serif;
-	text-shadow: 0 0 3px #00FF41,0 0 5px #00FF41,0 0 5px #00FF41;
+	text-shadow: 0 0 0.3px #00FF41,0 0 1.5px #00FF41,0 0 1.5px #00FF41;
 	blur(0.02rem)
 }
