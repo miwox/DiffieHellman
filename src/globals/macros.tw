@@ -456,19 +456,14 @@ window.binaryToString = function(input){
 <!-- START STORY HERE! ---------------------------------------->
 <!--- (go-to: "Intro" ) ---->
 <!--- Start here for class presentation ----–––––--->
-(go-to: "PGScene")
-
-
-
-
-
+(go-to: "DiffieExplanation2")
 
 <!-- Latex Refresh page necessary because of bug in twine -->
 :: Refresh-Button {"position":"375,1050"}
-<button class="button-28" role="button" type="button" onClick="window.location.reload()">\
-Formula not shown right...
+<!--button class="button-28" role="button" type="button" onClick="window.location.reload()">Formula not shown right...</button-->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>\
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>\
 <script>
-
 (function()
 {
   if( window.localStorage )
@@ -482,5 +477,4 @@ Formula not shown right...
       localStorage.removeItem('firstLoad');
   }
 })();
-
 </script>

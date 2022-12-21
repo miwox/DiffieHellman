@@ -1,12 +1,5 @@
 :: Story Stylesheet [stylesheet]
 
-@font-face {
-  font-family: 'Matrix Code NFI';
-  src: url('../fonts/matrix code nfi.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
 	background: #000000;
 	color: #00FF41;

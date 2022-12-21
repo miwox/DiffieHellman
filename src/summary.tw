@@ -28,13 +28,12 @@
 
 <div class="storyteller">\
 Follow following steps.. and you can defeat Hellmann!\
-
 (display:"Refresh-Button")\
 </div>
 
 
-Additional information for primitive roots (for advanced players):\
-<div class="quiz">\
+Additional information for primitive roots (for advanced players):
+<div class="quiz-info">\
 A primitive root of a prime number is a number that generates the whole set of integers modulo the prime number when taken to successive powers. In other words, if we take the primitive root to the power of 0 through the prime number minus 1, we get every number from 1 to the prime number minus 1.
 For example, consider the prime number 11.
 A primitive root of 11 is a number that generates the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 when taken to successive powers modulo 11.

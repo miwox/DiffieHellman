@@ -1,5 +1,5 @@
 :: GameInfoPrimeQuiz
-<div class="storyteller">\
+<div class="quiz-info">\
 A prime number is a positive integer greater than 1 that has no positive integer divisors other than 1 and itself.
 For example, the first six prime numbers are 2, 3, 5, 7, 11, and 13.
 There are an infinite number of prime numbers, and they play an important role in mathematics and computer science.

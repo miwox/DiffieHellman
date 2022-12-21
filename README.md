@@ -17,8 +17,6 @@ Then execute following commands on your terminal:
 
 `cd ~/this/project/folder/on/your/computer`
 
-`mkdir out`
-
 `tweego -o ./out/story.html ./src && tweego -o ./out/terminal.html ./srcterminal`
 
 Now open the compiled file `out/story.html` with Chrome or what ever you like ;)
