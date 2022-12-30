@@ -12,7 +12,6 @@ var text = $TERMINAL_TEXT;
 var showText = function (target, message, index, interval) {   
   if (index < message.length && !$BLOCKER) {
     $(target).append(message[index++]);
-    console.log(message[index])
     setTimeout(function () { showText(target, message, index, interval); }, interval);
   }
 }
