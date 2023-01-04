@@ -100,8 +100,16 @@ h1 {
  text-align: center;
  color: rgba(212,175,55,.3);
  text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
-
 }
+
+
+h4 {
+ font-weight: bold;
+ font-size: 25px;
+ color: red;
+ text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,1);
+}
+
 div.fixed {
   position: relative;
   bottom: 0;
@@ -325,5 +333,20 @@ div.quiz:hover{
   4%, 100% {  text-shadow: none; transform: none; }
 }
 
+.select{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-around;
+}
 
+.introSelect {
+  background-image:url('../src/globals/images/reading.jpg');
+  background-size: cover;
+  width: 200px; 
+  height: 200px; 
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200px;
+}
 
