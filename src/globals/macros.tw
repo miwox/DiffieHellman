@@ -205,8 +205,8 @@ latex.innerText = $BASE_64_ENCODED;
 
 
 
-
-<!-- Macro for showing music button activate sound for the gameplay -->
+<!--
+Macro for showing music button activate sound for the gameplay
 (set: $showButtonSoundClick to (macro:[\
     (output:)[\
 <button class="button-28" role="button" onclick="activeSound()">Sound</button>\
@@ -218,7 +218,7 @@ audio.loop = true;
 audio.play();
 }</script>\
 ]]))
-
+-->
 
 
 
