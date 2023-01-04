@@ -21,4 +21,10 @@ Then execute following commands on your terminal:
 
 Now open the compiled file `out/story.html` with Chrome or what ever you like ;)
 
+## Game instructions
+
+By starting the game you can choose where to start in the game. 
+
+You can start at the beginning of the story or start in the middle of the with the calculation scene.
+
 ## Have fun and enjoy!
