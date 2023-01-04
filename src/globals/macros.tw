@@ -456,7 +456,7 @@ window.binaryToString = function(input){
 <!-- START STORY HERE! ---------------------------------------->
 <!--- (go-to: "Intro" ) ---->
 <!--- Start here for class presentation ----–––––--->
-(go-to: "PGScene")
+(go-to: "Intro")
 
 <!-- Latex Refresh page necessary because of bug in twine -->
 :: Refresh-Button {"position":"375,1050"}
