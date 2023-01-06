@@ -62,6 +62,10 @@ tw-story[tags~="shoot"] {
  background-image:url('../src/globals/images/gunshot.jpg');
 background-size:cover;
 }
+tw-story[tags~="startscreen"] {
+ background-image:url('../src/globals/images/ss.jpg');
+background-size:cover;
+}
 tw-story[tags~="ending"] {
  background-image:url('../src/globals/images/hacker.jpg');
 background-size:cover;
@@ -185,7 +189,7 @@ div.keyItem {
 .button-28:hover {
   color: #fff;
   background-color: #1A1A1A;
-    border: 2px solid #1A1A1A;
+  border: 2px solid #1A1A1A;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -348,5 +352,84 @@ div.quiz:hover{
   text-align: center;
   vertical-align: middle;
   line-height: 200px;
+}
+
+.scene-selection {
+	text-align: center;
+}
+.btn {
+	line-height: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+.btn-one {
+	color: #FFF;
+	transition: all 0.3s;
+	position: relative;
+    text-align:center;
+    vertical-align: middle;
+
+    
+}
+.btn-one span {
+	transition: all 0.3s;
+}
+.btn-one::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: rgba(255,255,255,0.5);
+	border-bottom-color: rgba(255,255,255,0.5);
+	transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+	letter-spacing: 2px;
+}
+.btn-one:hover::before {
+	opacity: 1;	
+	transform: scale(1, 1);	
+}
+.storytext:hover:before {
+  content: "Diffie Hellman Mallory is taking control of Hamburg. Experience the whole story and defeat Hellmann the Mallory!"
+}
+.storytext:hover span {
+  display: none
+}
+.quiztext:hover:before {
+  content: "To defeat Diffie Hellman you've to become an insane prime number expert. Try to solve the prime game to become an expert."
+}
+.quiztext:hover span {
+  display: none
+}
+.primetext:hover:before {
+  content: "You'll find a encrypted message of your ally Alice. Try to encrypt the message and exchange your key."
+}
+.primetext:hover span {
+  display: none
+}
+.btn-one::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: all 0.3s;
+	background-color: rgba(255,255,255,0.1);
+}
+.btn-one:hover::after {
+	opacity: 0;	
+	transform: scale(0.1, 1);
 }
 
