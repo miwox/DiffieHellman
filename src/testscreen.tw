@@ -1,6 +1,4 @@
 :: TestScreen[startscreen] {"position":"175,700","size":"100,100"}
-<html>
- <body>
 <div class="container">
   <div class="stack" style="--stacks: 3;">
     <span style="--index: 0;">Diffie Hellman The Game</span>\
@@ -28,6 +26,3 @@
 [[Start with calculation scene and skip intro and prime game|PGScene]]
   </div>
 </div>
-  </body>
-</html>
-
