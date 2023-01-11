@@ -1,30 +1,34 @@
-:: SelectScreen [burningCity2]{"position":"175,1050"}
+:: SelectScreen[startscreen] {"position":"175,700","size":"100,100"}
+(set: $BLOCKER_1 to false)\
+(set: $BLOCKER_2 to false)\
+(set: $BLOCKER_3 to false)\
+(live: 0.1s)[(if: $BLOCKER_1)[(go-to: "Intro")]]\
+(live: 0.1s)[(if: $BLOCKER_2)[(go-to: "PrimeGame")]]\
+(live: 0.1s)[(if: $BLOCKER_3)[(go-to: "PGScene")]]\
+<script>
+window.goToScreen = (page) => {
+  switch (page) {
+    case 'Intro': $BLOCKER_1 = true; break;
+    case 'PrimeGame': $BLOCKER_2 = true; break;
+    case 'PGScene': $BLOCKER_2 = true; break;
+  }
+ }
+</script>\
 <div class="container">
   <div class="stack" style="--stacks: 3;">
     <span style="--index: 0;">Diffie Hellman The Game</span>\
     <span style="--index: 1;">Diffie Hellman The Game</span>\
     <span style="--index: 2;">Diffie Hellman The Game</span>\
   </div>
-</div>
-
-#### Start with the beginning of the Game:
-<div class="quiz">\
-Diffie Hellman Mallory is taking control of Hamburg. Experience the whole story and defeat Hellmann the Mallory.
-[[Start with the Intro |Intro]]
-</div>
-
-
-
-#### Skip the intro and start with Prime Game:
-<div class="quiz">\
-To defeat Diffie Hellman you've to become an insane prime number expert. Try to solve the prime game to become an expert and you can continue with the game.
-[[Start with the prime quiz  and skip intro|PrimeGame]]
-</div>
-
-
-
-#### Skip the intro and the explanation. Start with advanced part of the Game:
-<div class="quiz">\
-You'll find a encrypted message of your ally Alice. Try to encrypt the message and exchange your key.
-[[Start with calculation scene and skip intro and prime game|PGScene]]
+</div>\
+<div class="box-1">
+  <div class="btn btn-one storytext" onclick="goToScreen('Intro')">
+    <span>Story Mode</span>
+  </div>
+    <div class="btn btn-one quiztext" onclick="goToScreen('PrimeGame')">
+    <span>Quiz Game</span>
+  </div>
+  <div class="btn btn-one primetext" onclick="goToScreen('PGScene')">
+    <span>Key-Exchange Game</span>
+  </div>
 </div>
