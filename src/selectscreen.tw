@@ -10,7 +10,7 @@ window.goToScreen = (page) => {
   switch (page) {
     case 'Intro': $BLOCKER_1 = true; break;
     case 'PrimeGame': $BLOCKER_2 = true; break;
-    case 'PGScene': $BLOCKER_2 = true; break;
+    case 'PGScene': $BLOCKER_3 = true; break;
   }
  }
 </script>\
