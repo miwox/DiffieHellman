@@ -290,6 +290,8 @@ window.evaluateDecodedElementsSetBlocker = function(){
         const keyShould = pow(commonGen, secretbob, commonPrime);
         if(secretbob >= commonPrime){
             alert("Your Secret is too big :(");
+        } else if(secretbob < 1){
+            alert("Dont fool me LOL!");
         } else if(keyIs == keyShould){
             alert("Good choice!");
             $BLOCKER_1 = true;
