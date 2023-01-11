@@ -17,6 +17,7 @@ latex.innerText = "\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:" + $ALICE_
 (display:"Refresh-Button")\
 
 <div class="storyteller" id="hiddenResults" style="display: none;">
+You've found a letter of Alice... it seems like base64
 The string on the letter looks like this:
 <textarea rows="10" id="ecnryptedStringWithBase64" cols="50"></textarea>
 
